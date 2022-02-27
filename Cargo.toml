@@ -1,6 +1,6 @@
 [package]
 name = "mockd"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["jerusdp <jrussell@jerus.ie>"]
 rust-version = "1.56"
