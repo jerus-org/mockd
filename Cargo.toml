@@ -8,6 +8,6 @@ description = "Fake data generator library with 130+ functions"
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/jerusdp/mockd"
-keywords = ["fake", "data", "random", "generator", "faker", "mock"]
+keywords = ["fake", "data", "random", "generator", "faker"]
 
 [dependencies]
