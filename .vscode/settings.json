@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
-        "CI"
+        "CI",
+        "Generators"
     ]
 }
