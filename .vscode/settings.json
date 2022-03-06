@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "CI",
-        "Generators"
+        "Generators",
+        "Security"
     ]
 }
