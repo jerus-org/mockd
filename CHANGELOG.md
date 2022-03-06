@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/jerusdp/mockd/compare/v0.1.1...v0.2.0) (2022-03-06)
+
+
+### Features
+
+* **Generators:** ✨ Generators based on Fakeit with security fixes ([7dc9302](https://github.com/jerusdp/mockd/commit/7dc9302f2f426efd3eb7eed22748aadd142ae2de))
+
 ### [0.1.1](https://github.com/jerusdp/mockd/compare/v0.1.0...v0.1.1) (2022-02-27)
 
 
