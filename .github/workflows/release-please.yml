@@ -1,9 +1,13 @@
- on:
-   push:
-     branches:
-       - main
- name: release-please
- jobs:
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+name: release-please
+jobs:
    release-please:
      runs-on: ubuntu-latest
      steps:
