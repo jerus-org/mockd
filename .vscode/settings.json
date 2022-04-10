@@ -3,5 +3,8 @@
         "CI",
         "Generators",
         "Security"
+    ],
+    "cSpell.words": [
+        "mockd"
     ]
 }

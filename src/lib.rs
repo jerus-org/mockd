@@ -4,6 +4,20 @@
 #![cfg_attr(docsrs, warn(rustdoc::missing_doc_code_examples))]
 #![cfg_attr(docsrs, warn(rustdoc::invalid_codeblock_attributes))]
 
+//! mockd
+//!
+//! # Build the request and verify
+//!
+//! Provide mock data that conforms to the expected format as test inputs.
+//!
+//! Providing randomly generated data is a best practice.
+//!
+//! ```rust
+//! use mockd::image;
+//!
+//!     let data = image::url(500, 500); // url: https://picsum.photos/500/500
+//! ```
+
 pub mod address;
 pub mod animal;
 pub mod beer;
