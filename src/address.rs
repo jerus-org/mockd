@@ -76,11 +76,15 @@ pub fn info() -> Info {
 
 /// Generate a random street name.
 ///
-/// The street name consists of four components:
+/// The street name consists of up to four components:
 /// * street_number
 /// * street_prefix
 /// * street_name
 /// * street_suffix
+///
+/// The function randomly returns one of two formats:
+/// * <street_number> <street_prefix> <street_name> <street_suffix>
+/// * <street_number> <street_name> <street_suffix>
 ///
 /// # Example
 ///
