@@ -2,7 +2,8 @@
     "conventionalCommits.scopes": [
         "CI",
         "Generators",
-        "Security"
+        "Security",
+        "Helper Modules"
     ],
     "cSpell.words": [
         "mockd",
