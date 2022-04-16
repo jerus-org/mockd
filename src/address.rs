@@ -19,9 +19,9 @@
 //!     let data = address::country(); // country: Romania
 //!     let data = address::country_abr(); // country_abr: BI
 //!     let data = address::latitude(); // latitude: -69.14192
-//!     let data = address::latitude_in_range(-30 as f64, 30 as f64); // latitude_in_range: -18.35571
+//!     let data = address::latitude_in_range(-30.0 as f32, 30.0 as f32); // latitude_in_range: -18.35571
 //!     let data = address::longitude(); // longitude: 113.12952
-//!     let data = address::longitude_in_range(-30 as f64, 30 as f64); // longitude_in_range: -16.484156
+//!     let data = address::longitude_in_range(-30.0 as f32, 30.0 as f32); // longitude_in_range: -16.484156
 //! ```
 
 use crate::data::address;
@@ -30,6 +30,7 @@ use crate::name;
 // use ::std::string::String;
 
 /// Information that may be required for testing about an address.
+#[derive(Debug)]
 pub struct Info {
     /// Single string for address constructed from the street, city, state and zip address elements.
     address: String,
@@ -51,14 +52,7 @@ pub struct Info {
 ///
 /// let mock_address = mockd::address::info();
 ///
-/// println!("Address: {}", mock_address.address);
-/// println!("Street: {}", mock_address.street);
-/// println!("City: {}", mock_address.city);
-/// println!("State: {}", mock_address.state);
-/// println!("Zip: {}", mock_address.zip);
-/// println!("Country: {}", mock_address.country);
-/// println!("Latitude: {}", mock_address.latitude);
-/// println!("Longitude: {}", mock_address.longitude);
+/// println!("Address Info: {:#?}", mock_address);
 /// ```
 ///
 pub fn info() -> Info {
@@ -115,7 +109,7 @@ pub fn street() -> String {
 /// # Example
 ///
 /// ```rust
-/// let mock_address = mockd::address::street_number();
+/// let street_number = mockd::address::street_number();
 ///
 /// println!("Street number: {}", street_number);
 /// ```
@@ -146,7 +140,7 @@ pub fn street_prefix() -> String {
 /// Generate a random street name.
 ///
 /// ```rust
-/// let mock_address = mockd::address::street_name();
+/// let street_name = mockd::address::street_name();
 ///
 /// println!("Street name: {}", street_name);
 /// ```
@@ -224,7 +218,7 @@ pub fn state_abr() -> String {
 /// # Example
 ///
 /// ```rust
-/// let mock_address = mockd::address::zip();
+/// let zip = mockd::address::zip();
 ///
 /// println!("Zip: {}", zip);
 /// ```
@@ -268,7 +262,7 @@ pub fn country_abr() -> String {
 /// ```rust
 /// use mockd::address::Info;
 ///
-/// let latitude= mockd::address::info();
+/// let latitude = mockd::address::latitude();
 ///
 /// println!("Latitude: {}", latitude);
 /// ```
@@ -282,7 +276,7 @@ pub fn latitude() -> f32 {
 /// # Example
 ///
 /// ```rust
-/// let latitude = mockd::address::latitude(20, 50);
+/// let latitude = mockd::address::latitude();
 ///
 /// println!("Latitude: {}",latitude);
 /// ```
@@ -320,7 +314,7 @@ pub fn longitude() -> f32 {
 /// # Example
 ///
 /// ```rust
-/// let longitude = mockd::address::longitude(20, 50);
+/// let longitude = mockd::address::longitude();
 ///
 /// println!("Longitude: {}",longitude);
 /// ```
