@@ -152,7 +152,7 @@ pub fn street_prefix() -> String {
 /// ```
 ///
 pub fn street_name() -> String {
-    misc::random_data(address::STATE).to_string()
+    misc::random_data(address::STREET_NAME).to_string()
 }
 
 /// Generate a random street suffix.
