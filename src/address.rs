@@ -333,7 +333,7 @@ pub fn longitude() -> f32 {
 ///
 pub fn longitude_in_range(min: f32, max: f32) -> f32 {
     if min > max || min < -180.0 || min > 180.0 || max < -180.0 || max > 180.0 {
-        return latitude();
+        return longitude();
     }
 
     misc::random::<f32>(min, max)
