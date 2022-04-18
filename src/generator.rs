@@ -1,9 +1,67 @@
+//!
+//! Provides 1 function to generate a string based on input string.
+//!
+//! # Tags
+//!
+//! The input string can contain the following tags:
+//! * contact.email
+//! * hacker.abbreviation
+//! * hacker.adjective
+//! * hacker.noun
+//! * hacker.verb
+//! * hacker.ingverb
+//! * person.first
+//! * person.last
+//!
+//! # Letters and Numbers
+//!
+//! Hashtags (#) are replaced with numbers and question marks are
+//! replaced with letters.
+//!
+//! # Examples
+//!
+//! ```rust
+//! use mockd::generator;
+//!
+//!     let data = generator::generate("{person.first} {person.last} {contact.email} #?#?#?".to_string()); // data: Watson Connelly baileeprosacco@smitham.biz 6d0e0a
+//!     // More details about this later
+//! ```
+
 use crate::contact;
 use crate::data::person;
 use crate::hacker;
 
 use crate::misc;
 
+///
+/// Provides 1 function to generate a string based on input string.
+///
+/// # Tags
+///
+/// The input string can contain the following tags:
+/// * contact.email
+/// * hacker.abbreviation
+/// * hacker.adjective
+/// * hacker.noun
+/// * hacker.verb
+/// * hacker.ingverb
+/// * person.first
+/// * person.last
+///
+/// # Letters and Numbers
+///
+/// Hashtags (#) are replaced with numbers and question marks are
+/// replaced with letters.
+///
+/// # Examples
+///
+/// ```rust
+/// use mockd::generator;
+///
+///     let data = generator::generate("{person.first} {person.last} {contact.email} #?#?#?".to_string()); // data: Watson Connelly baileeprosacco@smitham.biz 6d0e0a
+///     // More details about this later
+/// ```
+///
 pub fn generate(data: String) -> String {
     let mut d_validate_left = data.matches('{').count();
     let mut d_validate_right = data.matches('}').count();
