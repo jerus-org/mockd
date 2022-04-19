@@ -34,7 +34,7 @@ pub fn word() -> String {
 /// # Example
 ///
 /// ```rust
-/// let sentence = mockd::hipster::sentence();
+/// let sentence = mockd::hipster::sentence(5);
 ///
 /// println!("Hipster sentence: {}", sentence);
 /// ```
@@ -48,9 +48,9 @@ pub fn sentence(word_count: i64) -> String {
 /// # Example
 ///
 /// ```rust
-/// let paragraph = mockd::hipster::paragraph();
+/// let paragraph = mockd::hipster::paragraph(1,5,5,". ".to_string());
 ///
-/// println!("Hipster word: {}", paragrpah);
+/// println!("Hipster word: {}", paragraph);
 /// ```
 ///
 pub fn paragraph(count: i64, sentence_count: i64, word_count: i64, separator: String) -> String {
