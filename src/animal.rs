@@ -17,7 +17,7 @@
 use crate::data::animal;
 use crate::misc;
 
-/// Generate a random pet name.
+/// Pick a random pet name from the petname dictionary.
 ///
 /// # Example
 ///
@@ -31,7 +31,7 @@ pub fn pet_name() -> String {
     misc::random_data(animal::PETNAME).to_string()
 }
 
-/// Generate a random animal.
+/// Pick a random animal from the animal dictionary.
 ///
 /// # Example
 ///
@@ -45,7 +45,7 @@ pub fn animal() -> String {
     misc::random_data(animal::ANIMAL).to_string()
 }
 
-/// Generate a random type of animal.
+/// Pick a random animal type from the animal types dictionary.
 ///
 /// Valid types of animals:
 /// * amphibians
@@ -67,7 +67,7 @@ pub fn type_of() -> String {
     misc::random_data(animal::TYPE).to_string()
 }
 
-/// Generate a random farm animal.
+/// Pick a random animal from the farm animals dictionary.
 ///
 /// # Example
 ///
@@ -81,7 +81,7 @@ pub fn farm() -> String {
     misc::random_data(animal::FARM).to_string()
 }
 
-/// Generate a random cat breed.
+/// Pick a random cat breed from the cat breed dictionary.
 ///
 /// # Example
 ///
@@ -95,7 +95,7 @@ pub fn cat() -> String {
     misc::random_data(animal::CAT).to_string()
 }
 
-/// Generate a random dog breed.
+/// Pick a random dog breed from the dog breed dictionary.
 ///
 /// # Example
 ///
