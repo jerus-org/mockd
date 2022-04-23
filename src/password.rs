@@ -15,7 +15,7 @@
 
 use crate::misc;
 
-/// Pick a random dog breed from the dog breed dictionary.
+/// Generate a random password.
 ///
 /// # inputs
 /// * upper - if true include upper case letters
