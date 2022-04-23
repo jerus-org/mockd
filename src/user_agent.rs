@@ -1,7 +1,36 @@
+//!
+//! Provides 8 functions to return mock user agent data.
+//!
+//! # Examples
+//!
+//! ```rust
+//! use mockd::user_agent;
+//!
+//!     let data = user_agent::chrome(); // chrome: Mozilla/5.0 (X11; Linux i686) AppleWebKit/532 (KHTML, like Gecko) Chrome/36.0.861.0 Mobile Safari/532
+//!     let data = user_agent::firefox(); // firefox: Mozilla/5.0 (X11; Linux x86_64; rv:7.0) Gecko/2005-5-27 Firefox/36.0
+//!     let data = user_agent::safari(); // safari: Mozilla/5.0 (Windows; U; Windows NT 6.2) AppleWebKit/531.23.3 (KHTML, like Gecko) Version/4.0 Safari/531.23.3
+//!     let data = user_agent::opera(); // opera: Opera/8.22 (Macintosh; PPC Mac OS X 10_6_8; en-US) Presto/2.11.181 Version/12.00
+//!     let data = user_agent::linux_platform_token(); // linux_platform_token: X11; Linux x86_64
+//!     let data = user_agent::mac_platform_token(); // mac_platform_token: Macintosh; U; PPC Mac OS X 10_6_2
+//!     let data = user_agent::windows_platform_token(); // windows_platform_token: Windows 98; Win 9x 4.90
+//!     let data = user_agent::random_platform(); // random_platform: Macintosh; Intel Mac OS X 10_7_5
+//! ```
+//!
+
 use crate::data::computer;
 use crate::datetime;
 use crate::misc;
 
+/// Generate a random Chrome user agent string.
+///
+/// # Example
+///
+/// ```rust
+/// let user_agent = mockd::user_agent::chrome();
+///
+/// println!("User agent string: {}", user_agent);
+/// ```
+///
 pub fn chrome() -> String {
     let rand_num = misc::random(531, 536) + misc::random(0, 2);
     format!(
@@ -14,6 +43,16 @@ pub fn chrome() -> String {
     )
 }
 
+/// Generate a random Firefox user agent string.
+///
+/// # Example
+///
+/// ```rust
+/// let user_agent = mockd::user_agent::firefox();
+///
+/// println!("User agent string: {}", user_agent);
+/// ```
+///
 pub fn firefox() -> String {
     // @TODO should be 2006-02-01
     let date = format!(
@@ -39,6 +78,16 @@ pub fn firefox() -> String {
     )
 }
 
+/// Generate a random Safari user agent string.
+///
+/// # Example
+///
+/// ```rust
+/// let user_agent = mockd::user_agent::safari();
+///
+/// println!("User agent string: {}", user_agent);
+/// ```
+///
 pub fn safari() -> String {
     let rand_num = format!(
         "{}.{}.{}",
@@ -63,6 +112,16 @@ pub fn safari() -> String {
     format!("Mozilla/5.0 {}", platforms)
 }
 
+/// Generate a random Opera user agent string.
+///
+/// # Example
+///
+/// ```rust
+/// let user_agent = mockd::user_agent::opera();
+///
+/// println!("User agent string: {}", user_agent);
+/// ```
+///
 pub fn opera() -> String {
     let platform = format!(
         "({}; en-US) Presto/2.{}.{} Version/{}.00",
@@ -80,6 +139,16 @@ pub fn opera() -> String {
     )
 }
 
+/// Generate a random Linux platform token string.
+///
+/// # Example
+///
+/// ```rust
+/// let platform_token = mockd::user_agent::linux_platform_token();
+///
+/// println!("Platform token: {}", platform_token);
+/// ```
+///
 pub fn linux_platform_token() -> String {
     format!(
         "X11; Linux {}",
@@ -87,6 +156,16 @@ pub fn linux_platform_token() -> String {
     )
 }
 
+/// Generate a random Mac platform token string.
+///
+/// # Example
+///
+/// ```rust
+/// let platform_token = mockd::user_agent::mac_platform_token();
+///
+/// println!("Platform token: {}", platform_token);
+/// ```
+///
 pub fn mac_platform_token() -> String {
     format!(
         "Macintosh; {} Mac OS X 10_{}_{}",
@@ -96,10 +175,30 @@ pub fn mac_platform_token() -> String {
     )
 }
 
+/// Generate a random Windows platform token string.
+///
+/// # Example
+///
+/// ```rust
+/// let platform_token = mockd::user_agent::windows_platform_token();
+///
+/// println!("Platform token: {}", platform_token);
+/// ```
+///
 pub fn windows_platform_token() -> String {
     misc::random_data(computer::WINDOWS_PLATFORM).to_string()
 }
 
+/// Generate a random platform token string.
+///
+/// # Example
+///
+/// ```rust
+/// let platform_token = mockd::user_agent::random_platform();
+///
+/// println!("Platform token: {}", platform_token);
+/// ```
+///
 pub fn random_platform() -> String {
     match misc::random(1, 3) {
         1 => linux_platform_token(),
