@@ -1,10 +1,30 @@
-extern crate chrono;
-extern crate uuid;
+//!
+//! Provides 2 functions to return mock unique data.
+//!
+//! # Examples
+//!
+//! ```rust
+//! use mockd::unique;
+//!
+//!     let data = unique::uuid_v1(); // uuid_v1: 13be40a6-1dd2-11b2-802a-010203040506
+//!     let data = unique::uuid_v4(); // uuid_v4: a474961e-936a-4897-966a-15fcff7bbc87
+//! ```
+//!
 
 use chrono::{Timelike, Utc};
 use uuid::v1::{Context, Timestamp};
 use uuid::Uuid;
 
+/// Generate a v1 uuid.
+///
+/// # Example
+///
+/// ```rust
+/// let uuid = mockd::unique::uuid_v1();
+///
+/// println!("Uuid: {}", uuid);
+/// ```
+///
 pub fn uuid_v1() -> String {
     let context = Context::new(42);
     let ts = Timestamp::from_unix(
@@ -16,6 +36,16 @@ pub fn uuid_v1() -> String {
     uuid.to_string()
 }
 
+/// Generate a v4 uuid.
+///
+/// # Example
+///
+/// ```rust
+/// let uuid = mockd::unique::uuid_v4();
+///
+/// println!("Uuid: {}", uuid);
+/// ```
+///
 pub fn uuid_v4() -> String {
     Uuid::new_v4().to_string()
 }
