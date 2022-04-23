@@ -1,3 +1,17 @@
+//!
+//! Provides 3 functions to return mock person data.
+//!
+//! # Examples
+//!
+//! ```rust
+//! use mockd::person;
+//!
+//!     let data = person::info(); // person::Info
+//!     let data = person::ssn(); // ssn: 792671651
+//!     let data = person::gender(); // gender: male
+//! ```
+//!
+
 use crate::address;
 use crate::contact;
 use crate::image;
@@ -7,6 +21,8 @@ use crate::name;
 use crate::payment;
 use std::ops::Add;
 
+/// A struct providing information about a person.
+#[derive(Debug)]
 pub struct Info {
     first_name: String,
     last_name: String,
@@ -19,6 +35,16 @@ pub struct Info {
     credit_card: payment::CreditCard,
 }
 
+/// Generate a random person info struct.
+///
+/// # Example
+///
+/// ```rust
+/// let info = mockd::person::info();
+///
+/// println!("Credit card type: {:#?}", info);
+/// ```
+///
 pub fn info() -> Info {
     Info {
         first_name: name::first(),
@@ -33,10 +59,30 @@ pub fn info() -> Info {
     }
 }
 
+/// Generate a random number for SSN.
+///
+/// # Example
+///
+/// ```rust
+/// let ssn = mockd::person::ssn();
+///
+/// println!("SSN: {}", ssn);
+/// ```
+///
 pub fn ssn() -> String {
     format!("{}", misc::random(100000000, 999999999))
 }
 
+/// Generate a random gender.
+///
+/// # Example
+///
+/// ```rust
+/// let gender = mockd::person::gender();
+///
+/// println!("SSN: {}", gender);
+/// ```
+///
 pub fn gender() -> String {
     match misc::random(1, 2) {
         1 => "male".to_string(),
