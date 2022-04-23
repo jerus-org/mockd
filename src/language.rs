@@ -1,5 +1,5 @@
 //!
-//! Provides 6 functions to return mock animal data.
+//! Provides 3 functions to return mock language data.
 //!
 //! # Examples
 //!
