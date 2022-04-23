@@ -34,7 +34,7 @@ pub struct CreditCard {
 /// ```rust
 /// let credit_card= mockd::payment::credit_card();
 ///
-/// println!("Credit Card: {}", credit_card);
+/// println!("Credit Card: {:#?}", credit_card);
 /// ```
 ///
 pub fn credit_card() -> CreditCard {
@@ -96,7 +96,7 @@ fn credit_card_luhn_number() -> String {
 /// ```rust
 /// let card_exp = mockd::payment::credit_card_exp();
 ///
-/// println!("Credit card expiry date: {}", card_type);
+/// println!("Credit card expiry date: {}", card_exp);
 /// ```
 ///
 pub fn credit_card_exp() -> String {
@@ -122,7 +122,7 @@ pub fn credit_card_exp() -> String {
 /// # Example
 ///
 /// ```rust
-/// let card_ccv = mockd::payment::credit_card_ccv();
+/// let card_ccv = mockd::payment::credit_card_cvv();
 ///
 /// println!("Credit card ccv: {}", card_ccv);
 /// ```
