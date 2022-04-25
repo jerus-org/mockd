@@ -1,8 +1,40 @@
+//!
+//! Provides 6 functions to return mock word data.
+//!
+//! # Examples
+//!
+//! ```rust
+//! use mockd::words;
+//!
+//!     let word_count = 11;
+//!     let count = 4;
+//!     let sentence_count = 5;
+//!     let separator = "/n".to_string();
+//!
+//!     let data = words::word(); // word: saepe
+//!     let data = words::sentence(word_count); // sentence: Nemo vitae rerum consequuntur vero animi incidunt esse doloribus eos.
+//!     let data = words::paragraph(count, sentence_count, word_count, separator); // paragraph: Minima aut numquam nihil rerum commodi pariatur dolores...
+//!     let data = words::question(); // question: Placeat voluptatem at ut eveniet suscipit similique dicta quis?
+//!     let data = words::quote(); // quote: "Dignissimos dolorem quam tempore excepturi facere dicta." - Willy Kihn
+//!
+//!     let opts = words::ParagraphOpts::new(5,4,11,"\n");
+//!     let data = words::paragraph_generator(opts, &words::sentence); // paragraph_generator: Quisquam aut consequuntur nobis voluptas porro...
+//! ```
+//!
+
 use crate::data::lorem;
 use crate::hipster;
 use crate::misc;
 use crate::name;
 
+/// Struct to describe the options that are required to generate a paragraph.
+///
+/// * count - the number of paragraphs
+/// * sentence_count - the number of sentences in each paragraph
+/// * word_count - the number of words in each sentence
+/// * separator - the separator between the paragraphs
+///
+#[derive(Debug)]
 pub struct ParagraphOpts {
     count: i64,
     sentence_count: i64,
@@ -10,10 +42,59 @@ pub struct ParagraphOpts {
     separator: String,
 }
 
+impl ParagraphOpts {
+    /// Initialise a new paragraph opts struct.
+    ///
+    /// # inputs
+    /// * count - the number of paragraphs
+    /// * sentence_count - the number of sentences in each paragraph
+    /// * word_count - the number of words in each sentence
+    /// * separator - the separator between the paragraphs
+    ///
+    /// # Example
+    ///
+    /// ```rust
+    /// use mockd::words::ParagraphOpts;
+    ///
+    /// let options = ParagraphOpts::new(5,4,11,"\n");
+    ///
+    /// println!("Options: {:#?}", options);
+    /// ```
+    ///
+    pub fn new(count: i64, sentence_count: i64, word_count: i64, sep: &str) -> ParagraphOpts {
+        ParagraphOpts {
+            count,
+            sentence_count,
+            word_count,
+            separator: sep.to_string(),
+        }
+    }
+}
+
+/// Pick a random word from the word dictionary.
+///
+/// # Example
+///
+/// ```rust
+/// let word = mockd::words::word();
+///
+/// println!("Word: {}", word);
+/// ```
+///
 pub fn word() -> String {
     misc::random_data(lorem::WORD).to_string()
 }
 
+/// Generate a random sentence containing the specified number of words.
+///
+/// # Example
+///
+/// ```rust
+/// let sentence = mockd::words::sentence(5);
+///
+/// println!("Sentence: {}", sentence);
+/// ```
+///
 pub fn sentence(word_count: i64) -> String {
     if word_count <= 0 {
         return "".to_string();
@@ -34,17 +115,47 @@ pub fn sentence(word_count: i64) -> String {
     sentence_vec.join(" ")
 }
 
+/// Generate one or more random paragraphs in a single string.
+///
+/// # inputs
+/// * count - the number of paragraphs
+/// * sentence_count - the number of sentences in each paragraph
+/// * word_count - the number of words in each sentence
+/// * separator - the separator between the paragraphs
+///
+/// # Example
+///
+/// ```rust
+/// let paragraphs = mockd::words::paragraph(5,4,11,"\n".to_string());
+///
+/// println!("Paragraphs: {}", paragraphs);
+/// ```
+///
 pub fn paragraph(count: i64, sentence_count: i64, word_count: i64, separator: String) -> String {
-    let opts = ParagraphOpts {
-        count,
-        sentence_count,
-        word_count,
-        separator,
-    };
+    let opts = ParagraphOpts::new(count, sentence_count, word_count, &separator);
 
     paragraph_generator(opts, &sentence)
 }
 
+/// Generate one or more paragraphs.
+///
+/// # Inputs
+/// * opts - options struct containing the configuration for the paragraphs.
+/// * sentence_generator - function to use to generate the sentences.
+///
+/// # Example
+///
+/// ```rust
+/// use mockd::words::ParagraphOpts;
+///
+/// let options = ParagraphOpts::new(5,4,11,"\n");
+/// let paragraph = mockd::words::paragraph_generator(
+///                         options,
+///                         &mockd::words::sentence);
+///
+/// println!("Paragraph: {}", paragraph);
+/// ```
+///
 pub fn paragraph_generator(
     opts: ParagraphOpts,
     sentence_generator: &dyn Fn(i64) -> String,
@@ -60,10 +171,30 @@ pub fn paragraph_generator(
     paragraph_vec.join(&opts.separator[..])
 }
 
+/// Generate a random question.
+///
+/// # Example
+///
+/// ```rust
+/// let question = mockd::words::question();
+///
+/// println!("Question: {}", question);
+/// ```
+///
 pub fn question() -> String {
     hipster::sentence(misc::random(3, 10)).replace('.', "?")
 }
 
+/// Generate a random quote.
+///
+/// # Example
+///
+/// ```rust
+/// let quote = mockd::words::quote();
+///
+/// println!("Quote: {}", quote);
+/// ```
+///
 pub fn quote() -> String {
     format!(
         "\"{}\" - {} {}",
