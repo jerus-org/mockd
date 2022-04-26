@@ -1,26 +1,31 @@
-extern crate rand;
-extern crate simplerand;
-
 use simplerand::{rand_range, Randomable};
 use std::clone::Clone;
 
-pub const HASHTAG: &str = "#";
-pub const QUESTIONMARK: &str = "?";
+pub(crate) const HASHTAG: &str = "#";
+pub(crate) const QUESTIONMARK: &str = "?";
 
-pub fn random_data<T: Clone>(d: &[T]) -> T {
+/// Return a random value from within an array of data.
+///
+pub(crate) fn random_data<T: Clone>(d: &[T]) -> T {
     let n = rand_range(0, d.len() as i64);
     d[n as usize].clone()
 }
 
-pub fn random_data_index<T>(d: &[T]) -> usize {
+/// Return a valid random index to the data within an array
+///
+pub(crate) fn random_data_index<T>(d: &[T]) -> usize {
     rand_range(0, d.len() as i64) as usize
 }
 
-pub fn random<T: Randomable>(min: T, max: T) -> T {
+/// Return a random value within a range
+///
+pub(crate) fn random<T: Randomable>(min: T, max: T) -> T {
     rand_range::<T>(min, max)
 }
 
-pub fn replace_with_numbers(s: String) -> String {
+/// Replace hashtags (octothorps) in a string with random numbers
+///
+pub(crate) fn replace_with_numbers(s: String) -> String {
     if s.is_empty() {
         return s;
     }
@@ -39,7 +44,9 @@ pub fn replace_with_numbers(s: String) -> String {
     res.join("")
 }
 
-pub fn replace_with_letter_hex(s: String) -> String {
+/// Replace question marks in string with valid hex letter
+///
+pub(crate) fn replace_with_letter_hex(s: String) -> String {
     if s.is_empty() {
         return s;
     }
@@ -60,7 +67,9 @@ pub fn replace_with_letter_hex(s: String) -> String {
     res.join("")
 }
 
-pub fn replace_with_letter(s: String) -> String {
+/// replace question marks in string with random letter
+///
+pub(crate) fn replace_with_letter(s: String) -> String {
     if s.is_empty() {
         return s;
     }
@@ -84,9 +93,11 @@ pub fn replace_with_letter(s: String) -> String {
     res.join("")
 }
 
-pub fn random_char_from_string(s: &[u8]) -> char {
-    let end_boundry = s.len() - 1;
-    let n = rand_range(0, end_boundry as i64);
+/// Return a random character from within the provided string
+///
+pub(crate) fn random_char_from_string(s: &[u8]) -> char {
+    let end_boundary = s.len() - 1;
+    let n = rand_range(0, end_boundary as i64);
     s[n as usize] as char
 }
 

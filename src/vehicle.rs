@@ -1,9 +1,26 @@
-extern crate chrono;
+//!
+//! Provides 6 functions to return mock vehicle data.
+//!
+//! # Examples
+//!
+//! ```rust
+//! use mockd::vehicle;
+//!
+//!     let data = vehicle::info(); // vehicle::Info
+//!     let data = vehicle::vehicle_type(); // vehicle_type: Passenger car mini
+//!     let data = vehicle::fuel(); // fuel: Electric
+//!     let data = vehicle::transmission_gear(); // transmission_gear: Automatic
+//!     let data = vehicle::car_maker(); // car_maker: Chevrolet
+//!     let data = vehicle::car_model(); // car_model: Gti
+//! ```
+//!
 
 use crate::data::vehicle;
 use crate::misc;
 use chrono::{Datelike, Utc};
 
+/// Info struct for vehicle data.
+#[derive(Debug)]
 pub struct Info {
     vehicle_type: String,
     fuel: String,
@@ -13,6 +30,16 @@ pub struct Info {
     year: i32,
 }
 
+/// Generate a random info struct of vehicle data.
+///
+/// # Example
+///
+/// ```rust
+/// let vehicle = mockd::vehicle::info();
+///
+/// println!("Vehicle: {:#?}", vehicle);
+/// ```
+///
 pub fn info() -> Info {
     Info {
         vehicle_type: vehicle_type(),
@@ -24,21 +51,72 @@ pub fn info() -> Info {
     }
 }
 
+/// Pick a random vehicle type from the type dictionary.
+///
+/// # Example
+///
+/// ```rust
+/// let vehicle_type = mockd::vehicle::vehicle_type();
+///
+/// println!("Vehicle type: {}", vehicle_type);
+/// ```
+///
 pub fn vehicle_type() -> String {
     misc::random_data(vehicle::TYPE).to_string()
 }
 
+/// Pick a random fuel type from the fuel type dictionary.
+///
+/// # Example
+///
+/// ```rust
+/// let fuel_type = mockd::vehicle::fuel();
+///
+/// println!("Fuel: {}", fuel_type);
+/// ```
+///
 pub fn fuel() -> String {
     misc::random_data(vehicle::FUEL_TYPE).to_string()
 }
 
+/// Pick a random transmission from the transmission dictionary.
+///
+/// # Example
+///
+/// ```rust
+/// let transmission = mockd::vehicle::transmission_gear();
+///
+/// println!("Transmission: {}", transmission);
+/// ```
+///
 pub fn transmission_gear() -> String {
     misc::random_data(vehicle::TRANSMISSION_TYPE).to_string()
 }
 
+/// Pick a random car maker from the car maker dictionary.
+///
+/// # Example
+///
+/// ```rust
+/// let maker = mockd::vehicle::car_maker();
+///
+/// println!("Maker: {}", maker);
+/// ```
+///
 pub fn car_maker() -> String {
     misc::random_data(vehicle::MAKER).to_string()
 }
+
+/// Pick a random model from the model dictionary.
+///
+/// # Example
+///
+/// ```rust
+/// let model = mockd::vehicle::car_model();
+///
+/// println!("Model: {}", model);
+/// ```
+///
 
 pub fn car_model() -> String {
     misc::random_data(vehicle::MODEL).to_string()

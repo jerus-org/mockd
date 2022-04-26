@@ -5,6 +5,9 @@ use std::time::Instant;
 //     pub static ref rng: ThreadRng = ThreadRng::default();
 // }
 
+/// Execute a function and print the elapsed time for excution.
+/// IF the function returns a result, print the result.
+///
 pub fn exec_mes(name: &str, f: fn() -> String) {
     let now = Instant::now();
     let res = f();
