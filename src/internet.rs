@@ -14,7 +14,6 @@
 //!     let data = internet::mac_address(); // mac_address: 2D:3F:7E:5D:61:C1
 //!     let data = internet::username(); // username: Nienow1881
 //! ```
-//! ```
 
 use crate::company;
 use crate::data::internet;

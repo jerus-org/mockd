@@ -4,10 +4,11 @@
 //! # Examples
 //!
 //! ```rust
-//! use mockd::bool;
+//! use mockd::bool_rand;
 //!
-//!     let data = bool::bool(); // true / false
+//!     let data = bool_rand::bool(); // true / false
 //!
+//! ```
 use crate::misc;
 
 /// Generate a random boolean value.
