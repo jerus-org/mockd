@@ -32,7 +32,7 @@ pub fn uuid_v1() -> String {
         Utc::now().second() as u64,
         Utc::now().timestamp_subsec_nanos(),
     );
-    let uuid = Uuid::new_v1(ts, &[1, 2, 3, 4, 5, 6]).expect("failed to generate UUID");
+    let uuid = Uuid::new_v1(ts, &[1, 2, 3, 4, 5, 6]);
     uuid.to_string()
 }
 
