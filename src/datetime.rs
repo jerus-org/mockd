@@ -1,57 +1,261 @@
-extern crate chrono;
-
+//!
+//! Provides 14 functions to return mock date and time data.
+//!
+//! # Examples
+//!
+//! ```rust
+//! use mockd::datetime;
+//!
+//!     let data = datetime::month(); // month: 10
+//!     let data = datetime::day(); // day: 10
+//!     let data = datetime::week_day(); // week_day: 6
+//!     let data = datetime::year(); // year: 1986
+//!     let data = datetime::hour(); // hour: 10
+//!     let data = datetime::minute(); // minute: 10
+//!     let data = datetime::second(); // second: 10
+//!     let data = datetime::nanosecond(); // nanosecond: 959678991
+//!     let data = datetime::timezone(); // timezone: SA Pacific Standard Time
+//!     let data = datetime::timezone_full(); // timezone_full: (UTC-04:00) Atlantic Time    (Canada)
+//!     let data = datetime::timezone_abv(); // timezone_abv: BST
+//!     let data = datetime::timezone_offset(); // timezone_offset: 13
+//!     let data = datetime::date_range(
+//!                 "2005-04-23T19:30:12Z".to_string(),
+//!                 "2019-10-02T19:30:12Z".to_string()); // date_range: 1979-01-06 23:03:10.918301212 UTC
+//!     let data = datetime::date(); // date: 1979-01-06 23:03:10.918301212 UTC
+//! ```
+//!
 use crate::data::datetime;
 use crate::misc;
 use chrono::{DateTime, Datelike, NaiveDateTime, Utc};
 
+/// Generate a random month.
+///
+/// Returns a month by number as a string.
+/// Values range from 1-12
+///
+/// # Example
+///
+/// ```rust
+/// let month = mockd::datetime::month();
+///
+/// println!("Month: {}", month);
+/// ```
+///
 pub fn month() -> String {
     misc::random::<i8>(1, 12).to_string()
 }
 
+/// Generate a random day.
+///
+/// A returns a valid number for a day (in any month) as a string.
+/// Values range from 1-28.
+///
+/// # Example
+///
+/// ```rust
+/// let day = mockd::datetime::day();
+///
+/// println!("Day: {}", day);
+/// ```
+///
 pub fn day() -> String {
     misc::random::<i8>(1, 28).to_string()
 }
 
+/// Generate a random week day.
+///
+/// A returns a valid number for a week day as a string.
+/// Values range from 0-6.
+///
+/// # Example
+///
+/// ```rust
+/// let day = mockd::datetime::day();
+///
+/// println!("Day: {}", day);
+/// ```
+///
 pub fn week_day() -> String {
     misc::random::<i8>(0, 6).to_string()
 }
 
+/// Generate a random year.
+///
+/// A returns a valid number for a year as a string.
+/// Values range from 1980 to the current year..
+///
+/// # Example
+///
+/// ```rust
+/// let year = mockd::datetime::year();
+///
+/// println!("Year: {}", year);
+/// ```
+///
 pub fn year() -> String {
     misc::random::<i32>(1980, Utc::now().year()).to_string()
 }
 
+/// Generate a random hour.
+///
+/// A returns a valid number for an hour as a string.
+/// Values range from 0-23.
+///
+/// # Example
+///
+/// ```rust
+/// let hour = mockd::datetime::hour();
+///
+/// println!("Hour: {}", hour);
+/// ```
+///
 pub fn hour() -> String {
     misc::random::<i8>(0, 23).to_string()
 }
 
+/// Generate a random minute.
+///
+/// A returns a valid number for a minute as a string.
+/// Values range from 0-59.
+///
+/// # Example
+///
+/// ```rust
+/// let minute = mockd::datetime::minute();
+///
+/// println!("Minute: {}", minute);
+/// ```
+///
 pub fn minute() -> String {
     misc::random::<i8>(0, 59).to_string()
 }
 
+/// Generate a random second.
+///
+/// A returns a valid number for a second as a string.
+/// Values range from 0-59.
+///
+/// # Example
+///
+/// ```rust
+/// let second = mockd::datetime::second();
+///
+/// println!("Second: {}", second);
+/// ```
+///
 pub fn second() -> String {
     misc::random::<i8>(0, 59).to_string()
 }
 
+/// Generate a random nanosecond.
+///
+/// A returns a valid number for a nanosecond as a string.
+/// Values range from 0-999999999.
+///
+/// # Example
+///
+/// ```rust
+/// let nanosecond = mockd::datetime::nanosecond();
+///
+/// println!("Nanosecond: {}", nanosecond);
+/// ```
+///
 pub fn nanosecond() -> String {
-    misc::random::<i64>(0, 999999999).to_string()
+    misc::random::<i64>(0, 999_999_999).to_string()
 }
 
+/// Generate a random timezone name.
+///
+/// A returns a timezone name.
+/// Sample values:
+/// * Mountain Standard Time
+/// * Central Standard Time (Mexico)
+///
+/// # Example
+///
+/// ```rust
+/// let timezone = mockd::datetime::timezone();
+///
+/// println!("Timezone: {}", timezone);
+/// ```
+///
 pub fn timezone() -> String {
     misc::random_data(datetime::TEXT).to_string()
 }
 
+/// Generate a random full timezone description.
+///
+/// A returns a full timezone description.
+/// Sample values:
+/// * (UTC-07:00) Mountain Time (US & Canada)
+/// * (UTC-06:00) Guadalajara, Mexico City, Monterrey
+/// * (UTC-04:00) Georgetown, La Paz, Manaus, San Juan
+///
+/// # Example
+///
+/// ```rust
+/// let timezone_full = mockd::datetime::timezone_full();
+///
+/// println!("Full timezone description: {}", timezone_full);
+/// ```
+///
 pub fn timezone_full() -> String {
     misc::random_data(datetime::FULL).to_string()
 }
 
+/// Generate a random timezone abbreviation.
+///
+/// A returns a timezone abbreviation.
+/// Sample values:
+/// * MDT
+/// * CCST
+/// * GDT
+///
+/// # Example
+///
+/// ```rust
+/// let timezone_abr = mockd::datetime::timezone_abv();
+///
+/// println!("Timezone abbreviation: {}", timezone_abr);
+/// ```
+///
 pub fn timezone_abv() -> String {
     misc::random_data(datetime::ABR).to_string()
 }
 
+/// Generate a random timezone offset.
+///
+/// A returns a timezone offset as a string.
+/// Sample values:
+/// * -8
+/// * -2.5
+/// * 3
+/// * 9.5
+///
+/// # Example
+///
+/// ```rust
+/// let timezone_offset = mockd::datetime::timezone_offset();
+///
+/// println!("Timezone offset: {}", timezone_offset);
+/// ```
+///
 pub fn timezone_offset() -> String {
     misc::random_data(datetime::OFFSET).to_string()
 }
 
+/// Generate a random date from within a range.
+///
+/// # Example
+///
+/// ```rust
+/// let random_date = mockd::datetime::date_range(
+///                     "2005-04-23T19:30:12Z".to_string(),
+///                     "2019-10-12T19:30:12Z".to_string());
+///
+/// println!("Random date from range: {}",random_date);
+/// ```
+///
 pub fn date_range(min: String, max: String) -> DateTime<Utc> {
     // RFC3339
     let min_nano = DateTime::parse_from_rfc3339(&min)
@@ -73,6 +277,16 @@ pub fn date_range(min: String, max: String) -> DateTime<Utc> {
     DateTime::<Utc>::from_utc(NaiveDateTime::from_timestamp(secs, nsecs as u32), Utc)
 }
 
+/// Generate a random date.
+///
+/// # Example
+///
+/// ```rust
+/// let random_date = mockd::datetime::date();
+///
+/// println!("Random date from range: {}",random_date);
+/// ```
+///
 pub fn date() -> DateTime<Utc> {
     date_range(
         "1970-01-01T16:39:57-08:00".to_string(),

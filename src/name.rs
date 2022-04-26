@@ -1,23 +1,89 @@
+//!
+//! Provides 5 functions to return mock name data.
+//!
+//! # Examples
+//!
+//! ```rust
+//! use mockd::name;
+//!
+//!     let data = name::full(); // full: Keyshawn Auer
+//!     let data = name::first(); // first: Brycen
+//!     let data = name::last(); // last: Hartmann
+//!     let data = name::prefix(); // prefix: Mr.
+//!     let data = name::suffix(); // suffix: PhD
+//! ```
+//!
+
 use crate::data::person;
 use crate::misc;
 use ::std::string::String;
 
+/// Generate a random full name by combining a random first and last name.
+///
+/// # Example
+///
+/// ```rust
+/// let full_name = mockd::name::full();
+///
+/// println!("Full name: {}", full_name);
+/// ```
+///
 pub fn full() -> String {
     format!("{} {}", first(), last())
 }
 
+/// Pick a random first name from the first name dictionary.
+///
+/// # Example
+///
+/// ```rust
+/// let first_name = mockd::name::first();
+///
+/// println!("First name: {}", first_name);
+/// ```
+///
 pub fn first() -> String {
     misc::random_data(person::FIRST).to_string()
 }
 
+/// Pick a random last name from the last name dictionary.
+///
+/// # Example
+///
+/// ```rust
+/// let last_name = mockd::name::last();
+///
+/// println!("Last name: {}", last_name);
+/// ```
+///
 pub fn last() -> String {
     misc::random_data(person::LAST).to_string()
 }
 
+/// Pick a random prefix from the prefix dictionary.
+///
+/// # Example
+///
+/// ```rust
+/// let prefix = mockd::name::prefix();
+///
+/// println!("Name prefix: {}", prefix);
+/// ```
+///
 pub fn prefix() -> String {
     misc::random_data(person::PREFIX).to_string()
 }
 
+/// Pick a random suffix from the suffix dictionary.
+///
+/// # Example
+///
+/// ```rust
+/// let suffix = mockd::name::suffix();
+///
+/// println!("Name suffix: {}", suffix);
+/// ```
+///
 pub fn suffix() -> String {
     misc::random_data(person::SUFFIX).to_string()
 }

@@ -1,5 +1,39 @@
+//!
+//! Provides 1 function to return mock password data.
+//!
+//! # Examples
+//!
+//! ```rust
+//! use mockd::password;
+//!     let upper = true;
+//!     let numeric = true;
+//!     let special = true;
+//!     let num = 27;
+//!
+//!     let data = password::generate(upper, numeric, special, num); // #9e1Vv5s&Ng8L-#9@=!6+s1+0@R
+//! ```
+
 use crate::misc;
 
+/// Generate a random password.
+///
+/// # inputs
+/// * upper - if true include upper case letters
+/// * numeric - if true include numbers
+/// * special - if true include symbols
+/// * num - number of characters in password
+///
+/// The generator always uses lower case letters and enforces a minimum
+/// password length of five characters.
+///
+/// # Example
+///
+/// ```rust
+/// let password = mockd::password::generate(true, true, false, 10);
+///
+/// println!("Password: {}", password);
+/// ```
+///
 pub fn generate(upper: bool, numeric: bool, special: bool, mut num: i8) -> String {
     if num < 5 {
         num = 5;
