@@ -19,6 +19,13 @@ use crate::name;
 use ::std::string::String;
 
 /// Info struct contains a phone number and email string.
+/// # Example
+///
+/// ```rust
+/// let info = mockd::contact::info();
+///
+/// println!("Info: {:#?}", info);
+/// ```
 #[derive(Debug)]
 pub struct Info {
     phone: String,

@@ -22,6 +22,15 @@ use crate::payment;
 use std::ops::Add;
 
 /// A struct providing information about a person.
+///
+/// # Example
+///
+/// ```rust
+/// let info = mockd::person::info();
+///
+/// println!("Credit card type: {:#?}", info);
+/// ```
+///
 #[derive(Debug)]
 pub struct Info {
     first_name: String,
