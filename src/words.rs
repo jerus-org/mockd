@@ -34,6 +34,16 @@ use crate::name;
 /// * word_count - the number of words in each sentence
 /// * separator - the separator between the paragraphs
 ///
+/// # Example
+///
+/// ```rust
+/// use mockd::words::ParagraphOpts;
+///
+/// let options = ParagraphOpts::new(5,4,11,"\n");
+///
+/// println!("Options: {:#?}", options);
+/// ```
+///
 #[derive(Debug)]
 pub struct ParagraphOpts {
     count: i64,
@@ -42,6 +52,24 @@ pub struct ParagraphOpts {
     separator: String,
 }
 
+/// Initialise a new paragraph opts struct.
+///
+/// # inputs
+/// * count - the number of paragraphs
+/// * sentence_count - the number of sentences in each paragraph
+/// * word_count - the number of words in each sentence
+/// * separator - the separator between the paragraphs
+///
+/// # Example
+///
+/// ```rust
+/// use mockd::words::ParagraphOpts;
+///
+/// let options = ParagraphOpts::new(5,4,11,"\n");
+///
+/// println!("Options: {:#?}", options);
+/// ```
+///
 impl ParagraphOpts {
     /// Initialise a new paragraph opts struct.
     ///

@@ -19,6 +19,14 @@ use crate::misc;
 use chrono::{Datelike, Utc};
 
 /// Struct to describe a credit card.
+///
+/// #Example
+///
+/// ```rust
+/// let credit_card= mockd::payment::credit_card();
+///
+/// println!("Credit Card: {:#?}", credit_card);
+/// ```
 #[derive(Debug)]
 pub struct CreditCard {
     type_of: String,

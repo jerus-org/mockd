@@ -23,6 +23,14 @@ use crate::misc;
 /// * descriptor
 /// * level
 ///
+/// # Example
+///
+/// ```rust
+/// let job_info = mockd::job::info();
+///
+/// println!("Job Info: {:#?}", job_info);
+/// ```
+///
 #[derive(Debug)]
 pub struct Info {
     company: String,
