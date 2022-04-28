@@ -17,6 +17,14 @@ use crate::misc;
 use math::round;
 
 /// Contains both the short and long name for a currency
+/// # Example
+///
+/// ```rust
+/// let compact = mockd::currency::compact();
+///
+/// println!("Currency: {:#?}", compact);
+/// ```
+///
 #[derive(Debug)]
 pub struct Info {
     short: String,

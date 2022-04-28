@@ -30,6 +30,17 @@ use crate::name;
 // use ::std::string::String;
 
 /// Information that may be required for testing about an address.
+///
+/// # Example
+///
+/// ```rust
+/// use mockd::address::Info;
+///
+/// let mock_address = mockd::address::info();
+///
+/// println!("Address Info: {:#?}", mock_address);
+/// ```
+///
 #[derive(Debug)]
 pub struct Info {
     /// Single string for address constructed from the street, city, state and zip address elements.

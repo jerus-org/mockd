@@ -20,6 +20,15 @@ use crate::misc;
 use chrono::{Datelike, Utc};
 
 /// Info struct for vehicle data.
+///
+/// # Example
+///
+/// ```rust
+/// let vehicle = mockd::vehicle::info();
+///
+/// println!("Vehicle: {:#?}", vehicle);
+/// ```
+///
 #[derive(Debug)]
 pub struct Info {
     vehicle_type: String,
