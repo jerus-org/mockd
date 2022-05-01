@@ -14,9 +14,10 @@
 //! ```
 //!
 
-use crate::data::payment;
 use crate::misc;
 use chrono::{Datelike, Utc};
+
+mod data;
 
 /// Struct to describe a credit card.
 ///
@@ -65,7 +66,7 @@ pub fn credit_card() -> CreditCard {
 /// ```
 ///
 pub fn credit_card_type() -> String {
-    misc::random_data(payment::CARD_TYPE).to_string()
+    misc::random_data(data::CARD_TYPE).to_string()
 }
 
 /// Generate a random credit card number.
@@ -79,7 +80,7 @@ pub fn credit_card_type() -> String {
 /// ```
 ///
 pub fn credit_card_number() -> String {
-    misc::replace_with_numbers(misc::random_data(payment::NUMBER).to_string())
+    misc::replace_with_numbers(misc::random_data(data::NUMBER).to_string())
 }
 
 /// Pick a random credit card type from the type dictionary.
