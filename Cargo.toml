@@ -10,6 +10,9 @@ readme = "README.md"
 repository = "https://github.com/jerusdp/mockd"
 keywords = ["fake", "data", "random", "generator", "faker"]
 
+[features]
+payment = []
+
 [dependencies]
 rand = "0.8.5"
 libmath = "0.2.1"

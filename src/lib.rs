@@ -40,6 +40,7 @@ pub mod log_level;
 pub(crate) mod misc;
 pub mod name;
 pub mod password;
+#[cfg(feature = "payment")]
 pub mod payment;
 pub mod person;
 pub mod status_code;
