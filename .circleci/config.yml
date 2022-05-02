@@ -98,14 +98,13 @@ jobs:
   feature-test:
     parameters:
       mockd-feature:
-        default: "all"
         type: string
     executor: rust-env
     steps:
       - checkout
       - run: cargo --version
       - cargo-test-feature:
-          mockd-feature: <<parameter.mockd_feature>>
+          mockd-feature: <<parameters.mockd_feature>>
 
 
   docs:
