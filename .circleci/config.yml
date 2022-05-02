@@ -17,30 +17,6 @@ commands:
           command: |
             rustup update <<parameters.rust-version>>
             cargo +<<parameters.rust-version>> check --all-features
-  cargo-format:
-    steps:
-      - run:
-          name: Check formatting for code
-          command: |
-            rustfmt --version
-            cargo fmt --all -- --check
-  cargo-clippy:
-    steps:
-      - run:
-          name: Check idiomatic code use with Clippy
-          command: "cargo clippy --all --tests --all-features -- -D warnings"
-  cargo-test:
-    steps:
-      - run:
-          name: Test all features the crate
-          command: "cargo test --all-features"
-  cargo-docs:
-    steps:
-      - run:
-          name: Test all features the crate
-          command: |
-            rustup update nightly
-            cargo +nightly doc --lib --no-deps --all-features --document-private-items
 
 jobs:
   build:
@@ -56,14 +32,43 @@ jobs:
       - cargo-build:
           rust-version: "1.56.0"
 
-  test:
+  basic-test:
     executor: rust-env
     steps:
       - checkout
       - run: cargo --version
-      - cargo-format
-      - cargo-clippy
-      - cargo-test
+      - run:
+          name: Check formatting for code
+          command: |
+            rustfmt --version
+            cargo fmt --all -- --check
+      - run:
+          name: Check idiomatic code use with Clippy
+          command: "cargo clippy --all --tests --all-features -- -D warnings"
+      - run:
+          name: Test crate with no features specified
+          command: "cargo test"
+
+  all-features-flag-test:
+    executor: rust-env
+    steps:
+      - checkout
+      - run: cargo --version
+      - run:
+          name: Test all features of the crate
+          command: "cargo test --all-features"
+
+  feature-test:
+    parameters:
+      mockd-feature:
+        type: string
+    executor: rust-env
+    steps:
+      - checkout
+      - run: cargo --version
+      - run:
+          name: Test <<parameters.mockd-feature>> features of the crate
+          command: "cargo test --features <<parameters.mockd-feature>>"
 
   docs:
     executor: rust-env
@@ -71,12 +76,25 @@ jobs:
       RUSTDOCFLAGS: --cfg docsrs -Dwarnings
     steps:
       - checkout
-      - cargo-docs
+      - run:
+          name: Test generation of all of the documentation for the crate
+          command: |
+            rustup update nightly
+            cargo +nightly doc --lib --no-deps --all-features --document-private-items
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   build-test-docs:
     jobs:
       - build
-      - test
+      - basic-test
+      - feature-test:
+          matrix:
+            parameters:
+              mockd-feature: [all, payment, person]
+          requires:
+            - basic-test
+      - all-features-flag-test:
+          requires:
+            - feature-test
       - docs

@@ -27,12 +27,21 @@ Update to [fakeit](https://github.com/PumpkinSeed/fakeit), a Rust port of the fa
 
 ## Usage
 
+Add mockd to the dependencies (typically dev-dependencies) in Cargo.toml
+
+```toml
+
+[dev-dependencies]
+mockd = {version = "0.4.0", features = [payments] }
+
+```
+
 The contact info struct contains a phone number and email string.
 
 ```rust
-    let info = mockd::contact::info();
+    let credit_card = mockd::payment::credit_card();
 
-    println!("Info: {:#?}", info);
+    println!("Credit card: {:#?}", credit_card);
 
 ```
 
@@ -46,7 +55,6 @@ Mockd provides mock data in the following categories:
 - company
 - contact
 - currency
-- data
 - datetime
 - file
 - generator
@@ -57,16 +65,16 @@ Mockd provides mock data in the following categories:
 - job
 - language
 - log_level
-- misc
 - name
 - password
 - payment
 - person
 - status_code
-- testify
 - unique
 - user_agent
 - vehicle
 - words
+
+Each category is enabled by a feature of the same name. All features can be enabled using the feature "all".
 
 Full documentation is available at [docs.rs](https://docs.rs/mockd)

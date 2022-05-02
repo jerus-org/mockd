@@ -4,7 +4,8 @@
         "Generators",
         "Security",
         "Helper Modules",
-        "Docs"
+        "Docs",
+        "Cargo"
     ],
     "cSpell.words": [
         "accusamus",
