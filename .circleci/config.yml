@@ -123,12 +123,12 @@ workflows:
       - build
       - basic-test
       - feature-test
-        matrix:
-          parameters:
-            mockd-feature: [all, payment]
-        requires:
-          - basic-test
+          matrix:
+            parameters:
+              mockd-feature: [all, payment]
+          requires:
+            - basic-test
       - all-features-flag-test
-        requires:
-          - feature-tests
+          requires:
+            - feature-tests
       - docs
