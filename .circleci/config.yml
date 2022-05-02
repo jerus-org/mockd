@@ -94,8 +94,9 @@ jobs:
     steps:
       - checkout
       - run: cargo --version
-      - cargo-test-feature:
-          mockd-feature: <<parameters.mockd_feature>>
+      - run:
+          name: Test <<parameters.mockd-feature>> features of the crate
+          command: "cargo test --features <<parameters.mockd-feature>>"
 
   docs:
     executor: rust-env
@@ -115,8 +116,8 @@ workflows:
           matrix:
             parameters:
               mockd-feature: [all, payment]
-          requires:
-            - basic-test
+          # requires:
+          # - basic-test
       - all-features-flag-test:
           requires:
             - feature-tests
