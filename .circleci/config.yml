@@ -86,15 +86,6 @@ jobs:
       - run: cargo --version
       - cargo-test-all-features
 
-  all-features-test:
-    executor: rust-env
-    steps:
-      - checkout
-      - run: cargo --version
-      - cargo-test-feature
-      - cargo-test-feature:
-        mockd-feature: "payment"
-
   feature-test:
     parameters:
       mockd-feature:
@@ -105,7 +96,6 @@ jobs:
       - run: cargo --version
       - cargo-test-feature:
           mockd-feature: <<parameters.mockd_feature>>
-
 
   docs:
     executor: rust-env
@@ -121,13 +111,13 @@ workflows:
     jobs:
       - build
       - basic-test
-      - feature-test
+      - feature-test:
           matrix:
             parameters:
               mockd-feature: [all, payment]
           requires:
             - basic-test
-      - all-features-flag-test
+      - all-features-flag-test:
           requires:
             - feature-tests
       - docs
