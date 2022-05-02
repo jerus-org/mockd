@@ -32,8 +32,22 @@ commands:
   cargo-test:
     steps:
       - run:
-          name: Test all features the crate
+          name: Test crate with no features specified
           command: "cargo test --all-features"
+  cargo-test-all-features:
+    steps:
+      - run:
+          name: Test all features of the crate
+          command: "cargo test --all-features"
+  cargo-test-features:
+    parameters:
+      mockd-feature:
+        default: "all"
+        type: string
+    steps:
+      - run:
+          name: Test <<parameters.mockd-feature>> features of the crate
+          command: "cargo test --features <<parameters.mockd-feature>>"
   cargo-docs:
     steps:
       - run:
@@ -56,7 +70,7 @@ jobs:
       - cargo-build:
           rust-version: "1.56.0"
 
-  test:
+  basic-test:
     executor: rust-env
     steps:
       - checkout
@@ -64,6 +78,25 @@ jobs:
       - cargo-format
       - cargo-clippy
       - cargo-test
+
+  all-features-flag-test:
+    executor: rust-env
+    steps:
+      - checkout
+      - run: cargo --version
+      - cargo-test-all-features
+
+  feature-test:
+    parameters:
+      mockd-feature:
+        type: string
+    executor: rust-env
+    steps:
+      - checkout
+      - run: cargo --version
+      - run:
+          name: Test <<parameters.mockd-feature>> features of the crate
+          command: "cargo test --features <<parameters.mockd-feature>>"
 
   docs:
     executor: rust-env
@@ -78,5 +111,14 @@ workflows:
   build-test-docs:
     jobs:
       - build
-      - test
+      - basic-test
+      - feature-test:
+          matrix:
+            parameters:
+              mockd-feature: [all, payment]
+          requires:
+            - basic-test
+      - all-features-flag-test:
+          requires:
+            - feature-test
       - docs

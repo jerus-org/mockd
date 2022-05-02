@@ -15,7 +15,6 @@ pub mod job;
 pub mod language;
 pub mod log_level;
 pub mod lorem;
-// pub mod payment;
 pub mod person;
 pub mod status_code;
 pub mod vehicle;
