@@ -13,6 +13,10 @@
 //!     let data = payment::credit_card_cvv(); // credit_card_cvv: 537
 //! ```
 //!
+//! # Feature
+//!
+//! Requires the "payment" feature.
+//!
 
 use crate::misc;
 use chrono::{Datelike, Utc};
@@ -28,6 +32,10 @@ mod data;
 ///
 /// println!("Credit Card: {:#?}", credit_card);
 /// ```
+/// # Feature
+///
+/// Requires the "payment" feature.
+///
 #[derive(Debug)]
 pub struct CreditCard {
     type_of: String,
@@ -45,6 +53,10 @@ pub struct CreditCard {
 ///
 /// println!("Credit Card: {:#?}", credit_card);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "payment" feature.
 ///
 pub fn credit_card() -> CreditCard {
     CreditCard {
@@ -65,6 +77,10 @@ pub fn credit_card() -> CreditCard {
 /// println!("Credit card type: {}", card_type);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "payment" feature.
+///
 pub fn credit_card_type() -> String {
     misc::random_data(data::CARD_TYPE).to_string()
 }
@@ -78,6 +94,10 @@ pub fn credit_card_type() -> String {
 ///
 /// println!("Credit card number: {}", card_number);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "payment" feature.
 ///
 pub fn credit_card_number() -> String {
     misc::replace_with_numbers(misc::random_data(data::NUMBER).to_string())
@@ -93,6 +113,10 @@ pub fn credit_card_number() -> String {
 /// println!("Credit card type: {}", card_type);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "payment" feature.
+///
 fn credit_card_luhn_number() -> String {
     // @TODO
     String::from("")
@@ -107,6 +131,10 @@ fn credit_card_luhn_number() -> String {
 ///
 /// println!("Credit card expiry date: {}", card_exp);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "payment" feature.
 ///
 pub fn credit_card_exp() -> String {
     let current_year = Utc::now().year() - 2000;
@@ -135,6 +163,10 @@ pub fn credit_card_exp() -> String {
 ///
 /// println!("Credit card ccv: {}", card_ccv);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "payment" feature.
 ///
 pub fn credit_card_cvv() -> String {
     misc::replace_with_numbers("###".to_string())
