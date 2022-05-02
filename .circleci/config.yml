@@ -120,5 +120,5 @@ workflows:
           # - basic-test
       - all-features-flag-test:
           requires:
-            - feature-tests
+            - feature-test
       - docs
