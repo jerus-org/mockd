@@ -28,8 +28,8 @@
 //! ```
 
 use crate::contact;
-use crate::data::person;
 use crate::hacker;
+use crate::person::data as person_data;
 
 use crate::misc;
 
@@ -95,8 +95,8 @@ fn resolve_tag(tag: &str) -> String {
         "hacker.noun" => hacker::noun(),
         "hacker.verb" => hacker::verb(),
         "hacker.ingverb" => hacker::ingverb(),
-        "person.first" => misc::random_data(person::FIRST).to_string(),
-        "person.last" => misc::random_data(person::LAST).to_string(),
+        "person.first" => misc::random_data(person_data::FIRST).to_string(),
+        "person.last" => misc::random_data(person_data::LAST).to_string(),
 
         _ => "".to_string(),
     }

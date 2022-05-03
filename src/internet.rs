@@ -17,9 +17,9 @@
 
 use crate::company;
 use crate::data::internet;
-use crate::data::person;
 use crate::job;
 use crate::misc;
+use crate::person::data as person_data;
 
 /// Construct a random domain name based on words in the test data dictionaries.
 ///
@@ -159,7 +159,7 @@ pub fn mac_address() -> String {
 pub fn username() -> String {
     format!(
         "{}{}",
-        misc::random_data(person::LAST),
+        misc::random_data(person_data::LAST),
         misc::replace_with_numbers("####".to_string()),
     )
 }

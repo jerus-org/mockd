@@ -21,7 +21,7 @@ use crate::name;
 use crate::payment;
 use std::ops::Add;
 
-mod data;
+pub(crate) mod data;
 
 /// A struct providing information about a person.
 ///

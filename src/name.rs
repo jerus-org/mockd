@@ -14,8 +14,8 @@
 //! ```
 //!
 
-use crate::data::person;
 use crate::misc;
+use crate::person::data as person_data;
 use ::std::string::String;
 
 /// Generate a random full name by combining a random first and last name.
@@ -43,7 +43,7 @@ pub fn full() -> String {
 /// ```
 ///
 pub fn first() -> String {
-    misc::random_data(person::FIRST).to_string()
+    misc::random_data(person_data::FIRST).to_string()
 }
 
 /// Pick a random last name from the last name dictionary.
@@ -57,7 +57,7 @@ pub fn first() -> String {
 /// ```
 ///
 pub fn last() -> String {
-    misc::random_data(person::LAST).to_string()
+    misc::random_data(person_data::LAST).to_string()
 }
 
 /// Pick a random prefix from the prefix dictionary.
@@ -71,7 +71,7 @@ pub fn last() -> String {
 /// ```
 ///
 pub fn prefix() -> String {
-    misc::random_data(person::PREFIX).to_string()
+    misc::random_data(person_data::PREFIX).to_string()
 }
 
 /// Pick a random suffix from the suffix dictionary.
@@ -85,7 +85,7 @@ pub fn prefix() -> String {
 /// ```
 ///
 pub fn suffix() -> String {
-    misc::random_data(person::SUFFIX).to_string()
+    misc::random_data(person_data::SUFFIX).to_string()
 }
 
 #[cfg(test)]
