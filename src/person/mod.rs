@@ -11,6 +11,10 @@
 //!     let data = person::gender(); // gender: male
 //! ```
 //!
+//! # Feature
+//!
+//! Requires the "person" feature.
+//!
 
 use crate::address;
 use crate::contact;
@@ -32,6 +36,10 @@ pub(crate) mod data;
 ///
 /// println!("Credit card type: {:#?}", info);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "person" feature.
 ///
 #[derive(Debug)]
 pub struct Info {
@@ -55,6 +63,10 @@ pub struct Info {
 ///
 /// println!("Credit card type: {:#?}", info);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "person" feature.
 ///
 pub fn info() -> Info {
     Info {
@@ -80,6 +92,10 @@ pub fn info() -> Info {
 /// println!("SSN: {}", ssn);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "person" feature.
+///
 pub fn ssn() -> String {
     format!("{}", misc::random(100000000, 999999999))
 }
@@ -93,6 +109,10 @@ pub fn ssn() -> String {
 ///
 /// println!("SSN: {}", gender);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "person" feature.
 ///
 pub fn gender() -> String {
     match misc::random(1, 2) {
