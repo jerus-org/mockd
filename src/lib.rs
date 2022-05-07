@@ -31,9 +31,11 @@ pub mod datetime;
 pub mod file;
 #[cfg(feature = "generator")]
 pub mod generator;
+#[cfg(feature = "hacker")]
 pub mod hacker;
 pub mod hipster;
 pub mod image;
+#[cfg(feature = "internet")]
 pub mod internet;
 pub mod job;
 pub mod language;

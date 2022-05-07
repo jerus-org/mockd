@@ -13,7 +13,7 @@
 //! ```
 
 use crate::data::contact;
-use crate::data::internet;
+use crate::internet::data as internet_data;
 use crate::misc;
 use crate::name;
 use ::std::string::String;
@@ -99,7 +99,7 @@ pub fn email() -> String {
         name::first(),
         name::last(),
         name::last(),
-        misc::random_data(internet::DOMAIN_SUFFIX)
+        misc::random_data(internet_data::DOMAIN_SUFFIX)
     )
     .to_lowercase()
 }
