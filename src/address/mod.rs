@@ -1,5 +1,5 @@
-//!
 //! Provides 16 functions to return mock address data.
+//!
 //!
 //! # Examples
 //!
@@ -23,11 +23,15 @@
 //!     let data = address::longitude(); // longitude: 113.12952
 //!     let data = address::longitude_in_range(-30.0 as f32, 30.0 as f32); // longitude_in_range: -16.484156
 //! ```
+//! # Feature
+//!
+//! Requires the "address" feature.
+//!
 
-use crate::data::address;
 use crate::misc;
 use crate::name;
-// use ::std::string::String;
+
+pub(crate) mod data;
 
 /// Information that may be required for testing about an address.
 ///
@@ -40,6 +44,10 @@ use crate::name;
 ///
 /// println!("Address Info: {:#?}", mock_address);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "address" feature.
 ///
 #[derive(Debug)]
 pub struct Info {
@@ -65,6 +73,10 @@ pub struct Info {
 ///
 /// println!("Address Info: {:#?}", mock_address);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "address" feature.
 ///
 pub fn info() -> Info {
     Info {
@@ -99,6 +111,10 @@ pub fn info() -> Info {
 /// println!("Street: {}", street);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "address" feature.
+///
 pub fn street() -> String {
     match misc::random::<i64>(1, 2) {
         1 => {
@@ -125,8 +141,12 @@ pub fn street() -> String {
 /// println!("Street number: {}", street_number);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "address" feature.
+///
 pub fn street_number() -> String {
-    misc::replace_with_numbers(misc::random_data(address::NUMBER).to_string())
+    misc::replace_with_numbers(misc::random_data(data::NUMBER).to_string())
 }
 
 /// Generate a random street prefix.
@@ -144,8 +164,12 @@ pub fn street_number() -> String {
 /// println!("Street prefix: {}", street_prefix);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "address" feature.
+///
 pub fn street_prefix() -> String {
-    misc::random_data(address::STREET_PREFIX).to_string()
+    misc::random_data(data::STREET_PREFIX).to_string()
 }
 
 /// Generate a random street name.
@@ -156,8 +180,12 @@ pub fn street_prefix() -> String {
 /// println!("Street name: {}", street_name);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "address" feature.
+///
 pub fn street_name() -> String {
-    misc::random_data(address::STREET_NAME).to_string()
+    misc::random_data(data::STREET_NAME).to_string()
 }
 
 /// Generate a random street suffix.
@@ -173,8 +201,12 @@ pub fn street_name() -> String {
 /// println!("Street suffix: {}", street_suffix);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "address" feature.
+///
 pub fn street_suffix() -> String {
-    misc::random_data(address::STREET_SUFFIX).to_string()
+    misc::random_data(data::STREET_SUFFIX).to_string()
 }
 
 /// Generate a random city.
@@ -186,6 +218,10 @@ pub fn street_suffix() -> String {
 ///
 /// println!("City: {}", city);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "address" feature.
 ///
 pub fn city() -> String {
     match misc::random::<i64>(1, 3) {
@@ -206,8 +242,12 @@ pub fn city() -> String {
 /// println!("State: {}", state);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "address" feature.
+///
 pub fn state() -> String {
-    misc::random_data(address::STATE).to_string()
+    misc::random_data(data::STATE).to_string()
 }
 
 /// Generate a US state abbreviation.
@@ -220,8 +260,12 @@ pub fn state() -> String {
 /// println!("State (abbreviation): {}", state_abr);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "address" feature.
+///
 pub fn state_abr() -> String {
-    misc::random_data(address::STATE_ABR).to_string()
+    misc::random_data(data::STATE_ABR).to_string()
 }
 
 /// Generate a random zip code.
@@ -234,8 +278,12 @@ pub fn state_abr() -> String {
 /// println!("Zip: {}", zip);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "address" feature.
+///
 pub fn zip() -> String {
-    misc::replace_with_numbers(misc::random_data(address::ZIP).to_string())
+    misc::replace_with_numbers(misc::random_data(data::ZIP).to_string())
 }
 
 /// Generate a random country.
@@ -248,8 +296,12 @@ pub fn zip() -> String {
 /// println!("Country: {}", country);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "address" feature.
+///
 pub fn country() -> String {
-    misc::random_data(address::COUNTRY).to_string()
+    misc::random_data(data::COUNTRY).to_string()
 }
 
 /// Generate a country abbreviation
@@ -262,8 +314,12 @@ pub fn country() -> String {
 /// println!("Country (abbreviation): {}", country_abr);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "address" feature.
+///
 pub fn country_abr() -> String {
-    misc::random_data(address::COUNTRY_ABR).to_string()
+    misc::random_data(data::COUNTRY_ABR).to_string()
 }
 
 /// Generate a random latitude.
@@ -277,6 +333,10 @@ pub fn country_abr() -> String {
 ///
 /// println!("Latitude: {}", latitude);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "address" feature.
 ///
 pub fn latitude() -> f32 {
     misc::random::<f32>(-90.0, 90.0)
@@ -298,6 +358,10 @@ pub fn latitude() -> f32 {
 /// greater than the min value the values are ignored and a random longitude is
 /// returned.
 ///
+/// # Feature
+///
+/// Requires the "address" feature.
+///
 pub fn latitude_in_range(min: f32, max: f32) -> f32 {
     if min > max || min < -90.0 || min > 90.0 || max < -90.0 || max > 90.0 {
         return latitude();
@@ -315,6 +379,10 @@ pub fn latitude_in_range(min: f32, max: f32) -> f32 {
 ///
 /// println!("Longitude: {}", longitude);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "address" feature.
 ///
 pub fn longitude() -> f32 {
     misc::random::<f32>(-180.0, 180.0)
@@ -335,6 +403,10 @@ pub fn longitude() -> f32 {
 /// If the values are not within the range  -180.0 to 180.0 or the max value is not
 /// greater than the min value the values are ignored and a random longitude is
 /// returned.
+///
+/// # Feature
+///
+/// Requires the "address" feature.
 ///
 pub fn longitude_in_range(min: f32, max: f32) -> f32 {
     if min > max || min < -180.0 || min > 180.0 || max < -180.0 || max > 180.0 {

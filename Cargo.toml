@@ -11,7 +11,17 @@ repository = "https://github.com/jerusdp/mockd"
 keywords = ["fake", "data", "random", "generator", "faker"]
 
 [features]
-all = ["contact", "generator", "hacker", "internet", "name", "payment", "person"]
+all = [
+    "address",
+    "contact",
+    "generator",
+    "hacker",
+    "internet",
+    "name",
+    "payment",
+    "person"
+    ]
+address = ["name"]
 generator =["person"]
 internet = ["person"]
 payment = []

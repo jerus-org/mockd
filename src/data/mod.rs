@@ -1,4 +1,3 @@
-pub mod address;
 pub mod animal;
 pub mod beer;
 pub mod color;

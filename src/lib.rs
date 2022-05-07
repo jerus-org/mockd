@@ -18,6 +18,7 @@
 //!     let data = image::url(500, 500); // url: https://picsum.photos/500/500
 //! ```
 
+#[cfg(feature = "address")]
 pub mod address;
 pub mod animal;
 pub mod beer;

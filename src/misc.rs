@@ -103,25 +103,25 @@ pub(crate) fn random_char_from_string(s: &[u8]) -> char {
 
 #[cfg(test)]
 mod tests {
-    use crate::data::address;
+    use crate::address::data as address_data;
     use crate::misc;
 
     #[test]
     fn random_data_test() {
-        let mut street1 = misc::random_data(address::STREET_NAME);
+        let mut street1 = misc::random_data(address_data::STREET_NAME);
         println!("{}", street1);
 
-        street1 = misc::random_data(address::STREET_NAME);
+        street1 = misc::random_data(address_data::STREET_NAME);
         println!("{}", street1);
 
-        street1 = misc::random_data(address::STREET_NAME);
+        street1 = misc::random_data(address_data::STREET_NAME);
         println!("{}", street1);
     }
 
     #[test]
     fn random_data_str() {
-        let street1 = misc::random_data(address::STREET_NAME);
-        let street2 = misc::random_data(address::STREET_NAME);
+        let street1 = misc::random_data(address_data::STREET_NAME);
+        let street2 = misc::random_data(address_data::STREET_NAME);
         assert_ne!(street1, street2);
     }
 
