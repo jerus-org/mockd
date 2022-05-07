@@ -26,6 +26,11 @@
 //!     let data = generator::generate("{person.first} {person.last} {contact.email} #?#?#?".to_string()); // data: Watson Connelly baileeprosacco@smitham.biz 6d0e0a
 //!     // More details about this later
 //! ```
+//!
+//! # Feature
+//!
+//! Requires the "generator" feature.
+//!
 
 use crate::contact;
 use crate::hacker;
@@ -61,6 +66,10 @@ use crate::misc;
 ///     let data = generator::generate("{person.first} {person.last} {contact.email} #?#?#?".to_string()); // data: Watson Connelly baileeprosacco@smitham.biz 6d0e0a
 ///     // More details about this later
 /// ```
+///
+/// # Feature
+///
+/// Requires the "generator" feature.
 ///
 pub fn generate(data: String) -> String {
     let mut d_validate_left = data.matches('{').count();
