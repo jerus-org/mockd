@@ -57,4 +57,5 @@ pub(crate) mod testify;
 pub mod unique;
 pub mod user_agent;
 pub mod vehicle;
+#[cfg(feature = "words")]
 pub mod words;

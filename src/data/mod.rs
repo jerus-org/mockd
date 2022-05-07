@@ -8,6 +8,5 @@ pub mod files;
 pub mod hipster;
 pub mod language;
 pub mod log_level;
-pub mod lorem;
 pub mod status_code;
 pub mod vehicle;

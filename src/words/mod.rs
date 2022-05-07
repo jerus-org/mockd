@@ -21,12 +21,16 @@
 //!     let data = words::paragraph_generator(opts, &words::sentence); // paragraph_generator: Quisquam aut consequuntur nobis voluptas porro...
 //! ```
 //!
+//! # Feature
+//!
+//! Requires the "words" feature.
+//!
 
-use crate::data::lorem;
 use crate::hipster;
 use crate::misc;
 use crate::name;
 
+pub(crate) mod data;
 /// Struct to describe the options that are required to generate a paragraph.
 ///
 /// * count - the number of paragraphs
@@ -43,6 +47,10 @@ use crate::name;
 ///
 /// println!("Options: {:#?}", options);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "words" feature.
 ///
 #[derive(Debug)]
 pub struct ParagraphOpts {
@@ -70,6 +78,10 @@ pub struct ParagraphOpts {
 /// println!("Options: {:#?}", options);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "words" feature.
+///
 impl ParagraphOpts {
     /// Initialise a new paragraph opts struct.
     ///
@@ -88,6 +100,10 @@ impl ParagraphOpts {
     ///
     /// println!("Options: {:#?}", options);
     /// ```
+    ///
+    /// # Feature
+    ///
+    /// Requires the "words" feature.
     ///
     pub fn new(count: i64, sentence_count: i64, word_count: i64, sep: &str) -> ParagraphOpts {
         ParagraphOpts {
@@ -109,8 +125,12 @@ impl ParagraphOpts {
 /// println!("Word: {}", word);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "words" feature.
+///
 pub fn word() -> String {
-    misc::random_data(lorem::WORD).to_string()
+    misc::random_data(data::WORD).to_string()
 }
 
 /// Generate a random sentence containing the specified number of words.
@@ -122,6 +142,10 @@ pub fn word() -> String {
 ///
 /// println!("Sentence: {}", sentence);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "words" feature.
 ///
 pub fn sentence(word_count: i64) -> String {
     if word_count <= 0 {
@@ -159,6 +183,10 @@ pub fn sentence(word_count: i64) -> String {
 /// println!("Paragraphs: {}", paragraphs);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "words" feature.
+///
 pub fn paragraph(count: i64, sentence_count: i64, word_count: i64, separator: String) -> String {
     let opts = ParagraphOpts::new(count, sentence_count, word_count, &separator);
 
@@ -183,6 +211,10 @@ pub fn paragraph(count: i64, sentence_count: i64, word_count: i64, separator: St
 ///
 /// println!("Paragraph: {}", paragraph);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "words" feature.
 ///
 pub fn paragraph_generator(
     opts: ParagraphOpts,
@@ -209,6 +241,10 @@ pub fn paragraph_generator(
 /// println!("Question: {}", question);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "words" feature.
+///
 pub fn question() -> String {
     hipster::sentence(misc::random(3, 10)).replace('.', "?")
 }
@@ -222,6 +258,10 @@ pub fn question() -> String {
 ///
 /// println!("Quote: {}", quote);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "words" feature.
 ///
 pub fn quote() -> String {
     format!(

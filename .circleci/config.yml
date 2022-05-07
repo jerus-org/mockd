@@ -103,6 +103,7 @@ workflows:
                   name,
                   payment,
                   person,
+                  words,
                 ]
           requires:
             - basic-test

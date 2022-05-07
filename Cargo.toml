@@ -21,7 +21,8 @@ all = [
     "job",
     "name",
     "payment",
-    "person"
+    "person",
+    "words"
     ]
 address = ["name"]
 company = ["name"]
@@ -33,6 +34,7 @@ job = ["company"]
 name = ["person"]
 payment = []
 person = ["payment", "contact", "address"]
+words = ["company", "job", "name"]
 
 [dependencies]
 rand = "0.8.5"
