@@ -24,6 +24,7 @@ pub mod animal;
 pub mod beer;
 pub mod bool_rand;
 pub mod color;
+#[cfg(feature = "company")]
 pub mod company;
 #[cfg(feature = "contact")]
 pub mod contact;

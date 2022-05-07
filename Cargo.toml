@@ -13,6 +13,7 @@ keywords = ["fake", "data", "random", "generator", "faker"]
 [features]
 all = [
     "address",
+    "company",
     "contact",
     "generator",
     "hacker",
@@ -22,10 +23,11 @@ all = [
     "person"
     ]
 address = ["name"]
+company = ["name"]
 generator =["person"]
 internet = ["person"]
 payment = []
-person = ["payment", "contact"]
+person = ["payment", "contact", "address"]
 hacker = ["generator", "contact"]
 contact = ["internet"]
 name = ["person"]
