@@ -24,6 +24,7 @@ pub mod beer;
 pub mod bool_rand;
 pub mod color;
 pub mod company;
+#[cfg(feature = "contact")]
 pub mod contact;
 pub mod currency;
 pub(crate) mod data;

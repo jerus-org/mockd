@@ -91,7 +91,8 @@ workflows:
       - feature-test:
           matrix:
             parameters:
-              mockd-feature: [all, payment, person, generator, hacker, internet]
+              mockd-feature:
+                [all, contact, payment, person, generator, hacker, internet]
           requires:
             - basic-test
       - all-features-flag-test:
