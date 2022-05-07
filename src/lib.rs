@@ -40,6 +40,7 @@ pub mod hipster;
 pub mod image;
 #[cfg(feature = "internet")]
 pub mod internet;
+#[cfg(feature = "job")]
 pub mod job;
 pub mod language;
 pub mod log_level;

@@ -18,19 +18,21 @@ all = [
     "generator",
     "hacker",
     "internet",
+    "job",
     "name",
     "payment",
     "person"
     ]
 address = ["name"]
 company = ["name"]
+contact = ["internet"]
 generator =["person"]
+hacker = ["generator", "contact"]
 internet = ["person"]
+job = ["company"]
+name = ["person"]
 payment = []
 person = ["payment", "contact", "address"]
-hacker = ["generator", "contact"]
-contact = ["internet"]
-name = ["person"]
 
 [dependencies]
 rand = "0.8.5"

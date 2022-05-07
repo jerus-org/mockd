@@ -95,9 +95,11 @@ workflows:
                 [
                   all,
                   contact,
+                  company,
                   generator,
                   hacker,
                   internet,
+                  job,
                   name,
                   payment,
                   person,

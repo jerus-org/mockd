@@ -6,7 +6,6 @@ pub mod currency;
 pub mod datetime;
 pub mod files;
 pub mod hipster;
-pub mod job;
 pub mod language;
 pub mod log_level;
 pub mod lorem;

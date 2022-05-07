@@ -12,10 +12,15 @@
 //!     let data = job::level(); // level: Solutions
 //! ```
 //!
+//! # Feature
+//!
+//! Requires the "job" feature.
+//!
 
 use crate::company;
-use crate::data::job;
 use crate::misc;
+
+pub(crate) mod data;
 
 /// Job struct consisting of:
 /// * company
@@ -30,6 +35,10 @@ use crate::misc;
 ///
 /// println!("Job Info: {:#?}", job_info);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "job" feature.
 ///
 #[derive(Debug)]
 pub struct Info {
@@ -48,6 +57,10 @@ pub struct Info {
 ///
 /// println!("Job Info: {:#?}", job_info);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "job" feature.
 ///
 pub fn info() -> Info {
     Info {
@@ -68,8 +81,12 @@ pub fn info() -> Info {
 /// println!("Title: {}", title);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "job" feature.
+///
 pub fn title() -> String {
-    misc::random_data(job::TITLE).to_string()
+    misc::random_data(data::TITLE).to_string()
 }
 
 /// Pick a random job descriptor from the descriptor dictionary.
@@ -82,8 +99,12 @@ pub fn title() -> String {
 /// println!("Descriptor: {}", descriptor);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "job" feature.
+///
 pub fn descriptor() -> String {
-    misc::random_data(job::DESCRIPTOR).to_string()
+    misc::random_data(data::DESCRIPTOR).to_string()
 }
 
 /// Pick a random job level from the level dictionary.
@@ -96,8 +117,12 @@ pub fn descriptor() -> String {
 /// println!("Level: {}", level);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "job" feature.
+///
 pub fn level() -> String {
-    misc::random_data(job::LEVEL).to_string()
+    misc::random_data(data::LEVEL).to_string()
 }
 
 #[cfg(test)]
