@@ -42,6 +42,7 @@ pub mod job;
 pub mod language;
 pub mod log_level;
 pub(crate) mod misc;
+#[cfg(feature = "name")]
 pub mod name;
 pub mod password;
 #[cfg(feature = "payment")]

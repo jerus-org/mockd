@@ -13,10 +13,14 @@
 //!     let data = name::suffix(); // suffix: PhD
 //! ```
 //!
+//! # Feature
+//!
+//! Requires the "name" feature.
+//!
 
 use crate::misc;
 use crate::person::data as person_data;
-use ::std::string::String;
+use std::string::String;
 
 /// Generate a random full name by combining a random first and last name.
 ///
@@ -27,6 +31,10 @@ use ::std::string::String;
 ///
 /// println!("Full name: {}", full_name);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "name" feature.
 ///
 pub fn full() -> String {
     format!("{} {}", first(), last())
@@ -42,6 +50,10 @@ pub fn full() -> String {
 /// println!("First name: {}", first_name);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "name" feature.
+///
 pub fn first() -> String {
     misc::random_data(person_data::FIRST).to_string()
 }
@@ -55,6 +67,10 @@ pub fn first() -> String {
 ///
 /// println!("Last name: {}", last_name);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "name" feature.
 ///
 pub fn last() -> String {
     misc::random_data(person_data::LAST).to_string()
@@ -70,6 +86,10 @@ pub fn last() -> String {
 /// println!("Name prefix: {}", prefix);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "name" feature.
+///
 pub fn prefix() -> String {
     misc::random_data(person_data::PREFIX).to_string()
 }
@@ -83,6 +103,10 @@ pub fn prefix() -> String {
 ///
 /// println!("Name suffix: {}", suffix);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "name" feature.
 ///
 pub fn suffix() -> String {
     misc::random_data(person_data::SUFFIX).to_string()
