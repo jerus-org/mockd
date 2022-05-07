@@ -29,6 +29,7 @@ pub mod currency;
 pub(crate) mod data;
 pub mod datetime;
 pub mod file;
+#[cfg(feature = "generator")]
 pub mod generator;
 pub mod hacker;
 pub mod hipster;
