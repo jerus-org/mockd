@@ -97,6 +97,7 @@ workflows:
                   address,
                   company,
                   contact,
+                  datetime,
                   generator,
                   hacker,
                   hipster,
