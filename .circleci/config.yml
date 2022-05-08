@@ -105,6 +105,7 @@ workflows:
                   name,
                   payment,
                   person,
+                  unique,
                   user-agent,
                   vehicle,
                   words,

@@ -56,6 +56,7 @@ pub mod payment;
 pub mod person;
 pub mod status_code;
 pub(crate) mod testify;
+#[cfg(feature = "unique")]
 pub mod unique;
 #[cfg(feature = "user-agent")]
 pub mod user_agent;
