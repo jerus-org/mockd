@@ -12,7 +12,7 @@
 //!
 //! # Feature
 //!
-//! Requires the "statu-code" feature.
+//! Requires the "status-code" feature.
 //!
 
 use crate::misc;
@@ -31,7 +31,7 @@ pub(crate) mod data;
 ///
 /// # Feature
 ///
-/// Requires the "statu-code" feature.
+/// Requires the "status-code" feature.
 ///
 pub fn simple() -> i16 {
     misc::random_data(data::SIMPLE)
@@ -49,7 +49,7 @@ pub fn simple() -> i16 {
 ///
 /// # Feature
 ///
-/// Requires the "statu-code" feature.
+/// Requires the "status-code" feature.
 ///
 pub fn general() -> i16 {
     misc::random_data(data::GENERAL)

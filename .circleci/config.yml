@@ -103,6 +103,7 @@ workflows:
                   internet,
                   job,
                   name,
+                  password,
                   payment,
                   person,
                   status-code,
