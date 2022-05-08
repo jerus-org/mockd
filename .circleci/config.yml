@@ -91,18 +91,21 @@ workflows:
       - feature-test:
           matrix:
             parameters:
-              mockd-feature: [
+              mockd-feature:
+                [
                   all,
-                  contact,
+                  address,
                   company,
+                  contact,
                   generator,
                   hacker,
-                  hipster
+                  hipster,
                   internet,
                   job,
                   name,
                   payment,
                   person,
+                  vehicle,
                   words,
                 ]
           requires:

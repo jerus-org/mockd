@@ -24,21 +24,23 @@ all = [
     "name",
     "payment",
     "person",
+    "vehicle",
     "words"
     ]
-address = ["name"]
-company = ["name"]
-contact = ["internet"]
-generator =["person"]
-hacker = ["generator", "contact"]
-hipster = ["words"]
-internet = ["person"]
-job = ["company"]
+address = ["misc", "name"]
+company = ["misc", "name"]
+contact = ["misc", "internet"]
+generator =["misc", "person"]
+hacker = ["misc", "generator", "contact"]
+hipster = ["misc", "words"]
+internet = ["misc", "person"]
+job = ["misc", "company"]
 misc = ["address", "company", "job"]
-name = ["person"]
-payment = []
-person = ["payment", "contact", "address"]
-words = ["company", "job", "name"]
+name = ["misc", "person"]
+payment = ["misc"]
+person = ["misc", "payment", "contact", "address"]
+vehicle = ["misc"]
+words = ["misc", "company", "job", "name"]
 
 [dependencies]
 rand = "0.8.5"

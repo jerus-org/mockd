@@ -8,4 +8,3 @@ pub mod files;
 pub mod language;
 pub mod log_level;
 pub mod status_code;
-pub mod vehicle;

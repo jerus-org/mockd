@@ -14,10 +14,15 @@
 //!     let data = vehicle::car_model(); // car_model: Gti
 //! ```
 //!
+//! # Feature
+//!
+//! Requires the "vehicle" feature.
+//!
 
-use crate::data::vehicle;
 use crate::misc;
 use chrono::{Datelike, Utc};
+
+pub(crate) mod data;
 
 /// Info struct for vehicle data.
 ///
@@ -28,6 +33,10 @@ use chrono::{Datelike, Utc};
 ///
 /// println!("Vehicle: {:#?}", vehicle);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "vehicle" feature.
 ///
 #[derive(Debug)]
 pub struct Info {
@@ -48,6 +57,10 @@ pub struct Info {
 ///
 /// println!("Vehicle: {:#?}", vehicle);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "vehicle" feature.
 ///
 pub fn info() -> Info {
     Info {
@@ -70,8 +83,12 @@ pub fn info() -> Info {
 /// println!("Vehicle type: {}", vehicle_type);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "vehicle" feature.
+///
 pub fn vehicle_type() -> String {
-    misc::random_data(vehicle::TYPE).to_string()
+    misc::random_data(data::TYPE).to_string()
 }
 
 /// Pick a random fuel type from the fuel type dictionary.
@@ -84,8 +101,12 @@ pub fn vehicle_type() -> String {
 /// println!("Fuel: {}", fuel_type);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "vehicle" feature.
+///
 pub fn fuel() -> String {
-    misc::random_data(vehicle::FUEL_TYPE).to_string()
+    misc::random_data(data::FUEL_TYPE).to_string()
 }
 
 /// Pick a random transmission from the transmission dictionary.
@@ -98,8 +119,12 @@ pub fn fuel() -> String {
 /// println!("Transmission: {}", transmission);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "vehicle" feature.
+///
 pub fn transmission_gear() -> String {
-    misc::random_data(vehicle::TRANSMISSION_TYPE).to_string()
+    misc::random_data(data::TRANSMISSION_TYPE).to_string()
 }
 
 /// Pick a random car maker from the car maker dictionary.
@@ -112,8 +137,12 @@ pub fn transmission_gear() -> String {
 /// println!("Maker: {}", maker);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "vehicle" feature.
+///
 pub fn car_maker() -> String {
-    misc::random_data(vehicle::MAKER).to_string()
+    misc::random_data(data::MAKER).to_string()
 }
 
 /// Pick a random model from the model dictionary.
@@ -126,9 +155,12 @@ pub fn car_maker() -> String {
 /// println!("Model: {}", model);
 /// ```
 ///
-
+/// # Feature
+///
+/// Requires the "vehicle" feature.
+///
 pub fn car_model() -> String {
-    misc::random_data(vehicle::MODEL).to_string()
+    misc::random_data(data::MODEL).to_string()
 }
 
 #[cfg(test)]
