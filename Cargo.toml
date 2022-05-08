@@ -20,6 +20,7 @@ all = [
     "hipster",
     "internet",
     "job",
+    "misc",
     "name",
     "payment",
     "person",
@@ -33,6 +34,7 @@ hacker = ["generator", "contact"]
 hipster = ["words"]
 internet = ["person"]
 job = ["company"]
+misc = ["address", "company", "job"]
 name = ["person"]
 payment = []
 person = ["payment", "contact", "address"]

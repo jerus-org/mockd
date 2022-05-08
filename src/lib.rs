@@ -36,6 +36,7 @@ pub mod file;
 pub mod generator;
 #[cfg(feature = "hacker")]
 pub mod hacker;
+#[cfg(feature = "hipster")]
 pub mod hipster;
 pub mod image;
 #[cfg(feature = "internet")]
@@ -44,6 +45,7 @@ pub mod internet;
 pub mod job;
 pub mod language;
 pub mod log_level;
+#[cfg(feature = "misc")]
 pub(crate) mod misc;
 #[cfg(feature = "name")]
 pub mod name;
