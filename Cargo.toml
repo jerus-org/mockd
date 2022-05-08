@@ -24,6 +24,7 @@ all = [
     "name",
     "payment",
     "person",
+    "user-agent",
     "vehicle",
     "words"
     ]
@@ -39,6 +40,7 @@ misc = ["address", "company", "job"]
 name = ["misc", "person"]
 payment = ["misc"]
 person = ["misc", "payment", "contact", "address"]
+user-agent = ["misc"]
 vehicle = ["misc"]
 words = ["misc", "company", "job", "name"]
 

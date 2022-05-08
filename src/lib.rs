@@ -57,6 +57,7 @@ pub mod person;
 pub mod status_code;
 pub(crate) mod testify;
 pub mod unique;
+#[cfg(feature = "user-agent")]
 pub mod user_agent;
 #[cfg(feature = "vehicle")]
 pub mod vehicle;
