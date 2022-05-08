@@ -30,6 +30,7 @@ pub mod company;
 pub mod contact;
 pub mod currency;
 pub(crate) mod data;
+#[cfg(feature = "datetime")]
 pub mod datetime;
 pub mod file;
 #[cfg(feature = "generator")]
