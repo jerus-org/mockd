@@ -24,6 +24,7 @@ all = [
     "name",
     "payment",
     "person",
+    "status-code",
     "unique",
     "user-agent",
     "vehicle",
@@ -39,8 +40,9 @@ internet = ["misc", "person"]
 job = ["misc", "company"]
 misc = ["address", "company", "job"]
 name = ["misc", "person"]
-payment = ["misc"]
+payment = ["misc", "chrono"]
 person = ["misc", "payment", "contact", "address"]
+status-code = ["misc"]
 unique = ["misc", "chrono", "uuid"]
 user-agent = ["misc"]
 vehicle = ["misc"]

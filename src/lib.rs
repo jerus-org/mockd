@@ -54,6 +54,7 @@ pub mod password;
 pub mod payment;
 #[cfg(feature = "person")]
 pub mod person;
+#[cfg(feature = "status-code")]
 pub mod status_code;
 pub(crate) mod testify;
 #[cfg(feature = "unique")]
