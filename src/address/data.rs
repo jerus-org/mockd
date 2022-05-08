@@ -190,7 +190,6 @@ pub static STREET_NAME: &[&str] = &[
     "Station",
     "Station",
     "Stravenue",
-    "Stravenue",
     "Stream",
     "Stream",
     "Street",
