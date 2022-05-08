@@ -17,6 +17,7 @@ all = [
     "contact",
     "generator",
     "hacker",
+    "hipster",
     "internet",
     "job",
     "name",
@@ -29,6 +30,7 @@ company = ["name"]
 contact = ["internet"]
 generator =["person"]
 hacker = ["generator", "contact"]
+hipster = ["words"]
 internet = ["person"]
 job = ["company"]
 name = ["person"]
