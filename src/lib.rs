@@ -44,6 +44,7 @@ pub mod image;
 pub mod internet;
 #[cfg(feature = "job")]
 pub mod job;
+#[cfg(feature = "language")]
 pub mod language;
 #[cfg(feature = "log-level")]
 pub mod log_level;
