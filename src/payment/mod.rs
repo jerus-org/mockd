@@ -32,6 +32,7 @@ mod data;
 ///
 /// println!("Credit Card: {:#?}", credit_card);
 /// ```
+///
 /// # Feature
 ///
 /// Requires the "payment" feature.
