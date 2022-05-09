@@ -103,6 +103,7 @@ workflows:
                   hipster,
                   internet,
                   job,
+                  log-level,
                   name,
                   password,
                   payment,

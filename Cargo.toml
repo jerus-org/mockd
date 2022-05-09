@@ -21,6 +21,7 @@ all = [
     "hipster",
     "internet",
     "job",
+    "log-level",
     "misc",
     "name",
     "password",
@@ -41,6 +42,7 @@ hacker = ["misc", "generator", "contact"]
 hipster = ["misc", "words"]
 internet = ["misc", "person"]
 job = ["misc", "company"]
+log-level = ["misc"]
 misc = []
 name = ["misc", "person"]
 password = ["misc"]

@@ -45,6 +45,7 @@ pub mod internet;
 #[cfg(feature = "job")]
 pub mod job;
 pub mod language;
+#[cfg(feature = "log-level")]
 pub mod log_level;
 #[cfg(feature = "misc")]
 pub(crate) mod misc;

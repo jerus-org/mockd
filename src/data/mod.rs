@@ -5,4 +5,3 @@ pub mod computer;
 pub mod currency;
 pub mod files;
 pub mod language;
-pub mod log_level;
