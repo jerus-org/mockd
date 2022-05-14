@@ -12,11 +12,49 @@
 //!
 //! Providing randomly generated data is a best practice.
 //!
-//! ```rust
+//! ```toml
+//! [dependencies]
+//! mockd = {version = "0.3.0", Features = ["image"]}
+//! ```
+//!
+//! ```no_compile
 //! use mockd::image;
 //!
 //!     let data = image::url(500, 500); // url: https://picsum.photos/500/500
 //! ```
+//!
+//! # Features
+//!
+//! To access the related generators the feature must be enabled. The following
+//! features are available:
+//! * all - Enables all features
+//! * address
+//! * animal
+//! * beer
+//! * company
+//! * contact
+//! * currency
+//! * datetime
+//! * file
+//! * generator
+//! * hacker
+//! * hipster
+//! * image
+//! * internet
+//! * job
+//! * language
+//! * log-level
+//! * name
+//! * password
+//! * payment
+//! * person
+//! * random-bool
+//! * status-code
+//! * unique
+//! * user-agent
+//! * vehicle
+//! * words
+//!
 
 #[cfg(feature = "address")]
 pub mod address;
