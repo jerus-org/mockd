@@ -22,6 +22,7 @@
 pub mod address;
 pub mod animal;
 pub mod beer;
+#[cfg(feature = "random-bool")]
 pub mod bool_rand;
 #[cfg(feature = "colour")]
 pub mod colour;

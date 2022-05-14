@@ -111,6 +111,7 @@ workflows:
                   password,
                   payment,
                   person,
+                  random-bool,
                   status-code,
                   unique,
                   user-agent,

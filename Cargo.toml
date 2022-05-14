@@ -31,6 +31,7 @@ all = [
     "password",
     "payment",
     "person",
+    "random-bool",
     "status-code",
     "unique",
     "user-agent",
@@ -56,6 +57,7 @@ name = ["misc", "person"]
 password = ["misc"]
 payment = ["misc", "chrono"]
 person = ["misc", "payment", "contact", "address"]
+random-bool = ["misc"]
 status-code = ["misc"]
 unique = ["misc", "chrono", "uuid"]
 user-agent = ["misc"]
