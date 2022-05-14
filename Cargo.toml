@@ -13,6 +13,7 @@ keywords = ["fake", "data", "random", "generator", "faker"]
 [features]
 all = [
     "address",
+    "animal",
     "company",
     "beer",
     "colour",
@@ -40,6 +41,7 @@ all = [
     "words"
     ]
 address = ["misc", "name"]
+animal = ["misc"]
 beer = ["misc"]
 company = ["misc", "name"]
 colour = ["misc"]

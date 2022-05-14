@@ -20,7 +20,9 @@
 
 #[cfg(feature = "address")]
 pub mod address;
+#[cfg(feature = "animal")]
 pub mod animal;
+#[cfg(feature = "beer")]
 pub mod beer;
 #[cfg(feature = "random-bool")]
 pub mod bool_rand;

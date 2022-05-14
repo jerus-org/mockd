@@ -13,8 +13,13 @@
 //!     let data = animal::cat(); // cat: Oriental Shorthair
 //!     let data = animal::dog(); // dog: Rottweiler
 //! ```
+//!
+//! # Feature
+//!
+//! Requires the "animal" feature.
+//!
 
-use crate::data::animal;
+pub(crate) mod data;
 use crate::misc;
 
 /// Pick a random pet name from the petname dictionary.
@@ -27,8 +32,12 @@ use crate::misc;
 /// println!("Pet Name: {}", pet_name);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "animal" feature.
+///
 pub fn pet_name() -> String {
-    misc::random_data(animal::PETNAME).to_string()
+    misc::random_data(data::PETNAME).to_string()
 }
 
 /// Pick a random animal from the animal dictionary.
@@ -41,8 +50,12 @@ pub fn pet_name() -> String {
 /// println!("Animal: {}", animal);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "animal" feature.
+///
 pub fn animal() -> String {
-    misc::random_data(animal::ANIMAL).to_string()
+    misc::random_data(data::ANIMAL).to_string()
 }
 
 /// Pick a random animal type from the animal types dictionary.
@@ -63,8 +76,12 @@ pub fn animal() -> String {
 /// println!("Type of Animal: {}", type_of_animal);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "animal" feature.
+///
 pub fn type_of() -> String {
-    misc::random_data(animal::TYPE).to_string()
+    misc::random_data(data::TYPE).to_string()
 }
 
 /// Pick a random animal from the farm animals dictionary.
@@ -77,8 +94,12 @@ pub fn type_of() -> String {
 /// println!("Farm Animal: {}", farm_animal);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "animal" feature.
+///
 pub fn farm() -> String {
-    misc::random_data(animal::FARM).to_string()
+    misc::random_data(data::FARM).to_string()
 }
 
 /// Pick a random cat breed from the cat breed dictionary.
@@ -91,8 +112,12 @@ pub fn farm() -> String {
 /// println!("Breed of Cat: {}", cat);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "animal" feature.
+///
 pub fn cat() -> String {
-    misc::random_data(animal::CAT).to_string()
+    misc::random_data(data::CAT).to_string()
 }
 
 /// Pick a random dog breed from the dog breed dictionary.
@@ -105,8 +130,12 @@ pub fn cat() -> String {
 /// println!("Breed of Dog: {}", dog);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "animal" feature.
+///
 pub fn dog() -> String {
-    misc::random_data(animal::DOG).to_string()
+    misc::random_data(data::DOG).to_string()
 }
 
 #[cfg(test)]
