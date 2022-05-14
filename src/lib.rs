@@ -12,9 +12,22 @@
 //!
 //! Providing randomly generated data is a best practice.
 //!
+//! ## Examples
+//!
+//! ### Using default features
+//!
+//! ```rust
+//! use mockd::file;
+//!
+//!     let data = file::mime_type(); // mime_type: text/x-fortran
+//!     let data = file::extension(); // extension: aspx
+//! ```
+//!
+//! ### Using image feature
+//!
 //! ```toml
 //! [dependencies]
-//! mockd = {version = "0.3.0", Features = ["image"]}
+//! mockd = {version = "0.3.0", default-features = false, features = ["image"]}
 //! ```
 //!
 //! ```no_compile
@@ -27,6 +40,7 @@
 //!
 //! To access the related generators the feature must be enabled. The following
 //! features are available:
+//! * default - includes file feature only
 //! * all - Enables all features
 //! * address
 //! * animal
