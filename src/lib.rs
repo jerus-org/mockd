@@ -32,6 +32,7 @@ pub mod currency;
 pub(crate) mod data;
 #[cfg(feature = "datetime")]
 pub mod datetime;
+#[cfg(feature = "file")]
 pub mod file;
 #[cfg(feature = "generator")]
 pub mod generator;

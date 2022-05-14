@@ -16,6 +16,7 @@ all = [
     "company",
     "contact",
     "datetime",
+    "file",
     "generator",
     "hacker",
     "hipster",
@@ -38,6 +39,7 @@ address = ["misc", "name"]
 company = ["misc", "name"]
 contact = ["misc", "internet"]
 datetime =["misc", "chrono"]
+file =["misc"]
 generator =["misc", "person"]
 hacker = ["misc", "generator", "contact"]
 hipster = ["misc", "words"]
