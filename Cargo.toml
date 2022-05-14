@@ -14,6 +14,7 @@ keywords = ["fake", "data", "random", "generator", "faker"]
 all = [
     "address",
     "company",
+    "colour",
     "contact",
     "currency",
     "datetime",
@@ -38,6 +39,7 @@ all = [
     ]
 address = ["misc", "name"]
 company = ["misc", "name"]
+colour = ["misc"]
 contact = ["misc", "internet"]
 currency = ["misc"]
 datetime =["misc", "chrono"]
