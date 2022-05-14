@@ -21,9 +21,10 @@
 //! Requires the "user-agent" feature.
 //!
 
-use crate::data::computer;
 use crate::datetime;
 use crate::misc;
+
+pub(crate) mod data;
 
 /// Generate a random Chrome user agent string.
 ///
@@ -174,10 +175,7 @@ pub fn opera() -> String {
 /// Requires the "user-agent" feature.
 ///
 pub fn linux_platform_token() -> String {
-    format!(
-        "X11; Linux {}",
-        misc::random_data(computer::LINUX_PROCESSOR)
-    )
+    format!("X11; Linux {}", misc::random_data(data::LINUX_PROCESSOR))
 }
 
 /// Generate a random Mac platform token string.
@@ -197,7 +195,7 @@ pub fn linux_platform_token() -> String {
 pub fn mac_platform_token() -> String {
     format!(
         "Macintosh; {} Mac OS X 10_{}_{}",
-        misc::random_data(computer::MAC_PROCESSOR),
+        misc::random_data(data::MAC_PROCESSOR),
         misc::random(5, 9),
         misc::random(0, 10),
     )
@@ -218,7 +216,7 @@ pub fn mac_platform_token() -> String {
 /// Requires the "user-agent" feature.
 ///
 pub fn windows_platform_token() -> String {
-    misc::random_data(computer::WINDOWS_PLATFORM).to_string()
+    misc::random_data(data::WINDOWS_PLATFORM).to_string()
 }
 
 /// Generate a random platform token string.

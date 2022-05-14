@@ -72,7 +72,6 @@ pub mod company;
 pub mod contact;
 #[cfg(feature = "currency")]
 pub mod currency;
-pub(crate) mod data;
 #[cfg(feature = "datetime")]
 pub mod datetime;
 #[cfg(feature = "file")]
@@ -105,7 +104,6 @@ pub mod payment;
 pub mod person;
 #[cfg(feature = "status-code")]
 pub mod status_code;
-pub(crate) mod testify;
 #[cfg(feature = "unique")]
 pub mod unique;
 #[cfg(feature = "user-agent")]
@@ -114,3 +112,6 @@ pub mod user_agent;
 pub mod vehicle;
 #[cfg(feature = "words")]
 pub mod words;
+
+#[cfg(test)]
+pub(crate) mod testify;
