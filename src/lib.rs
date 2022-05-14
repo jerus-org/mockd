@@ -45,6 +45,7 @@ pub mod generator;
 pub mod hacker;
 #[cfg(feature = "hipster")]
 pub mod hipster;
+#[cfg(feature = "image")]
 pub mod image;
 #[cfg(feature = "internet")]
 pub mod internet;

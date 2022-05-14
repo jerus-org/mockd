@@ -24,6 +24,7 @@ all = [
     "generator",
     "hacker",
     "hipster",
+    "image",
     "internet",
     "job",
     "language",
@@ -52,6 +53,7 @@ file =["misc"]
 generator =["misc", "person"]
 hacker = ["misc", "generator", "contact"]
 hipster = ["misc", "words"]
+image = []
 internet = ["misc", "person"]
 job = ["misc", "company"]
 language = ["misc"]
