@@ -28,6 +28,7 @@ pub mod color;
 pub mod company;
 #[cfg(feature = "contact")]
 pub mod contact;
+#[cfg(feature = "currency")]
 pub mod currency;
 pub(crate) mod data;
 #[cfg(feature = "datetime")]

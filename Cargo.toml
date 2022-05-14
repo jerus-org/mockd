@@ -15,6 +15,7 @@ all = [
     "address",
     "company",
     "contact",
+    "currency",
     "datetime",
     "file",
     "generator",
@@ -38,6 +39,7 @@ all = [
 address = ["misc", "name"]
 company = ["misc", "name"]
 contact = ["misc", "internet"]
+currency = ["misc"]
 datetime =["misc", "chrono"]
 file =["misc"]
 generator =["misc", "person"]

@@ -97,6 +97,7 @@ workflows:
                   address,
                   company,
                   contact,
+                  currency,
                   datetime,
                   file,
                   generator,
