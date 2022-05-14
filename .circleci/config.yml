@@ -95,6 +95,7 @@ workflows:
                 [
                   all,
                   address,
+                  beer,
                   company,
                   contact,
                   currency,
