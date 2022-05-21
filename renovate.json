@@ -41,6 +41,7 @@
       "matchPackagePatterns": [
         "github/codeql-action",
         "ossf/scorecard-action",
+        "actions/upload-artifact",
         "actions/checkout"
       ],
       "automerge": true
