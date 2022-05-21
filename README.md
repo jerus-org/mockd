@@ -51,7 +51,7 @@ Mockd provides mock data in the following categories:
 - animal
 - beer
 - bool_rand
-- color
+- colour
 - company
 - contact
 - currency

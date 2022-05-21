@@ -11,10 +11,16 @@
 //!     let data = currency::long(); // long: Burundi Franc
 //!     let data = currency::price(1 as f64, 123 as f64); // price: 53.7
 //! ```
+//!
+//! # Feature
+//!
+//! Requires the "currency" feature.
+//!
 
-use crate::data::currency;
 use crate::misc;
 use math::round;
+
+pub(crate) mod data;
 
 /// Contains both the short and long name for a currency
 /// # Example
@@ -24,6 +30,10 @@ use math::round;
 ///
 /// println!("Currency: {:#?}", compact);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "currency" feature.
 ///
 #[derive(Debug)]
 pub struct Info {
@@ -41,11 +51,15 @@ pub struct Info {
 /// println!("Currency: {:#?}", compact);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "currency" feature.
+///
 pub fn compact() -> Info {
-    let index = misc::random_data_index(currency::SHORT);
+    let index = misc::random_data_index(data::SHORT);
     Info {
-        short: currency::SHORT[index].to_string(),
-        long: currency::LONG[index].to_string(),
+        short: data::SHORT[index].to_string(),
+        long: data::LONG[index].to_string(),
     }
 }
 
@@ -59,8 +73,12 @@ pub fn compact() -> Info {
 /// println!("Currency code: {}", short);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "currency" feature.
+///
 pub fn short() -> String {
-    misc::random_data(currency::SHORT).to_string()
+    misc::random_data(data::SHORT).to_string()
 }
 
 /// Generate a random long currency name.
@@ -73,8 +91,12 @@ pub fn short() -> String {
 /// println!("Currency name: {}", name);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "currency" feature.
+///
 pub fn long() -> String {
-    misc::random_data(currency::LONG).to_string()
+    misc::random_data(data::LONG).to_string()
 }
 
 /// Generate a random currency price within a range.
@@ -88,6 +110,10 @@ pub fn long() -> String {
 ///
 /// println!("Currency price: {}", price);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "currency" feature.
 ///
 pub fn price(min: f64, max: f64) -> f64 {
     round::floor(misc::random::<f64>(min, max), 2)

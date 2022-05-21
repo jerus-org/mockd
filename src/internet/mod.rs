@@ -14,12 +14,17 @@
 //!     let data = internet::mac_address(); // mac_address: 2D:3F:7E:5D:61:C1
 //!     let data = internet::username(); // username: Nienow1881
 //! ```
+//! # Feature
+//!
+//! Requires the "internet" feature.
+//!
 
 use crate::company;
-use crate::data::internet;
-use crate::data::person;
 use crate::job;
 use crate::misc;
+use crate::person::data as person_data;
+
+pub(crate) mod data;
 
 /// Construct a random domain name based on words in the test data dictionaries.
 ///
@@ -33,6 +38,10 @@ use crate::misc;
 ///
 /// println!("Domain Name: {}", domain_name);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "internet" feature.
 ///
 pub fn domain_name() -> String {
     format!(
@@ -53,8 +62,12 @@ pub fn domain_name() -> String {
 /// println!("Http Method: {}", http_method);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "internet" feature.
+///
 pub fn http_method() -> String {
-    misc::random_data(internet::HTTP_METHOD).to_string()
+    misc::random_data(data::HTTP_METHOD).to_string()
 }
 
 /// Pick a random domain suffix from the dictionary.
@@ -68,8 +81,12 @@ pub fn http_method() -> String {
 ///
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "internet" feature.
+///
 pub fn domain_suffix() -> String {
-    misc::random_data(internet::DOMAIN_SUFFIX).to_string()
+    misc::random_data(data::DOMAIN_SUFFIX).to_string()
 }
 
 /// Generate a random ipv4 address string.
@@ -82,6 +99,10 @@ pub fn domain_suffix() -> String {
 /// println!("IPv4 address: {}", ipv4);
 ///
 /// ```
+///
+/// # Feature
+///
+/// Requires the "internet" feature.
 ///
 pub fn ipv4_address() -> String {
     format!(
@@ -103,6 +124,10 @@ pub fn ipv4_address() -> String {
 /// println!("IPv6 address: {}", ipv6);
 ///
 /// ```
+///
+/// # Feature
+///
+/// Requires the "internet" feature.
 ///
 pub fn ipv6_address() -> String {
     let num: i64 = 65536;
@@ -128,6 +153,10 @@ pub fn ipv6_address() -> String {
 /// println!("MAC address: {}", mac);
 ///
 /// ```
+///
+/// # Feature
+///
+/// Requires the "internet" feature.
 ///
 pub fn mac_address() -> String {
     let num: i16 = 255;
@@ -156,10 +185,14 @@ pub fn mac_address() -> String {
 ///
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "internet" feature.
+///
 pub fn username() -> String {
     format!(
         "{}{}",
-        misc::random_data(person::LAST),
+        misc::random_data(person_data::LAST),
         misc::replace_with_numbers("####".to_string()),
     )
 }

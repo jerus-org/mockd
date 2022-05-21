@@ -11,9 +11,14 @@
 //!     let data = log_level::apache(); // apache: debug
 //! ```
 //!
+//! # Feature
+//!
+//! Requires the "log-level" feature.
+//!
 
-use crate::data::log_level;
 use crate::misc;
+
+pub(crate) mod data;
 
 /// Pick a random log level from the log level dictionary.
 ///
@@ -25,8 +30,12 @@ use crate::misc;
 /// println!("Log level: {}", log_level);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "log-level" feature.
+///
 pub fn general() -> String {
-    misc::random_data(log_level::GENERAL).to_string()
+    misc::random_data(data::GENERAL).to_string()
 }
 
 /// Pick a random syslog log level from the syslog dictionary.
@@ -39,8 +48,12 @@ pub fn general() -> String {
 /// println!("SysLog level: {}", log_level);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "log-level" feature.
+///
 pub fn syslog() -> String {
-    misc::random_data(log_level::SYSLOG).to_string()
+    misc::random_data(data::SYSLOG).to_string()
 }
 
 /// Pick a random Apache log level from the Apache log level dictionary.
@@ -53,8 +66,12 @@ pub fn syslog() -> String {
 /// println!("Apache log level: {}", apache_log_level);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "log-level" feature.
+///
 pub fn apache() -> String {
-    misc::random_data(log_level::APACHE).to_string()
+    misc::random_data(data::APACHE).to_string()
 }
 
 #[cfg(test)]

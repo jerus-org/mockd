@@ -24,9 +24,15 @@
 //!     let data = datetime::date(); // date: 1979-01-06 23:03:10.918301212 UTC
 //! ```
 //!
-use crate::data::datetime;
+//! # Feature
+//!
+//! Requires the "datetime" feature.
+//!
+
 use crate::misc;
 use chrono::{DateTime, Datelike, NaiveDateTime, Utc};
+
+pub(crate) mod data;
 
 /// Generate a random month.
 ///
@@ -40,6 +46,10 @@ use chrono::{DateTime, Datelike, NaiveDateTime, Utc};
 ///
 /// println!("Month: {}", month);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "datetime" feature.
 ///
 pub fn month() -> String {
     misc::random::<i8>(1, 12).to_string()
@@ -58,6 +68,10 @@ pub fn month() -> String {
 /// println!("Day: {}", day);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "datetime" feature.
+///
 pub fn day() -> String {
     misc::random::<i8>(1, 28).to_string()
 }
@@ -74,6 +88,10 @@ pub fn day() -> String {
 ///
 /// println!("Day: {}", day);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "datetime" feature.
 ///
 pub fn week_day() -> String {
     misc::random::<i8>(0, 6).to_string()
@@ -92,6 +110,10 @@ pub fn week_day() -> String {
 /// println!("Year: {}", year);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "datetime" feature.
+///
 pub fn year() -> String {
     misc::random::<i32>(1980, Utc::now().year()).to_string()
 }
@@ -108,6 +130,10 @@ pub fn year() -> String {
 ///
 /// println!("Hour: {}", hour);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "datetime" feature.
 ///
 pub fn hour() -> String {
     misc::random::<i8>(0, 23).to_string()
@@ -126,6 +152,10 @@ pub fn hour() -> String {
 /// println!("Minute: {}", minute);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "datetime" feature.
+///
 pub fn minute() -> String {
     misc::random::<i8>(0, 59).to_string()
 }
@@ -143,6 +173,10 @@ pub fn minute() -> String {
 /// println!("Second: {}", second);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "datetime" feature.
+///
 pub fn second() -> String {
     misc::random::<i8>(0, 59).to_string()
 }
@@ -159,6 +193,10 @@ pub fn second() -> String {
 ///
 /// println!("Nanosecond: {}", nanosecond);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "datetime" feature.
 ///
 pub fn nanosecond() -> String {
     misc::random::<i64>(0, 999_999_999).to_string()
@@ -179,8 +217,12 @@ pub fn nanosecond() -> String {
 /// println!("Timezone: {}", timezone);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "datetime" feature.
+///
 pub fn timezone() -> String {
-    misc::random_data(datetime::TEXT).to_string()
+    misc::random_data(data::TEXT).to_string()
 }
 
 /// Generate a random full timezone description.
@@ -199,8 +241,12 @@ pub fn timezone() -> String {
 /// println!("Full timezone description: {}", timezone_full);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "datetime" feature.
+///
 pub fn timezone_full() -> String {
-    misc::random_data(datetime::FULL).to_string()
+    misc::random_data(data::FULL).to_string()
 }
 
 /// Generate a random timezone abbreviation.
@@ -219,8 +265,12 @@ pub fn timezone_full() -> String {
 /// println!("Timezone abbreviation: {}", timezone_abr);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "datetime" feature.
+///
 pub fn timezone_abv() -> String {
-    misc::random_data(datetime::ABR).to_string()
+    misc::random_data(data::ABR).to_string()
 }
 
 /// Generate a random timezone offset.
@@ -240,8 +290,12 @@ pub fn timezone_abv() -> String {
 /// println!("Timezone offset: {}", timezone_offset);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "datetime" feature.
+///
 pub fn timezone_offset() -> String {
-    misc::random_data(datetime::OFFSET).to_string()
+    misc::random_data(data::OFFSET).to_string()
 }
 
 /// Generate a random date from within a range.
@@ -255,6 +309,10 @@ pub fn timezone_offset() -> String {
 ///
 /// println!("Random date from range: {}",random_date);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "datetime" feature.
 ///
 pub fn date_range(min: String, max: String) -> DateTime<Utc> {
     // RFC3339
@@ -286,6 +344,10 @@ pub fn date_range(min: String, max: String) -> DateTime<Utc> {
 ///
 /// println!("Random date from range: {}",random_date);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "datetime" feature.
 ///
 pub fn date() -> DateTime<Utc> {
     date_range(

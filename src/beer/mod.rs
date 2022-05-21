@@ -15,9 +15,14 @@
 //!     let data = beer::alcohol(); // alcohol: 2.943696 %
 //!     let data = beer::blg(); // blg: 7.4607124°Blg
 //! ```
+//! # Feature
+//!
+//! Requires the "beer" feature.
+//!
 
-use crate::data::beer;
 use crate::misc;
+
+pub(crate) mod data;
 
 /// Generate a random beer name.
 ///
@@ -29,8 +34,12 @@ use crate::misc;
 /// println!("Beer: {}", beer);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "beer" feature.
+///
 pub fn name() -> String {
-    misc::random_data(beer::NAME).to_string()
+    misc::random_data(data::NAME).to_string()
 }
 
 /// Generate a random beer style.
@@ -43,8 +52,12 @@ pub fn name() -> String {
 /// println!("Beer style: {}", style);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "beer" feature.
+///
 pub fn style() -> String {
-    misc::random_data(beer::STYLE).to_string()
+    misc::random_data(data::STYLE).to_string()
 }
 
 /// Generate a random beer hop.
@@ -57,8 +70,12 @@ pub fn style() -> String {
 /// println!("Hop: {}", hop);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "beer" feature.
+///
 pub fn hop() -> String {
-    misc::random_data(beer::HOP).to_string()
+    misc::random_data(data::HOP).to_string()
 }
 
 /// Generate a random beer yeast.
@@ -71,8 +88,12 @@ pub fn hop() -> String {
 /// println!("Beer Yeast: {}", yeast);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "beer" feature.
+///
 pub fn yeast() -> String {
-    misc::random_data(beer::YEAST).to_string()
+    misc::random_data(data::YEAST).to_string()
 }
 
 /// Generate a random beer malt.
@@ -85,8 +106,12 @@ pub fn yeast() -> String {
 /// println!("Beer Hop: {}", malt);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "beer" feature.
+///
 pub fn malt() -> String {
-    misc::random_data(beer::MALT).to_string()
+    misc::random_data(data::MALT).to_string()
 }
 
 /// Generate a random beer ibu.
@@ -98,6 +123,10 @@ pub fn malt() -> String {
 ///
 /// println!("Beer IBU: {}", ibu);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "beer" feature.
 ///
 pub fn ibu() -> String {
     format!("{} IBU", misc::random::<i64>(10, 100))
@@ -113,6 +142,10 @@ pub fn ibu() -> String {
 /// println!("Beer Alcohol: {}", alcohol);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "beer" feature.
+///
 pub fn alcohol() -> String {
     format!("{} %", misc::random::<f32>(2.0, 10.0))
 }
@@ -126,6 +159,10 @@ pub fn alcohol() -> String {
 ///
 /// println!("BLG: {}", blg);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "beer" feature.
 ///
 pub fn blg() -> String {
     format!("{}°Blg", misc::random::<f32>(5.0, 20.0))

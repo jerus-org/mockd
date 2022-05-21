@@ -11,12 +11,17 @@
 //!     let data = contact::phone_formatted(); // phone_formatted: 382.450.6544
 //!     let data = contact::email(); // email: benkuvalis@marks.org
 //! ```
+//! # Feature
+//!
+//! Requires the "contact" feature.
+//!
 
-use crate::data::contact;
-use crate::data::internet;
+use crate::internet::data as internet_data;
 use crate::misc;
 use crate::name;
-use ::std::string::String;
+use std::string::String;
+
+pub(crate) mod data;
 
 /// Info struct contains a phone number and email string.
 /// # Example
@@ -26,6 +31,11 @@ use ::std::string::String;
 ///
 /// println!("Info: {:#?}", info);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "contact" feature.
+///
 #[derive(Debug)]
 pub struct Info {
     phone: String,
@@ -41,6 +51,10 @@ pub struct Info {
 ///
 /// println!("Info: {:#?}", info);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "contact" feature.
 ///
 pub fn info() -> Info {
     Info {
@@ -58,6 +72,10 @@ pub fn info() -> Info {
 ///
 /// println!("Phone: {}", phone_number);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "contact" feature.
 ///
 pub fn phone() -> String {
     misc::replace_with_numbers("##########".to_string())
@@ -79,8 +97,12 @@ pub fn phone() -> String {
 /// println!("Formatted phone: {}", formatted_phone);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "contact" feature.
+///
 pub fn phone_formatted() -> String {
-    misc::replace_with_numbers(misc::random_data(contact::PHONE).to_string())
+    misc::replace_with_numbers(misc::random_data(data::PHONE).to_string())
 }
 
 /// Generate a random email address.
@@ -93,13 +115,17 @@ pub fn phone_formatted() -> String {
 /// println!("Email: {}", email);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "contact" feature.
+///
 pub fn email() -> String {
     format!(
         "{}{}@{}.{}",
         name::first(),
         name::last(),
         name::last(),
-        misc::random_data(internet::DOMAIN_SUFFIX)
+        misc::random_data(internet_data::DOMAIN_SUFFIX)
     )
     .to_lowercase()
 }

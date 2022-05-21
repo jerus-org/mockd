@@ -1,5 +1,5 @@
 //!
-//! Provides 2 functions to return mock satus code data.
+//! Provides 2 functions to return mock status code data.
 //!
 //! # Examples
 //!
@@ -10,9 +10,14 @@
 //!    let data = status_code::general(); // general: 400
 //!```
 //!
+//! # Feature
+//!
+//! Requires the "status-code" feature.
+//!
 
-use crate::data::status_code;
 use crate::misc;
+
+pub(crate) mod data;
 
 /// Pick a random status code from the simple dictionary.
 ///
@@ -24,8 +29,12 @@ use crate::misc;
 /// println!("Simple status code: {}", simple);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "status-code" feature.
+///
 pub fn simple() -> i16 {
-    misc::random_data(status_code::SIMPLE)
+    misc::random_data(data::SIMPLE)
 }
 
 /// Pick a random status code from the general dictionary.
@@ -38,8 +47,12 @@ pub fn simple() -> i16 {
 /// println!("General status code: {}", general);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "status-code" feature.
+///
 pub fn general() -> i16 {
-    misc::random_data(status_code::GENERAL)
+    misc::random_data(data::GENERAL)
 }
 
 #[cfg(test)]

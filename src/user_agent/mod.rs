@@ -16,10 +16,15 @@
 //!     let data = user_agent::random_platform(); // random_platform: Macintosh; Intel Mac OS X 10_7_5
 //! ```
 //!
+//! # Feature
+//!
+//! Requires the "user-agent" feature.
+//!
 
-use crate::data::computer;
 use crate::datetime;
 use crate::misc;
+
+pub(crate) mod data;
 
 /// Generate a random Chrome user agent string.
 ///
@@ -30,6 +35,10 @@ use crate::misc;
 ///
 /// println!("User agent string: {}", user_agent);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "user-agent" feature.
 ///
 pub fn chrome() -> String {
     let rand_num = misc::random(531, 536) + misc::random(0, 2);
@@ -52,6 +61,10 @@ pub fn chrome() -> String {
 ///
 /// println!("User agent string: {}", user_agent);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "user-agent" feature.
 ///
 pub fn firefox() -> String {
     // @TODO should be 2006-02-01
@@ -88,6 +101,10 @@ pub fn firefox() -> String {
 /// println!("User agent string: {}", user_agent);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "user-agent" feature.
+///
 pub fn safari() -> String {
     let rand_num = format!(
         "{}.{}.{}",
@@ -122,6 +139,10 @@ pub fn safari() -> String {
 /// println!("User agent string: {}", user_agent);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "user-agent" feature.
+///
 pub fn opera() -> String {
     let platform = format!(
         "({}; en-US) Presto/2.{}.{} Version/{}.00",
@@ -149,11 +170,12 @@ pub fn opera() -> String {
 /// println!("Platform token: {}", platform_token);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "user-agent" feature.
+///
 pub fn linux_platform_token() -> String {
-    format!(
-        "X11; Linux {}",
-        misc::random_data(computer::LINUX_PROCESSOR)
-    )
+    format!("X11; Linux {}", misc::random_data(data::LINUX_PROCESSOR))
 }
 
 /// Generate a random Mac platform token string.
@@ -166,10 +188,14 @@ pub fn linux_platform_token() -> String {
 /// println!("Platform token: {}", platform_token);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "user-agent" feature.
+///
 pub fn mac_platform_token() -> String {
     format!(
         "Macintosh; {} Mac OS X 10_{}_{}",
-        misc::random_data(computer::MAC_PROCESSOR),
+        misc::random_data(data::MAC_PROCESSOR),
         misc::random(5, 9),
         misc::random(0, 10),
     )
@@ -185,8 +211,12 @@ pub fn mac_platform_token() -> String {
 /// println!("Platform token: {}", platform_token);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "user-agent" feature.
+///
 pub fn windows_platform_token() -> String {
-    misc::random_data(computer::WINDOWS_PLATFORM).to_string()
+    misc::random_data(data::WINDOWS_PLATFORM).to_string()
 }
 
 /// Generate a random platform token string.
@@ -198,6 +228,10 @@ pub fn windows_platform_token() -> String {
 ///
 /// println!("Platform token: {}", platform_token);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "user-agent" feature.
 ///
 pub fn random_platform() -> String {
     match misc::random(1, 3) {

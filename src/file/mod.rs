@@ -9,9 +9,15 @@
 //!     let data = file::mime_type(); // mime_type: text/x-fortran
 //!     let data = file::extension(); // extension: aspx
 //! ```
+//!
+//! # Feature
+//!
+//! Requires the "file" feature.
+//!
 
-use crate::data::files;
 use crate::misc;
+
+pub(crate) mod data;
 
 /// Generate a random mime type.
 ///
@@ -23,8 +29,12 @@ use crate::misc;
 /// println!("MIME Type: {}", mime_type);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "file" feature.
+///
 pub fn mime_type() -> String {
-    misc::random_data(files::MIME_TYPE).to_string()
+    misc::random_data(data::MIME_TYPE).to_string()
 }
 
 /// Generate a random file extension.
@@ -37,8 +47,12 @@ pub fn mime_type() -> String {
 /// println!("File extension: {}", extension);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "file" feature.
+///
 pub fn extension() -> String {
-    misc::random_data(files::EXTENSION).to_string()
+    misc::random_data(data::EXTENSION).to_string()
 }
 
 #[cfg(test)]

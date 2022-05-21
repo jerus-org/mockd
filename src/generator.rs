@@ -26,10 +26,15 @@
 //!     let data = generator::generate("{person.first} {person.last} {contact.email} #?#?#?".to_string()); // data: Watson Connelly baileeprosacco@smitham.biz 6d0e0a
 //!     // More details about this later
 //! ```
+//!
+//! # Feature
+//!
+//! Requires the "generator" feature.
+//!
 
 use crate::contact;
-use crate::data::person;
 use crate::hacker;
+use crate::person::data as person_data;
 
 use crate::misc;
 
@@ -61,6 +66,10 @@ use crate::misc;
 ///     let data = generator::generate("{person.first} {person.last} {contact.email} #?#?#?".to_string()); // data: Watson Connelly baileeprosacco@smitham.biz 6d0e0a
 ///     // More details about this later
 /// ```
+///
+/// # Feature
+///
+/// Requires the "generator" feature.
 ///
 pub fn generate(data: String) -> String {
     let mut d_validate_left = data.matches('{').count();
@@ -95,8 +104,8 @@ fn resolve_tag(tag: &str) -> String {
         "hacker.noun" => hacker::noun(),
         "hacker.verb" => hacker::verb(),
         "hacker.ingverb" => hacker::ingverb(),
-        "person.first" => misc::random_data(person::FIRST).to_string(),
-        "person.last" => misc::random_data(person::LAST).to_string(),
+        "person.first" => misc::random_data(person_data::FIRST).to_string(),
+        "person.last" => misc::random_data(person_data::LAST).to_string(),
 
         _ => "".to_string(),
     }

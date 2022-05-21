@@ -1,44 +1,56 @@
 //!
-//! Provides 4 functions to return mock color data.
+//! Provides 4 functions to return mock colour data.
 //!
 //! # Examples
 //!
 //! ```rust
-//! use mockd::color;
+//! use mockd::colour;
 //!
-//!     let data = color::full(); // full: LightYellow
-//!     let data = color::hex(); // hex: #662461
-//!     let data = color::safe(); // safe: black
-//!     let data = color::rgb(); // rgb: [162, 98, 22]
+//!     let data = colour::full(); // full: LightYellow
+//!     let data = colour::hex(); // hex: #662461
+//!     let data = colour::safe(); // safe: black
+//!     let data = colour::rgb(); // rgb: [162, 98, 22]
 //! ```
 //!
+//! # Feature
+//!
+//! Requires the "colour" feature.
+//!
 
-use crate::data::color;
 use crate::misc;
+pub(crate) mod data;
 
-/// Generate a random color name.
+/// Generate a random colour name.
 ///
 /// # Example
 ///
 /// ```rust
-/// let color = mockd::color::full();
+/// let colour = mockd::colour::full();
 ///
-/// println!("Color name from full color name list: {}", color);
+/// println!("Color name from full colour name list: {}", colour);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "colour" feature.
+///
 pub fn full() -> String {
-    misc::random_data(color::FULL).to_string()
+    misc::random_data(data::FULL).to_string()
 }
 
-/// Generate a random color hex code.
+/// Generate a random colour hex code.
 ///
 /// # Example
 ///
 /// ```rust
-/// let hex = mockd::color::hex();
+/// let hex = mockd::colour::hex();
 ///
 /// println!("Color hex: {}", hex);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "colour" feature.
 ///
 pub fn hex() -> String {
     let mut rand: [&'static str; 6] = [
@@ -65,18 +77,22 @@ pub fn hex() -> String {
     )
 }
 
-/// Generate a random safe color.
+/// Generate a random safe colour.
 ///
 /// # Example
 ///
 /// ```rust
-/// let safe_color = mockd::color::safe();
+/// let safe_colour = mockd::colour::safe();
 ///
-/// println!("Safe color: {}", safe_color);
+/// println!("Safe colour: {}", safe_colour);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "colour" feature.
+///
 pub fn safe() -> String {
-    misc::random_data(color::SAFE).to_string()
+    misc::random_data(data::SAFE).to_string()
 }
 
 /// Generate an array of three random rgb numbers.
@@ -84,12 +100,16 @@ pub fn safe() -> String {
 /// # Example
 ///
 /// ```rust
-/// let rgb = mockd::color::rgb();
+/// let rgb = mockd::colour::rgb();
 ///
 /// println!("Red: {}", rgb[0]);
 /// println!("Green: {}", rgb[1]);
 /// println!("Blue: {}", rgb[2]);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "colour" feature.
 ///
 pub fn rgb() -> [i16; 3] {
     [
@@ -101,26 +121,26 @@ pub fn rgb() -> [i16; 3] {
 
 #[cfg(test)]
 mod tests {
-    use crate::color;
+    use crate::colour;
     use crate::testify::exec_mes;
 
     #[test]
     fn full() {
-        exec_mes("color::full", color::full);
+        exec_mes("colour::full", colour::full);
     }
 
     #[test]
     fn hex() {
-        exec_mes("color::hex", color::hex);
+        exec_mes("colour::hex", colour::hex);
     }
 
     #[test]
     fn safe() {
-        exec_mes("color::safe", color::safe);
+        exec_mes("colour::safe", colour::safe);
     }
 
     #[test]
     fn rgb() {
-        exec_mes("color::rgb", || format!("{:?}", color::rgb()));
+        exec_mes("colour::rgb", || format!("{:?}", colour::rgb()));
     }
 }

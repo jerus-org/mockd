@@ -12,6 +12,11 @@
 //!
 //!     let data = password::generate(upper, numeric, special, num); // #9e1Vv5s&Ng8L-#9@=!6+s1+0@R
 //! ```
+//!
+//! # Feature
+//!
+//! Requires the "password" feature.
+//!
 
 use crate::misc;
 
@@ -33,6 +38,10 @@ use crate::misc;
 ///
 /// println!("Password: {}", password);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "password" feature.
 ///
 pub fn generate(upper: bool, numeric: bool, special: bool, mut num: i8) -> String {
     if num < 5 {

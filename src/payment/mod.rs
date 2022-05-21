@@ -32,6 +32,7 @@ mod data;
 ///
 /// println!("Credit Card: {:#?}", credit_card);
 /// ```
+///
 /// # Feature
 ///
 /// Requires the "payment" feature.
@@ -138,18 +139,18 @@ fn credit_card_luhn_number() -> String {
 ///
 pub fn credit_card_exp() -> String {
     let current_year = Utc::now().year() - 2000;
-    let month = misc::random(1, 12);
+    let month = misc::random(1_i8, 12_i8);
     if month < 10 {
         format!(
             "{}/{}",
             format!("0{}", month).as_str(),
-            current_year + misc::random(1, 10)
+            current_year + misc::random(1_i32, 10_i32)
         )
     } else {
         format!(
             "{}/{}",
             format!("{}", month).as_str(),
-            current_year + misc::random(1, 10)
+            current_year + misc::random(1_i32, 10_i32)
         )
     }
 }

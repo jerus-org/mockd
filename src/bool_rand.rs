@@ -9,6 +9,11 @@
 //!     let data = bool_rand::bool(); // true / false
 //!
 //! ```
+//!
+//! # Feature
+//!
+//! Requires the "random-bool" feature.
+//!
 use crate::misc;
 
 /// Generate a random boolean value.
@@ -20,6 +25,10 @@ use crate::misc;
 ///
 /// println!("True or False? {}", true_or_false);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "random-bool" feature.
 ///
 pub fn bool() -> bool {
     misc::random::<i64>(0, 1) == 1

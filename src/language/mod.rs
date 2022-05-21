@@ -11,9 +11,14 @@
 //!     let data = language::programming(); // programming: Rust
 //! ```
 //!
+//! # Feature
+//!
+//! Requires the "language" feature.
+//!
 
-use crate::data::language;
 use crate::misc;
+
+pub(crate) mod data;
 
 /// Pick a random spoken language from the language dictionary.
 ///
@@ -25,8 +30,12 @@ use crate::misc;
 /// println!("Language: {}", language);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "language" feature.
+///
 pub fn random() -> String {
-    misc::random_data(language::LONG).to_string()
+    misc::random_data(data::LONG).to_string()
 }
 
 /// Pick a random spoken language short code from the language short code dictionary.
@@ -39,8 +48,12 @@ pub fn random() -> String {
 /// println!("Spoken language short code: {}", language_short_code);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "language" feature.
+///
 pub fn abbreviation() -> String {
-    misc::random_data(language::SHORT).to_string()
+    misc::random_data(data::SHORT).to_string()
 }
 
 /// Pick a random programming language from the programming language  dictionary.
@@ -53,8 +66,12 @@ pub fn abbreviation() -> String {
 /// println!("Programming language: {}", programming_language);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "language" feature.
+///
 pub fn programming() -> String {
-    misc::random_data(language::PROGRAMMING).to_string()
+    misc::random_data(data::PROGRAMMING).to_string()
 }
 
 #[cfg(test)]

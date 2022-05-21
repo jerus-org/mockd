@@ -10,6 +10,10 @@
 //!     let data = unique::uuid_v4(); // uuid_v4: a474961e-936a-4897-966a-15fcff7bbc87
 //! ```
 //!
+//! # Feature
+//!
+//! Requires the "unique" feature.
+//!
 
 use chrono::{Timelike, Utc};
 use uuid::v1::{Context, Timestamp};
@@ -24,6 +28,10 @@ use uuid::Uuid;
 ///
 /// println!("Uuid: {}", uuid);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "unique" feature.
 ///
 pub fn uuid_v1() -> String {
     let context = Context::new(42);
@@ -45,6 +53,10 @@ pub fn uuid_v1() -> String {
 ///
 /// println!("Uuid: {}", uuid);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "unique" feature.
 ///
 pub fn uuid_v4() -> String {
     Uuid::new_v4().to_string()

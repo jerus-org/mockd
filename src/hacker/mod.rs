@@ -13,10 +13,16 @@
 //!     let data = hacker::verb(); // verb: copy
 //!     let data = hacker::ingverb(); // ingverb: transmitting
 //! ```
+//!
+//! # Feature
+//!
+//! Requires the "hacker" feature.
+//!
 
-use crate::data::hacker;
 use crate::generator;
 use crate::misc;
+
+pub(crate) mod data;
 
 /// Generate a random phrase.
 ///
@@ -28,8 +34,12 @@ use crate::misc;
 /// println!("Phrase: {}", phrase);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "hacker" feature.
+///
 pub fn phrase() -> String {
-    let phrase = misc::random_data(hacker::PHRASE).to_string();
+    let phrase = misc::random_data(data::PHRASE).to_string();
     generator::generate(phrase)
 }
 
@@ -43,8 +53,12 @@ pub fn phrase() -> String {
 /// println!("Abbreviation: {}", abbreviation);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "hacker" feature.
+///
 pub fn abbreviation() -> String {
-    misc::random_data(hacker::ABBREVIATION).to_string()
+    misc::random_data(data::ABBREVIATION).to_string()
 }
 
 /// Pick a random adjective.from the adjective dictionary.
@@ -57,8 +71,12 @@ pub fn abbreviation() -> String {
 /// println!("Adjective: {}", adjective);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "hacker" feature.
+///
 pub fn adjective() -> String {
-    misc::random_data(hacker::ADJECTIVE).to_string()
+    misc::random_data(data::ADJECTIVE).to_string()
 }
 
 /// Pick a random noun.from the noun dictionary.
@@ -71,8 +89,12 @@ pub fn adjective() -> String {
 /// println!("Noun: {}", noun);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "hacker" feature.
+///
 pub fn noun() -> String {
-    misc::random_data(hacker::NOUN).to_string()
+    misc::random_data(data::NOUN).to_string()
 }
 
 /// Pick a random verb.from the verb dictionary.
@@ -85,8 +107,12 @@ pub fn noun() -> String {
 /// println!("Verb: {}", verb);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "hacker" feature.
+///
 pub fn verb() -> String {
-    misc::random_data(hacker::VERB).to_string()
+    misc::random_data(data::VERB).to_string()
 }
 
 /// Pick a random ing verb form from the ingverb dictionary.
@@ -99,8 +125,12 @@ pub fn verb() -> String {
 /// println!("Ing form of verb: {}", ingverb);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "hacker" feature.
+///
 pub fn ingverb() -> String {
-    misc::random_data(hacker::INGVERB).to_string()
+    misc::random_data(data::INGVERB).to_string()
 }
 
 #[cfg(test)]

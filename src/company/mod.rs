@@ -12,11 +12,16 @@
 //!     let data = company::bs(); // bs: strategic
 //! ```
 //!
+//! # Feature
+//!
+//! Requires the "company" feature.
+//!
 
-use crate::data::company;
 use crate::misc;
 use crate::name;
-use ::std::string::String;
+use std::string::String;
+
+pub(crate) mod data;
 
 /// Generate a random company name.
 ///
@@ -27,6 +32,10 @@ use ::std::string::String;
 ///
 /// println!("Company name: {}", company);
 /// ```
+///
+/// # Feature
+///
+/// Requires the "company" feature.
 ///
 pub fn company() -> String {
     match misc::random::<i64>(1, 3) {
@@ -47,8 +56,12 @@ pub fn company() -> String {
 /// println!("Company suffix: {}", company_suffix);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "company" feature.
+///
 pub fn company_suffix() -> String {
-    misc::random_data(company::SUFFIX).to_string()
+    misc::random_data(data::SUFFIX).to_string()
 }
 
 /// Generate a random company buzzword.
@@ -61,8 +74,12 @@ pub fn company_suffix() -> String {
 /// println!("Company buzzword: {}", buzzword);
 /// ```
 ///
+/// # Feature
+///
+/// Requires the "company" feature.
+///
 pub fn buzzword() -> String {
-    misc::random_data(company::BUZZWORDS).to_string()
+    misc::random_data(data::BUZZWORDS).to_string()
 }
 
 /// Generate a random company bs.
@@ -76,8 +93,12 @@ pub fn buzzword() -> String {
 /// ```
 ///
 
+/// # Feature
+///
+/// Requires the "company" feature.
+///
 pub fn bs() -> String {
-    misc::random_data(company::BS).to_string()
+    misc::random_data(data::BS).to_string()
 }
 
 #[cfg(test)]
