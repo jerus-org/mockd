@@ -118,7 +118,7 @@ pub fn info() -> Info {
 pub fn street() -> String {
     match misc::random::<i64>(1, 2) {
         1 => {
-            return format!(
+            format!(
                 "{} {} {} {}",
                 street_number(),
                 street_prefix(),
@@ -126,7 +126,7 @@ pub fn street() -> String {
                 street_suffix()
             )
         }
-        2 => return format!("{} {} {}", street_number(), street_name(), street_suffix()),
+        2 => format!("{} {} {}", street_number(), street_name(), street_suffix()),
         _ => "impossible".to_string(),
     }
 }
@@ -225,9 +225,9 @@ pub fn street_suffix() -> String {
 ///
 pub fn city() -> String {
     match misc::random::<i64>(1, 3) {
-        1 => return format!("{}{}", name::first(), street_suffix()),
-        2 => return format!("{}{}", name::last(), street_suffix()),
-        3 => return format!("{} {}", street_prefix(), name::last()),
+        1 => format!("{}{}", name::first(), street_suffix()),
+        2 => format!("{}{}", name::last(), street_suffix()),
+        3 => format!("{} {}", street_prefix(), name::last()),
         _ => "impossible".to_string(),
     }
 }
@@ -363,7 +363,7 @@ pub fn latitude() -> f32 {
 /// Requires the "address" feature.
 ///
 pub fn latitude_in_range(min: f32, max: f32) -> f32 {
-    if min > max || min < -90.0 || min > 90.0 || max < -90.0 || max > 90.0 {
+    if min > max || !(-90.0..=90.0).contains(&min) || !(-90.0..=90.0).contains(&max) {
         return latitude();
     }
 
@@ -409,7 +409,7 @@ pub fn longitude() -> f32 {
 /// Requires the "address" feature.
 ///
 pub fn longitude_in_range(min: f32, max: f32) -> f32 {
-    if min > max || min < -180.0 || min > 180.0 || max < -180.0 || max > 180.0 {
+    if min > max || !(-180.0..=180.0).contains(&min) || !(-180.0..=180.0).contains(&max) {
         return longitude();
     }
 
