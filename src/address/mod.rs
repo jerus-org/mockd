@@ -409,7 +409,7 @@ pub fn longitude() -> f32 {
 /// Requires the "address" feature.
 ///
 pub fn longitude_in_range(min: f32, max: f32) -> f32 {
-    if min > max || !(-180.0..=180.0).contains(&min) || {!(-180.0..=180.0).contains(&max) {
+    if min > max || !(-180.0..=180.0).contains(&min) || !(-180.0..=180.0).contains(&max) {
         return longitude();
     }
 
