@@ -325,8 +325,8 @@ mod tests {
 
     #[test]
     fn replace_with_numbers() {
-        let data1 = misc::replace_with_numbers("####".to_string());
-        let data2 = misc::replace_with_numbers("####".to_string());
+        let data1 = "a####".to_string();
+        let data2 = misc::replace_with_numbers("a####".to_string());
         assert_ne!(data1, data2);
     }
 }
