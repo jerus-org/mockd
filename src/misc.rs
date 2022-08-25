@@ -104,6 +104,7 @@ pub(crate) fn random_char_from_string(s: &[u8]) -> char {
 #[cfg(test)]
 mod tests {
     use crate::misc;
+    use std::{thread, time}
 
     #[allow(dead_code)]
     pub static STREET_NAME: &[&str] = &[
@@ -319,6 +320,7 @@ mod tests {
     #[test]
     fn random_data_str() {
         let street1 = misc::random_data(STREET_NAME);
+        thread::sleep(time:;duration::from_secs(1));
         let street2 = misc::random_data(STREET_NAME);
         assert_ne!(street1, street2);
     }
