@@ -320,7 +320,7 @@ mod tests {
     #[test]
     fn random_data_str() {
         let street1 = misc::random_data(STREET_NAME);
-        thread::sleep(time::duration::from_secs(1));
+        thread::sleep(time::Duration::from_secs(1));
         let street2 = misc::random_data(STREET_NAME);
         assert_ne!(street1, street2);
     }
