@@ -104,7 +104,7 @@ pub(crate) fn random_char_from_string(s: &[u8]) -> char {
 #[cfg(test)]
 mod tests {
     use crate::misc;
-    use std::{thread, time}
+    use std::{thread, time};
 
     #[allow(dead_code)]
     pub static STREET_NAME: &[&str] = &[
