@@ -1,15 +1,20 @@
 version: 2.1
 
+parameters:
+  min-rust-version:
+    type: string
+    default: "1.56"
+
 executors:
   rust-env:
     docker:
-      - image: cimg/rust:1.63
+      - image: jerusdp/ci-rust:<<pipeline.parameters.min-rust-version>>
 
 commands:
   cargo-build:
     parameters:
       rust-version:
-        default: "1.60.0"
+        default: "stable"
         type: string
     steps:
       - run:
@@ -19,18 +24,25 @@ commands:
             cargo +<<parameters.rust-version>> check --all-features
 
 jobs:
-  build:
+  required-builds:
     executor: rust-env
     steps:
       - checkout
       - run: cargo --version
-      - cargo-build
-      - cargo-build:
-          rust-version: "nightly"
       - cargo-build:
           rust-version: "stable"
       - cargo-build:
-          rust-version: "1.56.0"
+          rust-version: "<<pipeline.parameters.min-rust-version>>"
+
+  optional-builds:
+    executor: rust-env
+    steps:
+      - checkout
+      - run: cargo --version
+      - cargo-build:
+          rust-version: "nightly"
+      - cargo-build:
+          rust-version: "beta"
 
   basic-test:
     executor: rust-env
