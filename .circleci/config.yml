@@ -122,9 +122,12 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  build-test-docs:
+  validation:
+    when:
+      not:
+        equal: [scheduled_pipeline, << pipeline.trigger_source >>]
     jobs:
-      - build
+      - required-builds
       - basic-test
       - feature-test:
           matrix:
@@ -165,3 +168,11 @@ workflows:
           requires:
             - feature-test
       - docs
+      - optional-builds
+  release:
+    when:
+      and:
+        - equal: [scheduled_pipeline, << pipeline.trigger_source >>]
+        - equal: ["release check", << pipeline.schedule.name >>]
+    jobs:
+      - release
