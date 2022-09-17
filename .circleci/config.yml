@@ -162,6 +162,8 @@ workflows:
                 ]
           requires:
             - basic-test
+            - required-builds
+            - docs
       - all-features-flag-test:
           requires:
             - feature-test
