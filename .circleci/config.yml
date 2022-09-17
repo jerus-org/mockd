@@ -1,36 +1,47 @@
 version: 2.1
 
+parameters:
+  min-rust-version:
+    type: string
+    default: "1.56"
+
 executors:
   rust-env:
     docker:
-      - image: cimg/rust:1.63
+      - image: jerusdp/ci-rust:<<pipeline.parameters.min-rust-version>>
 
 commands:
   cargo-build:
     parameters:
       rust-version:
-        default: "1.60.0"
+        default: "stable"
         type: string
     steps:
       - run:
           name: Update Rust and check build <<parameters.rust-version>>
           command: |
-            rustup update <<parameters.rust-version>>
             cargo +<<parameters.rust-version>> check --all-features
 
 jobs:
-  build:
+  required-builds:
     executor: rust-env
     steps:
       - checkout
       - run: cargo --version
-      - cargo-build
-      - cargo-build:
-          rust-version: "nightly"
       - cargo-build:
           rust-version: "stable"
       - cargo-build:
-          rust-version: "1.56.0"
+          rust-version: "<<pipeline.parameters.min-rust-version>>"
+
+  optional-builds:
+    executor: rust-env
+    steps:
+      - checkout
+      - run: cargo --version
+      - cargo-build:
+          rust-version: "nightly"
+      - cargo-build:
+          rust-version: "beta"
 
   basic-test:
     executor: rust-env
@@ -79,14 +90,42 @@ jobs:
       - run:
           name: Test generation of all of the documentation for the crate
           command: |
-            rustup update nightly
             cargo +nightly doc --lib --no-deps --all-features --document-private-items
+
+
+  release:
+    executor: rust-env
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - $SSH_FINGERPRINT
+      - checkout
+      - run:
+          name: Configure git for user and signing
+          command: |
+            git config --global user.email "$USER_EMAIL"
+            git config --global user.name "$USER_NAME"
+            git config --global gpg.format ssh
+            git config --global user.signingkey "$SSH_PUBLIC_KEY"
+      - run:
+          name: Publish update
+          command: |
+            set -eo pipefail
+            if [ "$(nextsv -q)" != "none" ]
+            then
+                cargo release -vv --registry spare --execute --no-confirm "$(nextsv -q --release-level feature -r 'CHANGES.md' 'CHANGELOG.md')"
+            else
+                echo "Nothing to publish"
+            fi 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  build-test-docs:
+  validation:
+    when:
+      not:
+        equal: [scheduled_pipeline, << pipeline.trigger_source >>]
     jobs:
-      - build
+      - required-builds
       - basic-test
       - feature-test:
           matrix:
@@ -123,7 +162,17 @@ workflows:
                 ]
           requires:
             - basic-test
+            - required-builds
+            - docs
       - all-features-flag-test:
           requires:
             - feature-test
       - docs
+      - optional-builds
+  release:
+    when:
+      and:
+        - equal: [scheduled_pipeline, << pipeline.trigger_source >>]
+        - equal: ["release check", << pipeline.schedule.name >>]
+    jobs:
+      - release
