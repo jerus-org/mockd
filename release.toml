@@ -8,14 +8,13 @@ consolidate-pushes = true
 allow-branch = ["main"]
 pre-release-replacements = [
     {file = "README.md", search = "mockd = .*", replace = "{{crate_name}} = \"{{version}}\""},
-    {file = "README.md", search = "mockd 0.*", replace = "{{crate_name}} {{version}}"},
     {file = "src/lib.rs", search = "mockd = .*", replace = "{{crate_name}} = \"{{version}}\""},
-    {file="CHANGELOG.md", search="Unreleased", replace="{{version}}"},
+    {file="CHANGELOG.md", search="unreleased", replace="{{version}}"},
     {file="CHANGELOG.md", search="\\.\\.\\.HEAD", replace="...{{tag_name}}", exactly=1},
     {file="CHANGELOG.md", search="ReleaseDate", replace="{{date}}"},
     {file="CHANGELOG.md", search="<!-- next-header -->", replace="<!-- next-header -->\n\n## [Unreleased] - ReleaseDate", exactly=1},
     {file="CHANGELOG.md", search="<!-- next-url -->", replace="<!-- next-url -->\n[Unreleased]: https://github.com/jerusdp/mockd/compare/{{tag_name}}...HEAD", exactly=1},
-    {file="CHANGES.md", search="Unreleased", replace="{{version}}"},
+    {file="CHANGES.md", search="unreleased", replace="{{version}}"},
     {file="CHANGES.md", search="\\.\\.\\.HEAD", replace="...{{tag_name}}", exactly=1},
     {file="CHANGES.md", search="ReleaseDate", replace="{{date}}"},
     {file="CHANGES.md", search="<!-- next-header -->", replace="<!-- next-header -->\n\n## [Unreleased] - ReleaseDate\n\n### Security\n\n- Dependency Updates", exactly=1},
