@@ -20,7 +20,6 @@ commands:
       - run:
           name: Update Rust and check build <<parameters.rust-version>>
           command: |
-            rustup update <<parameters.rust-version>>
             cargo +<<parameters.rust-version>> check --all-features
 
 jobs:
