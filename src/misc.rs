@@ -319,10 +319,9 @@ mod tests {
 
     #[test]
     fn random_data_str() {
-        let street1 = misc::random_data(STREET_NAME);
-        thread::sleep(time::Duration::from_secs(1));
-        let street2 = misc::random_data(STREET_NAME);
-        assert_ne!(street1, street2);
+        let street = misc::random_data(STREET_NAME);
+        // let street_names = vec![STREET_NAME];
+        assert!(STREET_NAME.contains(&street));
     }
 
     #[test]
