@@ -1,7 +1,7 @@
 #![allow(dead_code)]
 #![cfg_attr(docsrs, feature(doc_cfg))]
 #![warn(missing_docs)]
-#![feature(rustdoc_missing_doc_code_examples)]
+#![cfg_attr(nightly, feature(rustdoc_missing_doc_code_examples))]
 #![cfg_attr(docsrs, warn(rustdoc::missing_doc_code_examples))]
 #![cfg_attr(docsrs, warn(rustdoc::invalid_codeblock_attributes))]
 
