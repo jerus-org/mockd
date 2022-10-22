@@ -92,7 +92,6 @@ jobs:
           command: |
             cargo +nightly doc --lib --no-deps --all-features --document-private-items
 
-
   release:
     executor: rust-env
     steps:
@@ -106,7 +105,7 @@ jobs:
             git config --global user.email "$USER_EMAIL"
             git config --global user.name "$USER_NAME"
             git config --global gpg.format gpg
-            git config --global user.signingkey "$GPG_ID"
+            git config --global user.signingKey "$GPG_ID"
       - run:
           name: Publish update
           command: |
@@ -116,7 +115,7 @@ jobs:
                 cargo release -vv --registry spare --execute --no-confirm "$(nextsv -q -e feature -r 'CHANGES.md' 'CHANGELOG.md')"
             else
                 echo "Nothing to publish"
-            fi 
+            fi
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
