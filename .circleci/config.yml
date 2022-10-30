@@ -104,7 +104,8 @@ jobs:
           command: |
             git config --global user.email "$USER_EMAIL"
             git config --global user.name "$USER_NAME"
-            git config --global user.signingKey "$GPG_ID"
+            git config --global gpg.format ssh
+            git config --global user.signingKey "$SSH_PUB"
       - run:
           name: Publish update
           command: |
