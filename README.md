@@ -32,7 +32,7 @@ Add mockd to the dependencies (typically dev-dependencies) in Cargo.toml
 ```toml
 
 [dev-dependencies]
-mockd = {version = "0.4.0", features = [payments] }
+mockd = "0.4.0"
 
 ```
 
