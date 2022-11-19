@@ -79,5 +79,8 @@
         "Voluptas",
         "voluptatem",
         "voluptatibus"
+    ],
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "main"
     ]
 }
