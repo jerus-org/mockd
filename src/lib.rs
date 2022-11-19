@@ -28,7 +28,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! mockd = {version = "0.3.0", default-features = false, features = ["image"]}
+//! mockd = "0.4.0"
 //! ```
 //!
 //! ```no_compile
