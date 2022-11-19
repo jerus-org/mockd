@@ -112,7 +112,7 @@ jobs:
             set -eo pipefail
             if [ "$(nextsv -q)" != "none" ]
             then
-                cargo release -vv --registry spare --execute --no-confirm "$(nextsv -q -e feature -r 'CHANGES.md' 'CHANGELOG.md')"
+                cargo release -vv --registry spare --execute --no-confirm "$(nextsv -q -e feature -r 'CHANGES.md' -r 'CHANGELOG.md')"
             else
                 echo "Nothing to publish"
             fi
