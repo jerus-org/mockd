@@ -187,7 +187,12 @@ pub fn sentence(word_count: usize) -> String {
 ///
 /// Requires the "words" feature.
 ///
-pub fn paragraph(count: usize, sentence_count: usize, word_count: usize, separator: String) -> String {
+pub fn paragraph(
+    count: usize,
+    sentence_count: usize,
+    word_count: usize,
+    separator: String,
+) -> String {
     let opts = ParagraphOpts::new(count, sentence_count, word_count, &separator);
 
     paragraph_generator(opts, &sentence)
