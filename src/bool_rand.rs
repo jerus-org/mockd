@@ -31,7 +31,7 @@ use crate::misc;
 /// Requires the "random-bool" feature.
 ///
 pub fn bool() -> bool {
-    misc::random::<i64>(0, 1) == 1
+    misc::random::<i64>(0, 2) == 1
 }
 
 #[cfg(test)]
