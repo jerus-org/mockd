@@ -4,7 +4,6 @@ tag-name = "{{prefix}}v{{version}}"
 sign-tag = true
 sign-commit = true
 consolidate-commits = true
-consolidate-pushes = true
 allow-branch = ["main"]
 pre-release-replacements = [
     { file = "README.md", search = "mockd = .*", replace = "{{crate_name}} = \"{{version}}\"" },
