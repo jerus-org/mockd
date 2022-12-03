@@ -52,7 +52,7 @@ pub fn word() -> String {
 ///
 /// Requires the "hipster" feature.
 ///
-pub fn sentence(word_count: i64) -> String {
+pub fn sentence(word_count: usize) -> String {
     words::sentence(word_count)
 }
 
@@ -70,7 +70,7 @@ pub fn sentence(word_count: i64) -> String {
 ///
 /// Requires the "hipster" feature.
 ///
-pub fn paragraph(count: i64, sentence_count: i64, word_count: i64, separator: String) -> String {
+pub fn paragraph(count: usize, sentence_count: usize, word_count: usize, separator: String) -> String {
     words::paragraph(count, sentence_count, word_count, separator)
 }
 
