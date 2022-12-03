@@ -148,7 +148,7 @@ pub fn word() -> String {
 /// Requires the "words" feature.
 ///
 pub fn sentence(word_count: usize) -> String {
-    if word_count <= 0 {
+    if word_count == 0 {
         return "".to_string();
     }
 
