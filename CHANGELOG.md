@@ -10,6 +10,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+### Bug Fixes
+
+- Update chronos to 4.0.23
+- Adopt from_timestamp_opt
+- Fix nextsv argument identification
+
+### Miscellaneous Tasks
+
+- Update actions/checkout digest to 5c3ccc2
+- Update github/codeql-action digest to 4fddc51
+- Update actions/checkout digest to bf08527
+- Update rust crate uuid to 1.2
+- Update ossf/scorecard-action digest to 629da1f
+- Update ossf/scorecard-action digest to 20cdd14
+- Update github/codeql-action digest to 26df9a9
+- Update github/codeql-action digest to bab5a14
+- Update github/codeql-action digest to def4f60
+- Update github/codeql-action digest to c719ec0
+- Update github/codeql-action digest to 187515b
+- Update github/codeql-action digest to f0a052e
+- Update github/codeql-action digest to 7e73ded
+- Update github/codeql-action digest to 9dac9f7
+- Update ossf/scorecard-action digest to b8b2b68
+- Update github/codeql-action digest to 160613c
+- Update github/codeql-action digest to a631f4b
+- Update github/codeql-action digest to 9af9a11
+- Update github/codeql-action digest to b1c26c4
+- Update github/codeql-action digest to 0d9b15c
+- Update github/codeql-action digest to 4acf201
+- Update github/codeql-action digest to 62b14cb
+
+### Testing
+
+- Bool generates true and false
+
 ## [0.4.0] - 2022-10-31
 
 ### Bug Fixes
