@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+### Bug Fixes
+
+- Random bool never returned true
+- Update chronos to 4.0.23
+- Adopt from_timestamp_opt
+- Fix nextsv argument identification
+
 ### Security
 
 - Dependency Updates

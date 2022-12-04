@@ -92,7 +92,23 @@ jobs:
           command: |
             cargo +nightly doc --lib --no-deps --all-features --document-private-items
 
-  release:
+  release-ready:
+    executor: rust-env
+    steps:
+      - checkout
+      - run:
+          name: Check if ready to make a release
+          command: |
+            set -eo pipefail
+
+            if [ "$(nextsv -q)" != "none" ]
+            then
+              exit 0
+            else 
+             exit 1
+            fi
+
+  make-release:
     executor: rust-env
     steps:
       - add_ssh_keys:
@@ -106,16 +122,11 @@ jobs:
             git config --global user.name "$USER_NAME"
             git config --global gpg.format ssh
             git config --global user.signingKey "$SSH_PUB"
+            git config --local --list
       - run:
           name: Publish update
           command: |
-            set -eo pipefail
-            if [ "$(nextsv -q)" != "none" ]
-            then
-                cargo release -vv --registry spare --execute --no-confirm "$(nextsv -q -e feature -r 'CHANGES.md' -r 'CHANGELOG.md')"
-            else
-                echo "Nothing to publish"
-            fi
+            cargo release -vv --registry spare --execute --no-confirm "$(nextsv -q -e feature -r 'CHANGES.md' -r 'CHANGELOG.md')"
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
@@ -174,4 +185,7 @@ workflows:
         - equal: [scheduled_pipeline, << pipeline.trigger_source >>]
         - equal: ["release check", << pipeline.schedule.name >>]
     jobs:
-      - release
+      - release-ready
+      - make-release:
+          requires:
+            - release-ready
