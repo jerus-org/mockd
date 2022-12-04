@@ -54,9 +54,9 @@ pub(crate) mod data;
 ///
 #[derive(Debug)]
 pub struct ParagraphOpts {
-    count: i64,
-    sentence_count: i64,
-    word_count: i64,
+    count: usize,
+    sentence_count: usize,
+    word_count: usize,
     separator: String,
 }
 
@@ -105,7 +105,7 @@ impl ParagraphOpts {
     ///
     /// Requires the "words" feature.
     ///
-    pub fn new(count: i64, sentence_count: i64, word_count: i64, sep: &str) -> ParagraphOpts {
+    pub fn new(count: usize, sentence_count: usize, word_count: usize, sep: &str) -> ParagraphOpts {
         ParagraphOpts {
             count,
             sentence_count,
@@ -147,8 +147,8 @@ pub fn word() -> String {
 ///
 /// Requires the "words" feature.
 ///
-pub fn sentence(word_count: i64) -> String {
-    if word_count <= 0 {
+pub fn sentence(word_count: usize) -> String {
+    if word_count == 0 {
         return "".to_string();
     }
 
@@ -187,7 +187,12 @@ pub fn sentence(word_count: i64) -> String {
 ///
 /// Requires the "words" feature.
 ///
-pub fn paragraph(count: i64, sentence_count: i64, word_count: i64, separator: String) -> String {
+pub fn paragraph(
+    count: usize,
+    sentence_count: usize,
+    word_count: usize,
+    separator: String,
+) -> String {
     let opts = ParagraphOpts::new(count, sentence_count, word_count, &separator);
 
     paragraph_generator(opts, &sentence)
@@ -218,7 +223,7 @@ pub fn paragraph(count: i64, sentence_count: i64, word_count: i64, separator: St
 ///
 pub fn paragraph_generator(
     opts: ParagraphOpts,
-    sentence_generator: &dyn Fn(i64) -> String,
+    sentence_generator: &dyn Fn(usize) -> String,
 ) -> String {
     let mut paragraph_vec = Vec::<String>::new();
     for _i in 0..opts.count {
