@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update chronos to 4.0.23
 - Adopt from_timestamp_opt
 - Fix nextsv argument identification
+- Random bool never returned true (thanks [Ekleog])
+- usize for words::sentence (thanks [Ekleog])
 
 ### Miscellaneous Tasks
 

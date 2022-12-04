@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Bug Fixes
 
-- Random bool never returned true
+- Random bool never returned true (thanks [Ekleog])
+- usize for words::sentence (thanks [Ekleog])
 - Update chronos to 4.0.23
 - Adopt from_timestamp_opt
 - Fix nextsv argument identification
@@ -122,3 +123,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.3.0]: <https://github.com/jerusdp/mockd/compare/v0.2.0...v0.3.0>"
 [0.2.0]: <https://github.com/jerudp/mockd/compare/v0.1.1...v0.2.0>
 [0.1.0]: <https://github.com/jerudp/nextsv/compare/...v0.1.0>
+[Ekleog]: <https://github.com/Ekleog>
