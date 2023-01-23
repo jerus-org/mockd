@@ -36,7 +36,7 @@ use uuid::Uuid;
 pub fn uuid_v1() -> String {
     let context = Context::new(42);
     let ts = Timestamp::from_unix(
-        &context,
+        context,
         Utc::now().second() as u64,
         Utc::now().timestamp_subsec_nanos(),
     );
