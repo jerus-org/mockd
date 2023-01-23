@@ -332,7 +332,7 @@ pub fn date_range(min: String, max: String) -> DateTime<Utc> {
         nsecs = 1_999_999_999;
     }
 
-    DateTime::<Utc>::from_utc(NaiveDateTime::from_timestamp_opt(secs, nsecs).unwrap(), Utc, )
+    DateTime::<Utc>::from_utc(NaiveDateTime::from_timestamp_opt(secs, nsecs).unwrap(), Utc)
 }
 
 /// Generate a random date.
