@@ -316,14 +316,23 @@ pub fn timezone_offset() -> String {
 ///
 pub fn date_range(min: String, max: String) -> DateTime<Utc> {
     // RFC3339
-    let min_nano = DateTime::parse_from_rfc3339(&min)
+    let min_nano = match DateTime::parse_from_rfc3339(&min)
         .unwrap()
-        .timestamp_nanos();
-    let max_nano = DateTime::parse_from_rfc3339(&max)
+        .timestamp_nanos_opt()
+    {
+        None => std::primitive::i64::MIN,
+        Some(nano) => nano,
+    };
+
+    let max_nano = match DateTime::parse_from_rfc3339(&max)
         .unwrap()
-        .timestamp_nanos();
+        .timestamp_nanos_opt()
+    {
+        None => std::primitive::i64::MAX,
+        Some(nano) => nano,
+    };
     let ns = misc::random(min_nano, max_nano - 10_000_000_000);
-    let secs = (ns / 1_000_000_000) as i64;
+    let secs = ns / 1_000_000_000;
     let mut nsecs = (ns - (secs * 1_000_000_000)) as u32;
 
     // This case will cause the `NaiveDateTime::from_timestamp` function to panic.
@@ -332,10 +341,10 @@ pub fn date_range(min: String, max: String) -> DateTime<Utc> {
         nsecs = 1_999_999_999;
     }
 
-    DateTime::<Utc>::from_utc(
-        NaiveDateTime::from_timestamp_opt(secs, nsecs as u32).unwrap(),
-        Utc,
-    )
+    NaiveDateTime::from_timestamp_opt(secs, nsecs)
+        .unwrap()
+        .and_local_timezone(Utc)
+        .unwrap()
 }
 
 /// Generate a random date.
