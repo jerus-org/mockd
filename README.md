@@ -14,7 +14,7 @@
 [mit-url]: https://github.com/jerusdp/mockd/blob/main/LICENSE
 [circleci-badge]: https://circleci.com/gh/jerusdp/mockd/tree/main.svg?style=svg
 [circleci-url]: https://circleci.com/gh/jerusdp/mockd/tree/main
-[version-badge]: https://img.shields.io/badge/rust-1.56.0+-orange.svg
+[version-badge]: https://img.shields.io/badge/rust-1.61+-orange.svg
 [version-url]: https://www.rust-lang.org
 [docs-badge]:  https://docs.rs/mockd/badge.svg
 [docs-url]:  https://docs.rs/mockd
