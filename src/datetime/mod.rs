@@ -30,7 +30,7 @@
 //!
 
 use crate::misc;
-use chrono::{DateTime, Datelike, NaiveDateTime, Utc};
+use chrono::{DateTime, Datelike, Utc};
 
 pub(crate) mod data;
 
@@ -335,16 +335,13 @@ pub fn date_range(min: String, max: String) -> DateTime<Utc> {
     let secs = ns / 1_000_000_000;
     let mut nsecs = (ns - (secs * 1_000_000_000)) as u32;
 
-    // This case will cause the `NaiveDateTime::from_timestamp` function to panic.
+    // This case will cause the `DateTime::from_timestamp` function to panic.
     // So we just roll it back to the maximum allowed value.
     if nsecs >= 2_000_000_000 {
         nsecs = 1_999_999_999;
     }
 
-    NaiveDateTime::from_timestamp_opt(secs, nsecs)
-        .unwrap()
-        .and_local_timezone(Utc)
-        .unwrap()
+    DateTime::from_timestamp(secs, nsecs).unwrap()
 }
 
 /// Generate a random date.
