@@ -111,22 +111,51 @@ jobs:
   make-release:
     executor: rust-env
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - $SSH_FINGERPRINT
       - checkout
+      - run:
+          name: import GPG key
+          command: |
+            echo -e $GPG2 | gpg --batch --no-tty --import --yes
       - run:
           name: Configure git for user and signing
           command: |
-            git config --global user.email "$USER_EMAIL"
-            git config --global user.name "$USER_NAME"
-            git config --global gpg.format ssh
-            git config --global user.signingKey "$SSH_PUB"
-            git config --local --list
+            git config user.email "$USER_EMAIL"
+            git config user.name "$USER_NAME"
+            git config --global gpg.program gpg
+            git config --global user.signingkey "$SSH_PUB"
       - run:
           name: Publish update
           command: |
-            cargo release -vv --registry spare --execute --no-confirm "$(nextsv -q -e feature -r 'CHANGES.md' -r 'CHANGELOG.md')"
+            set -exo pipefail
+            export NEXTSV_LEVEL=$(nextsv -q -c other require -f CHANGES.md -f CHANGELOG.md feature)
+            if [ $NEXTSV_LEVEL != "none" ] ; then 
+              cargo release changes
+              cargo release -vvv --execute --no-confirm --sign-tag "$NEXTSV_LEVEL"
+            else 
+              echo "Not ready to release yet."
+            fi
+
+  # make-release:
+  #   executor: rust-env
+  #   steps:
+  #     - add_ssh_keys:
+  #         fingerprints:
+  #           - $SSH_FINGERPRINT
+  #     - checkout
+  #     - run:
+  #         name: Configure git for user and signing
+  #         command: |
+  #           git config --global user.email "$USER_EMAIL"
+  #           git config --global user.name "$USER_NAME"
+  #           git config --global gpg.format ssh
+  #           git config --global user.signingKey "$SSH_PUB"
+  #           git config --local --list
+  #     - run:
+  #         name: Publish update
+  #         command: |
+  #           cargo release -vv --registry spare --execute --no-confirm "$(nextsv -q -e feature -r 'CHANGES.md' -r 'CHANGELOG.md')"
+
+
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
