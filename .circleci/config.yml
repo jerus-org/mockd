@@ -115,7 +115,7 @@ jobs:
       - run:
           name: import GPG key
           command: |
-            echo -e $GPG2 | gpg --batch --no-tty --import --yes
+            echo -e $GPG_ID | gpg --batch --no-tty --import --yes
       - run:
           name: Configure git for user and signing
           command: |
