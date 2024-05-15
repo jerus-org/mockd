@@ -115,7 +115,10 @@ jobs:
       - run:
           name: import GPG key
           command: |
-            echo -e $GPG_ID | gpg --batch --allow-secret-key-import --import 
+            echo -e $GPG_ID \
+              | base64 --decode --ignore-garbage \
+              | gpg --batch --allow-secret-key-import --import 
+            gpg --keyid-format  LONG --list-secret-keys
       - run:
           name: Configure git for user and signing
           command: |
