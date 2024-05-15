@@ -114,18 +114,20 @@ jobs:
       - checkout
       - run:
           name: import GPG key
+          context: Release
           command: |
-            echo -e $GPG_ID \
+            echo -e $GPGKEY \
               | base64 --decode --ignore-garbage \
               | gpg --batch --allow-secret-key-import --import 
             gpg --keyid-format  LONG --list-secret-keys
       - run:
           name: Configure git for user and signing
+          context: Release
           command: |
             git config user.email "$USER_EMAIL"
             git config user.name "$USER_NAME"
             git config --global gpg.program gpg
-            git config --global user.signingkey "$SSH_PUB"
+            git config --global user.signingkey "$SIGNKEY"
       - run:
           name: Publish update
           command: |
