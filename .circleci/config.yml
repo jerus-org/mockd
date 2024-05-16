@@ -92,37 +92,18 @@ jobs:
           command: |
             cargo +nightly doc --lib --no-deps --all-features --document-private-items
 
-
-  what-can-i-see:
+  pr-changelog-update:
     executor: rust-env
     steps:
       - checkout
       - run:
-          name: What can I see?
+          name: Install pcu
           command: |
-            echo $CIRCLE_PULL_REQUEST
-            echo $CIRCLE_PULL_REQUESTS
-            echo $CIRCLE_PR_NUMBER
-            echo $CIRCLE_PR_URL
-            echo $CIRCLE_COMPARE_URL
-            echo $CIRCLE_BRANCH
-            echo $CIRCLE_USERNAME
-            echo $CIRCLE_PROJECT_REPONAME
-            echo $CIRCLE_PROJECT_USERNAME 
-            echo $CIRCLE_REPOSITORY_URL
-            echo $CIRCLE_BUILD_URL
-            echo $CIRCLE_BUILD_NUM
-            echo $CIRCLE_SHA1
-            echo $CIRCLE_TAG
-            echo $CIRCLE_TOKEN
-            echo $CIRCLE_WORKFLOW_ID
-            echo $CIRCLE_WORKFLOW_JOB_ID
-            echo $CIRCLE_WORKFLOW_UPSTREAM_JOB_IDS
-            echo $CIRCLE_WORKFLOW_UPSTREAM_JOB_ID
-            echo $CIRCLE_WORKFLOW_UPSTREAM_JOB_NAME
-            echo $CIRCLE_WORKFLOW_UPSTREAM_JOB_URL
-
-
+            cargo install --git https://github.com/jerus-org/pcu.git  
+      - run:
+          name: Update changelog
+          command: |
+            pcu 
 
   release-ready:
     executor: rust-env
@@ -199,7 +180,6 @@ workflows:
       not:
         equal: [scheduled_pipeline, << pipeline.trigger_source >>]
     jobs:
-      - what-can-i-see
       - required-builds
       - basic-test
       - feature-test:
@@ -242,6 +222,10 @@ workflows:
       - all-features-flag-test:
           requires:
             - feature-test
+      - pr-changelog-update:
+          requires:
+            - all-features-flag-test
+      - optional-builds
       - docs
       - optional-builds
   release:
