@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Dependency Updates
 
+## [0.4.5] - 2024-05-16
+
+### Security
+
+- Dependency Updates
+
 ## [0.4.4] - 2024-05-15
 
 ### Security
@@ -142,7 +148,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * ✨ Initial package definition ([6996349](https://github.com/jerusdp/mockd/commit/6996349ca82c1050cb4ed23f72b0cb729950cc2d))
 
 <!-- next-url -->
-[Unreleased]: https://github.com/jerusdp/mockd/compare/v0.4.4...HEAD
+[Unreleased]: https://github.com/jerusdp/mockd/compare/v0.4.5...HEAD
+[0.4.5]: https://github.com/jerusdp/mockd/compare/v0.4.4...v0.4.5
 [0.4.4]: https://github.com/jerusdp/mockd/compare/v0.4.3...v0.4.4
 [0.4.3]: https://github.com/jerusdp/mockd/compare/v0.4.2...v0.4.3
 [0.4.2]: https://github.com/jerusdp/mockd/compare/v0.4.1...v0.4.2

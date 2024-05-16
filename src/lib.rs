@@ -28,7 +28,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! mockd = "0.4.4"
+//! mockd = "0.4.5"
 //! ```
 //!
 //! ```no_compile
