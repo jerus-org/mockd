@@ -146,7 +146,6 @@ jobs:
       - checkout
       - run:
           name: import GPG key
-          context: Release
           command: |
             echo -e $GPGKEY \
               | base64 --decode --ignore-garbage \
@@ -154,7 +153,6 @@ jobs:
             gpg --keyid-format  LONG --list-secret-keys
       - run:
           name: Configure git for user and signing
-          context: Release
           command: |
             git config user.email "$USER_EMAIL"
             git config user.name "$USER_NAME"
@@ -257,3 +255,5 @@ workflows:
       - make-release:
           requires:
             - release-ready
+          context:
+            - release
