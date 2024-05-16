@@ -7,7 +7,7 @@ rust-version = "1.61"
 description = "Fake data generator library with 130+ functions"
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/jerusdp/mockd"
+repository = "https://github.com/jerus-org/mockd"
 keywords = ["fake", "data", "random", "generator", "faker"]
 include = ["**/*.rs", "Cargo.toml", "README.md", "LICENSE", "CHANGES.md"]
 
