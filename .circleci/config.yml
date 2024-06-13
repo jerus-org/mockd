@@ -255,6 +255,8 @@ workflows:
       - pr-changelog-update:
           requires:
             - all-features-flag-test
+          context:
+            - release
       - optional-builds
       - docs
       - optional-builds
