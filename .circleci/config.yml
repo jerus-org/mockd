@@ -22,6 +22,29 @@ commands:
           command: |
             cargo +<<parameters.rust-version>> check --all-features
 
+  gpg-key:
+    steps:    
+      - run:
+          name: import GPG key
+          command: |
+            echo -e $BOT_GPG_KEY \
+              | base64 --decode --ignore-garbage \
+              | gpg --batch --allow-secret-key-import --import 
+            gpg --fingerprint
+            echo $BOT_TRUST | gpg --import-ownertrust
+            gpg --fingerprint
+
+  git-config:
+    steps:
+      - run:
+          name: Configure git for user and signing
+          command: |
+            git config --global user.email "$BOT_USER_EMAIL"
+            git config --global user.name "$BOT_USER_NAME"
+            git config --global gpg.program gpg
+            git config --global user.signingkey "$BOT_SIGN_KEY"
+            git config --global commit.gpgsign true
+
 jobs:
   required-builds:
     executor: rust-env
@@ -96,14 +119,21 @@ jobs:
     executor: rust-env
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints: 
+            - SHA256:OkxsH8Z6Iim6WDJBaII9eTT9aaO1f3eDc6IpsgYYPVg
       - run:
-          name: Install pcu
+          name: Remove original SSH key from agent 
           command: |
-            cargo install --git https://github.com/jerus-org/pcu.git  
+            ssh-add -l
+            ssh-add -d ~/.ssh/id_rsa.pub
+            ssh-add -l
+      - gpg-key
+      - git-config
       - run:
           name: Update changelog
           command: |
-            pcu 
+            pcu -vv
 
   release-ready:
     executor: rust-env
@@ -225,6 +255,8 @@ workflows:
       - pr-changelog-update:
           requires:
             - all-features-flag-test
+          context:
+            - release
       - optional-builds
       - docs
       - optional-builds
