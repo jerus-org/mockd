@@ -81,7 +81,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ✨ Put password module behind feature
 - 🐛 Remove misc dependencies on other modules
 - Feature
-- ✨ Add datetime feature to cid test set
+- ✨ Add datetime feature to change test set
 - ✨ Complete move of datetime and documentation
 - ✨ Put log-level module behind a feature flag
 - ✨ Put language module behind a feature flag
@@ -336,7 +336,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - ✨ Initial Code Setup
-- ✨ Initial cid set for Rust Project
+- ✨ Initial CI set for Rust Project
 - Update minversion to first Edition 2021 version: 1.56
 - Release 0.1.0
 
