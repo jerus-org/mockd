@@ -1,4 +1,3 @@
-<!-- markdownlint-disable MD024 -->
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -6,7 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] - ReleaseDate
+## [Unreleased]
+
+### Changed
+
+- chore-conform to keep-a-changelog standards(pr [#634](https://github.com/jerus-org/mockd/pull/634))
 
 ## [0.4.6] - 2024-05-17
 
@@ -19,14 +22,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.4.2] - 2023-12-09
 
 ## [0.4.1] - 2022-12-05
-
-### Fixed
-
-- Update chronos to 4.0.23
-- Adopt from_timestamp_opt
-- Fix nextsv argument identification
-- Random bool never returned true (thanks [Ekleog])
-- usize for words::sentence (thanks [Ekleog])
 
 ### Changed
 
@@ -54,7 +49,64 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update github/codeql-action digest to 62b14cb
 - Bool generates true and false
 
+### Fixed
+
+- Update chronos to 4.0.23
+- Adopt from_timestamp_opt
+- Fix nextsv argument identification
+- Random bool never returned true (thanks [Ekleog])
+- usize for words::sentence (thanks [Ekleog])
+
 ## [0.4.0] - 2022-10-31
+
+### Added
+
+- ✨ Place payment module behind payment feature
+- ✨ All feature to enable all features.
+- Basic Test first to fail testing quickly
+- Setup person feature for person module.
+- ✨ Place the generator module behind a feature flag
+- ✨ Place modules behind features and adaptions
+- ✨ Put name module behind feature flag
+- ✨ Place address module behind feature flag
+- ✨ Place company module behind feature flag
+- ✨ Put job module behind a feature flag
+- ✨ Put words module behind a feature flag
+- ✨ Put hipster module behind a feature flag
+- ✨ Put misc module behind feature flag
+- ✨ Put vehicle module behind feature flag
+- ✨ Put user agent module behind a feature flag
+- ✨ Put unique module behind a feature flag
+- ✨ Put status_code module behind feature
+- ✨ Put password module behind feature
+- 🐛 Remove misc dependencies on other modules
+- Feature
+- ✨ Add datetime feature to cid test set
+- ✨ Complete move of datetime and documentation
+- ✨ Put log-level module behind a feature flag
+- ✨ Put language module behind a feature flag
+- ✨ Put file module behind feature flag
+- ✨ Put currency ,module behind a feature
+- ✨ Put color module behind feature and rename to colour
+- ✨ Put bool_rand behind a feature
+- ✨ Put the beer module behind a feature.
+- ✨ Put animal module behind feature
+- ✨ Put image module behind a feature
+
+### Changed
+
+- Bring ciLOG up to date
+- Update documentation as requires feature to be set.
+- Document feature requirement for person module
+- Update generator module docs to include reference to feature
+- ✨ Update crate documentation for features
+- Adopt custom docker image
+- Release job to
+- Second workflow and triggers
+- 🎨 Combined generators and data into a payment module
+- 🎨 Removed unnecessary command configurations
+- Update Release Drafter with more complex release configuration
+- Test the features provided in the crate
 
 ### Fixed
 
@@ -165,88 +217,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update github/codeql-action digest to 70426bb
 - Update ossf/scorecard-action digest to d4f9a7a
 
-### Changed
-
-- Bring ciLOG up to date
-- Update documentation as requires feature to be set.
-- Document feature requirement for person module
-- Update generator module docs to include reference to feature
-- ✨ Update crate documentation for features
+## [0.3.0] - 2022-05-01
 
 ### Added
 
-- ✨ Place payment module behind payment feature
-- ✨ All feature to enable all features.
-- Basic Test first to fail testing quickly
-- Setup person feature for person module.
-- ✨ Place the generator module behind a feature flag
-- ✨ Place modules behind features and adaptions
-- ✨ Put name module behind feature flag
-- ✨ Place address module behind feature flag
-- ✨ Place company module behind feature flag
-- ✨ Put job module behind a feature flag
-- ✨ Put words module behind a feature flag
-- ✨ Put hipster module behind a feature flag
-- ✨ Put misc module behind feature flag
-- ✨ Put vehicle module behind feature flag
-- ✨ Put user agent module behind a feature flag
-- ✨ Put unique module behind a feature flag
-- ✨ Put status_code module behind feature
-- ✨ Put password module behind feature
-- 🐛 Remove misc dependencies on other modules
-- Feature
-- ✨ Add datetime feature to cid test set
-- ✨ Complete move of datetime and documentation
-- ✨ Put log-level module behind a feature flag
-- ✨ Put language module behind a feature flag
-- ✨ Put file module behind feature flag
-- ✨ Put currency ,module behind a feature
-- ✨ Put color module behind feature and rename to colour
-- ✨ Put bool_rand behind a feature
-- ✨ Put the beer module behind a feature.
-- ✨ Put animal module behind feature
-- ✨ Put image module behind a feature
-
-### Changed
-
-- Adopt custom docker image
-- Release job to
-- Second workflow and triggers
-
-### Changed
-
-- 🎨 Combined generators and data into a payment module
-- 🎨 Removed unnecessary command configurations
-
-### Changed
-
-- Update Release Drafter with more complex release configuration
-- Test the features provided in the crate
-
-## [0.3.0] - 2022-05-01
-
-### Fixed
-
-- Update actions/checkout digest to add3486
-- Update ossf/scorecard-action digest to 095116e
-- Update github/codeql-action digest to 2d80fe8
-- Update github/codeql-action digest to baf90d1
-- 🐛 Select street_name data from STREET_NAME dictionary
-- 🐛 Return longitude function call if guards fall on longitude_in_range inputs
-- 🐛 Correct headers for documentation for job and language modules.
-- 🐛 ci generate to pick where the random data is based on dictionary list.
-- Update ossf/scorecard-action digest to d79d8bf
-- 🐛 Errors in documentation tests in interest and bool_rand modules.
-- 🐛 Provide all required code examples
-- Update actions/upload-artifact digest to 09a5d6a
-- Update github/codeql-action digest to 7286114
-- Update actions/checkout digest to 2541b12
-- Update github/codeql-action digest to 6ed7f70 ([#32](https://github.com/jerusdp/nextsv/issues/32))
-- Update github/codeql-action digest to 0c3c093
-- Update github/codeql-action digest to ceeddf2 ([#34](https://github.com/jerusdp/nextsv/issues/34))
-- Release Please needs write access.
-- 🐛 write permission required for pull-requests for release please
-- 🐛 Update Release please action to use v3.2.1
+- ✨ Documentation meta config and directives in lib.rs
 
 ### Changed
 
@@ -286,31 +261,52 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Documentation for words module.
 - Update readme and remove documentation redirecting to docs.rs.
 - Update version to 0.3.0
-
-### Added
-
-- ✨ Documentation meta config and directives in lib.rs
-
-### Changed
-
 - Release 0.3.0
-
-### Changed
-
 - 🎨 Update UUID to version 1.0.0
-
-### Changed
-
 - 🐛 Fix doc tests in hiptster module
-
-### Changed
-
 - ✨ Rust tests on CircleCI
 - ⚡️ Remove tests on Github Actions as transferred to Circle CI
 - Automerge updates to maintenance github actions
 - Disable Release Please; add Release Drafter
 
+### Fixed
+
+- Update actions/checkout digest to add3486
+- Update ossf/scorecard-action digest to 095116e
+- Update github/codeql-action digest to 2d80fe8
+- Update github/codeql-action digest to baf90d1
+- 🐛 Select street_name data from STREET_NAME dictionary
+- 🐛 Return longitude function call if guards fall on longitude_in_range inputs
+- 🐛 Correct headers for documentation for job and language modules.
+- 🐛 ci generate to pick where the random data is based on dictionary list.
+- Update ossf/scorecard-action digest to d79d8bf
+- 🐛 Errors in documentation tests in interest and bool_rand modules.
+- 🐛 Provide all required code examples
+- Update actions/upload-artifact digest to 09a5d6a
+- Update github/codeql-action digest to 7286114
+- Update actions/checkout digest to 2541b12
+- Update github/codeql-action digest to 6ed7f70 ([#32](https://github.com/jerusdp/nextsv/issues/32))
+- Update github/codeql-action digest to 0c3c093
+- Update github/codeql-action digest to ceeddf2 ([#34](https://github.com/jerusdp/nextsv/issues/34))
+- Release Please needs write access.
+- 🐛 write permission required for pull-requests for release please
+- 🐛 Update Release please action to use v3.2.1
+
 ## [0.2.0] - 2022-03-06
+
+### Added
+
+- ✨ Generators based on Fakeit with security fixes
+
+### Changed
+
+- Update readme based on the fakeit readme and jerudsp readme standards for buttons
+- Release 0.2.0
+- Add permissions to github actions
+- Add renovate configuration
+- Update settings
+- Add renovate.json
+- Update actions/upload-artifact commit hash to 6673cd0
 
 ### Fixed
 
@@ -321,32 +317,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update actions/checkout action to v3
 - Update actions/checkout commit hash to 2d1c119
 
-### Changed
-
-- Update readme based on the fakeit readme and jerudsp readme standards for buttons
-
-### Added
-
-- ✨ Generators based on Fakeit with security fixes
-
-### Changed
-
-- Release 0.2.0
-- Add permissions to github actions
-- Add renovate configuration
-- Update settings
-- Add renovate.json
-- Update actions/upload-artifact commit hash to 6673cd0
-
 ## [0.1.1] - 2022-02-27
-
-### Fixed
-
-- 🐛 Too many keywords for crates.io
 
 ### Changed
 
 - Release 0.1.1
+
+### Fixed
+
+- 🐛 Too many keywords for crates.io
 
 ## [0.1.0] - 2022-02-27
 
@@ -361,15 +340,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update minversion to first Edition 2021 version: 1.56
 - Release 0.1.0
 
-[Unreleased]: https://github.com/jerusdp/mockd/compare/v0.4.6...HEAD
-[0.4.6]: https://github.com/jerusdp/mockd/compare/v0.4.5...v0.4.6
-[0.4.5]: https://github.com/jerusdp/mockd/compare/v0.4.4...v0.4.5
-[0.4.4]: https://github.com/jerusdp/mockd/compare/v0.4.3...v0.4.4
-[0.4.3]: https://github.com/jerusdp/mockd/compare/v0.4.2...v0.4.3
-[0.4.2]: https://github.com/jerusdp/mockd/compare/v0.4.1...v0.4.2
-[0.4.1]: https://github.com/jerusdp/mockd/compare/v0.4.0...v0.4.1
-[0.4.0]: https://github.com/jerusdp/mockd/compare/v0.3.0...v0.4.0
-[0.3.0]: https://github.com/jerusdp/mockd/compare/v0.2.0...v0.3.0
-[0.2.0]: https://github.com/jerudp/mockd/compare/v0.1.1...v0.2.0
-[0.1.0]: https://github.com/jerudp/nextsv/compare/...v0.1.0
 [Ekleog]: https://github.com/Ekleog
+[Unreleased]: https://github.com/jerudp/nextsv/compare/0.4.6...HEAD
+[0.4.6]: https://github.com/jerudp/nextsv/compare/0.4.5...0.4.6
+[0.4.5]: https://github.com/jerudp/nextsv/compare/0.4.4...0.4.5
+[0.4.4]: https://github.com/jerudp/nextsv/compare/0.4.3...0.4.4
+[0.4.3]: https://github.com/jerudp/nextsv/compare/0.4.2...0.4.3
+[0.4.2]: https://github.com/jerudp/nextsv/compare/0.4.1...0.4.2
+[0.4.1]: https://github.com/jerudp/nextsv/compare/0.4.0...0.4.1
+[0.4.0]: https://github.com/jerudp/nextsv/compare/0.3.0...0.4.0
+[0.3.0]: https://github.com/jerudp/nextsv/compare/0.2.0...0.3.0
+[0.2.0]: https://github.com/jerudp/nextsv/compare/0.1.1...0.2.0
+[0.1.1]: https://github.com/jerudp/nextsv/compare/0.1.0...0.1.1
+[0.1.0]: https://github.com/jerudp/nextsv/releases/tag/0.1.0
