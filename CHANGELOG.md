@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - chore-conform to keep-a-changelog standards(pr [#634](https://github.com/jerus-org/mockd/pull/634))
+- docs-fix CircleCI badge in readme(pr [#635](https://github.com/jerus-org/mockd/pull/635))
 
 ## [0.4.6] - 2024-05-17
 

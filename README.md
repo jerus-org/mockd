@@ -12,8 +12,8 @@
 [crates-url]: https://crates.io/crates/mockd
 [mit-badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [mit-url]: https://github.com/jerusdp/mockd/blob/main/LICENSE
-[circleci-badge]: https://circleci.com/gh/jerusdp/mockd/tree/main.svg?style=svg
-[circleci-url]: https://circleci.com/gh/jerusdp/mockd/tree/main
+[circleci-badge]: https://dl.circleci.com/status-badge/img/gh/jerus-org/mockd/tree/main.svg?style=svg
+[circleci-url]: https://dl.circleci.com/status-badge/redirect/gh/jerus-org/mockd/tree/main
 [version-badge]: https://img.shields.io/badge/rust-1.61+-orange.svg
 [version-url]: https://www.rust-lang.org
 [docs-badge]:  https://docs.rs/mockd/badge.svg
