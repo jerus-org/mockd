@@ -213,7 +213,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Release job to
 - Second workflow and triggers
 
-### Refactor
+### Changed
 
 - 🎨 Combined generators and data into a payment module
 - 🎨 Removed unnecessary command configurations
@@ -295,7 +295,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Release 0.3.0
 
-### Refactor
+### Changed
 
 - 🎨 Update UUID to version 1.0.0
 
