@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 
 - Dependencies: update ossf/scorecard-action digest to 0a8153a(pr [#638](https://github.com/jerus-org/mockd/pull/638))
+- Dependencies: update github/codeql-action digest to bd2ebac(pr [#637](https://github.com/jerus-org/mockd/pull/637))
 
 ## [0.4.6] - 2024-05-17
 
