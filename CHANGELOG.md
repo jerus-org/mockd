@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - chore-conform to keep-a-changelog standards(pr [#634](https://github.com/jerus-org/mockd/pull/634))
 - docs-fix CircleCI badge in readme(pr [#635](https://github.com/jerus-org/mockd/pull/635))
 
+### Security
+
+- Dependencies: update ossf/scorecard-action digest to 0a8153a(pr [#638](https://github.com/jerus-org/mockd/pull/638))
+
 ## [0.4.6] - 2024-05-17
 
 ## [0.4.5] - 2024-05-16
