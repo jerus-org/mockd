@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  toolkit: jerus-org/circleci-toolkit@0.1.0
+
 parameters:
   min-rust-version:
     type: string
@@ -23,13 +26,13 @@ commands:
             cargo +<<parameters.rust-version>> check --all-features
 
   gpg-key:
-    steps:    
+    steps:
       - run:
           name: import GPG key
           command: |
             echo -e $BOT_GPG_KEY \
               | base64 --decode --ignore-garbage \
-              | gpg --batch --allow-secret-key-import --import 
+              | gpg --batch --allow-secret-key-import --import
             gpg --fingerprint
             echo $BOT_TRUST | gpg --import-ownertrust
             gpg --fingerprint
@@ -115,15 +118,17 @@ jobs:
           command: |
             cargo +nightly doc --lib --no-deps --all-features --document-private-items
 
+  toolkit/changelog_update:
+
   pr-changelog-update:
     executor: rust-env
     steps:
       - checkout
       - add_ssh_keys:
-          fingerprints: 
+          fingerprints:
             - SHA256:OkxsH8Z6Iim6WDJBaII9eTT9aaO1f3eDc6IpsgYYPVg
       - run:
-          name: Remove original SSH key from agent 
+          name: Remove original SSH key from agent
           command: |
             ssh-add -l
             ssh-add -d ~/.ssh/id_rsa.pub
@@ -147,7 +152,7 @@ jobs:
             if [ "$(nextsv -q)" != "none" ]
             then
               exit 0
-            else 
+            else
              exit 1
             fi
 
@@ -160,7 +165,7 @@ jobs:
           command: |
             echo -e $GPGKEY \
               | base64 --decode --ignore-garbage \
-              | gpg --batch --allow-secret-key-import --import 
+              | gpg --batch --allow-secret-key-import --import
             gpg --keyid-format  LONG --list-secret-keys
       - run:
           name: Configure git for user and signing
@@ -174,10 +179,10 @@ jobs:
           command: |
             set -exo pipefail
             export NEXTSV_LEVEL=$(nextsv -q -c other require -f CHANGES.md -f CHANGELOG.md feature)
-            if [ $NEXTSV_LEVEL != "none" ] ; then 
+            if [ $NEXTSV_LEVEL != "none" ] ; then
               cargo release changes
               cargo release -vvv --execute --no-confirm --sign-tag "$NEXTSV_LEVEL"
-            else 
+            else
               echo "Not ready to release yet."
             fi
 

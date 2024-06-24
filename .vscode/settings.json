@@ -92,5 +92,8 @@
         "./Cargo.toml",
         "./Cargo.toml"
     ],
-    "rust-analyzer.showUnlinkedFileNotification": false
+    "rust-analyzer.showUnlinkedFileNotification": false,
+    "circleci.persistedProjectSelection": [
+        "gh/jerus-org/mockd"
+    ]
 }
