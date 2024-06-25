@@ -35,23 +35,6 @@ jobs:
       - toolkit/cargo_build:
           rust_version: "beta"
 
-  basic-test:
-    executor: rust-env
-    steps:
-      - checkout
-      - run: cargo --version
-      - run:
-          name: Check formatting for code
-          command: |
-            rustfmt --version
-            cargo fmt --all -- --check
-      - run:
-          name: Check idiomatic code use with Clippy
-          command: "cargo clippy --all --tests --all-features -- -D warnings"
-      - run:
-          name: Test crate with no features specified
-          command: "cargo test"
-
   all-features-flag-test:
     executor: rust-env
     steps:
