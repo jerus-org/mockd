@@ -253,6 +253,7 @@ workflows:
             - all-features-flag-test
           context:
             - release
+          ssh_fingerprint:          SHA256:OkxsH8Z6Iim6WDJBaII9eTT9aaO1f3eDc6IpsgYYPVg
       - optional-builds
       - docs
       - optional-builds
