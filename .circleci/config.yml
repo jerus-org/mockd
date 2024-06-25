@@ -2,7 +2,7 @@
 version: 2.1
 
 orbs:
-  toolkit: jerus-org/circleci-toolkit@0.1.0
+  toolkit: jerus-org/circleci-toolkit@0.2.0
 
 parameters:
   min-rust-version:
@@ -152,7 +152,7 @@ workflows:
         equal: [scheduled_pipeline, << pipeline.trigger_source >>]
     jobs:
       - required-builds
-      - basic-test
+      - toolkit/common_tests
       - feature-test:
           matrix:
             parameters:
@@ -187,7 +187,7 @@ workflows:
                   words,
                 ]
           requires:
-            - basic-test
+            - toolkit/common_tests
             - required-builds
             - docs
       - all-features-flag-test:
