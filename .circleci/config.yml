@@ -25,28 +25,28 @@ commands:
           command: |
             cargo +<<parameters.rust-version>> check --all-features
 
-  gpg-key:
-    steps:
-      - run:
-          name: import GPG key
-          command: |
-            echo -e $BOT_GPG_KEY \
-              | base64 --decode --ignore-garbage \
-              | gpg --batch --allow-secret-key-import --import
-            gpg --fingerprint
-            echo $BOT_TRUST | gpg --import-ownertrust
-            gpg --fingerprint
+  # gpg-key:
+  #   steps:
+  #     - run:
+  #         name: import GPG key
+  #         command: |
+  #           echo -e $BOT_GPG_KEY \
+  #             | base64 --decode --ignore-garbage \
+  #             | gpg --batch --allow-secret-key-import --import
+  #           gpg --fingerprint
+  #           echo $BOT_TRUST | gpg --import-ownertrust
+  #           gpg --fingerprint
 
-  git-config:
-    steps:
-      - run:
-          name: Configure git for user and signing
-          command: |
-            git config --global user.email "$BOT_USER_EMAIL"
-            git config --global user.name "$BOT_USER_NAME"
-            git config --global gpg.program gpg
-            git config --global user.signingkey "$BOT_SIGN_KEY"
-            git config --global commit.gpgsign true
+  # git-config:
+  #   steps:
+  #     - run:
+  #         name: Configure git for user and signing
+  #         command: |
+  #           git config --global user.email "$BOT_USER_EMAIL"
+  #           git config --global user.name "$BOT_USER_NAME"
+  #           git config --global gpg.program gpg
+  #           git config --global user.signingkey "$BOT_SIGN_KEY"
+  #           git config --global commit.gpgsign true
 
 jobs:
   required-builds:
@@ -116,29 +116,31 @@ jobs:
       - run:
           name: Test generation of all of the documentation for the crate
           command: |
-            cargo +nightly doc --lib --no-deps --all-features --document-private-items
+            cargo +nightly doc \
+            --lib \
+            --no-deps \
+            --all-features \
+            --document-private-items
 
-  toolkit/changelog_update:
-
-  pr-changelog-update:
-    executor: rust-env
-    steps:
-      - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - SHA256:OkxsH8Z6Iim6WDJBaII9eTT9aaO1f3eDc6IpsgYYPVg
-      - run:
-          name: Remove original SSH key from agent
-          command: |
-            ssh-add -l
-            ssh-add -d ~/.ssh/id_rsa.pub
-            ssh-add -l
-      - gpg-key
-      - git-config
-      - run:
-          name: Update changelog
-          command: |
-            pcu -vv
+  # pr-changelog-update:
+  #   executor: rust-env
+  #   steps:
+  #     - checkout
+  #     - add_ssh_keys:
+  #         fingerprints:
+  #           - SHA256:OkxsH8Z6Iim6WDJBaII9eTT9aaO1f3eDc6IpsgYYPVg
+  #     - run:
+  #         name: Remove original SSH key from agent
+  #         command: |
+  #           ssh-add -l
+  #           ssh-add -d ~/.ssh/id_rsa.pub
+  #           ssh-add -l
+  #     - gpg-key
+  #     - git-config
+  #     - run:
+  #         name: Update changelog
+  #         command: |
+  #           pcu -vv
 
   release-ready:
     executor: rust-env
@@ -178,34 +180,22 @@ jobs:
           name: Publish update
           command: |
             set -exo pipefail
-            export NEXTSV_LEVEL=$(nextsv -q -c other require -f CHANGES.md -f CHANGELOG.md feature)
+            export NEXTSV_LEVEL=\
+            $(nextsv -q \
+            -c other \
+            require \
+            -f CHANGES.md -f CHANGELOG.md feature)
             if [ $NEXTSV_LEVEL != "none" ] ; then
               cargo release changes
-              cargo release -vvv --execute --no-confirm --sign-tag "$NEXTSV_LEVEL"
+              cargo release \
+              -vvv \
+              --execute \
+              --no-confirm \
+              --sign-tag \
+              "$NEXTSV_LEVEL"
             else
               echo "Not ready to release yet."
             fi
-
-  # make-release:
-  #   executor: rust-env
-  #   steps:
-  #     - add_ssh_keys:
-  #         fingerprints:
-  #           - $SSH_FINGERPRINT
-  #     - checkout
-  #     - run:
-  #         name: Configure git for user and signing
-  #         command: |
-  #           git config --global user.email "$USER_EMAIL"
-  #           git config --global user.name "$USER_NAME"
-  #           git config --global gpg.format ssh
-  #           git config --global user.signingKey "$SSH_PUB"
-  #           git config --local --list
-  #     - run:
-  #         name: Publish update
-  #         command: |
-  #           cargo release -vv --registry spare --execute --no-confirm "$(nextsv -q -e feature -r 'CHANGES.md' -r 'CHANGELOG.md')"
-
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -257,7 +247,8 @@ workflows:
       - all-features-flag-test:
           requires:
             - feature-test
-      - pr-changelog-update:
+      # - pr-changelog-update:
+      - toolkit/update_changelog:
           requires:
             - all-features-flag-test
           context:
