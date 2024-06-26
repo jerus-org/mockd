@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Dependencies: update github/codeql-action digest to bd2ebac(pr [#637](https://github.com/jerus-org/mockd/pull/637))
 - Dependencies: update actions/checkout digest to 692973e(pr [#636](https://github.com/jerus-org/mockd/pull/636))
 - Dependencies: update github/codeql-action digest to ce5603b(pr [#639](https://github.com/jerus-org/mockd/pull/639))
+- Dependencies: update github/codeql-action digest to 9b7c22c(pr [#640])
 
 ## [0.4.6] - 2024-05-17
 
@@ -355,6 +356,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#641]: https://github.com/jerus-org/mockd/pull/641
 [#642]: https://github.com/jerus-org/mockd/pull/642
 [#643]: https://github.com/jerus-org/mockd/pull/643
+[#640]: https://github.com/jerus-org/mockd/pull/640
 [Unreleased]: https://github.com/jerus-org/mockd/compare/0.4.6...HEAD
 [0.4.6]: https://github.com/jerus-org/mockd/compare/0.4.5...0.4.6
 [0.4.5]: https://github.com/jerus-org/mockd/compare/0.4.4...0.4.5
