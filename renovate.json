@@ -44,6 +44,12 @@
         "actions/checkout"
       ],
       "automerge": true
+    },
+    {
+      "matchPackagePatterns": [
+        "jerus-org/circleci-toolkit"
+      ],
+      "enabled": false
     }
   ],
   "regexManagers": [
