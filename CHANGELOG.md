@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - docs(pr [#642])
 - chore-disable automatic updates for jerus-org/circleci-toolkit package(pr [#643])
 - chore-prepare for release using toolkit release job(pr [#644])
+- chore(pr [#645])
 
 ### Security
 
@@ -359,6 +360,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#643]: https://github.com/jerus-org/mockd/pull/643
 [#640]: https://github.com/jerus-org/mockd/pull/640
 [#644]: https://github.com/jerus-org/mockd/pull/644
+[#645]: https://github.com/jerus-org/mockd/pull/645
 [Unreleased]: https://github.com/jerus-org/mockd/compare/0.4.6...HEAD
 [0.4.6]: https://github.com/jerus-org/mockd/compare/0.4.5...0.4.6
 [0.4.5]: https://github.com/jerus-org/mockd/compare/0.4.4...0.4.5
