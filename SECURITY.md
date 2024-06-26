@@ -9,4 +9,4 @@
 
 ## Reporting a Vulnerability
 
-Please report the vulnerability as an issue or pull request. 
+Please report the vulnerability as an [issue](https://github.com/jerus-org/mockd/issues/new/choose) or pull [request](https://github.com/jerus-org/mockd/compare).
