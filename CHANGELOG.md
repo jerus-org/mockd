@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - chore-conform to keep-a-changelog standards(pr [#634](https://github.com/jerus-org/mockd/pull/634))
 - docs-fix CircleCI badge in readme(pr [#635](https://github.com/jerus-org/mockd/pull/635))
+- ci-adopt tooklit orb(pr [#641])
 
 ### Security
 
@@ -349,15 +350,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Release 0.1.0
 
 [Ekleog]: https://github.com/Ekleog
-[Unreleased]: https://github.com/jerudp/nextsv/compare/0.4.6...HEAD
-[0.4.6]: https://github.com/jerudp/nextsv/compare/0.4.5...0.4.6
-[0.4.5]: https://github.com/jerudp/nextsv/compare/0.4.4...0.4.5
-[0.4.4]: https://github.com/jerudp/nextsv/compare/0.4.3...0.4.4
-[0.4.3]: https://github.com/jerudp/nextsv/compare/0.4.2...0.4.3
-[0.4.2]: https://github.com/jerudp/nextsv/compare/0.4.1...0.4.2
-[0.4.1]: https://github.com/jerudp/nextsv/compare/0.4.0...0.4.1
-[0.4.0]: https://github.com/jerudp/nextsv/compare/0.3.0...0.4.0
-[0.3.0]: https://github.com/jerudp/nextsv/compare/0.2.0...0.3.0
-[0.2.0]: https://github.com/jerudp/nextsv/compare/0.1.1...0.2.0
-[0.1.1]: https://github.com/jerudp/nextsv/compare/0.1.0...0.1.1
-[0.1.0]: https://github.com/jerudp/nextsv/releases/tag/0.1.0
+[#641]: https://github.com/jerus-org/mockd/pull/641
+[Unreleased]: https://github.com/jerus-org/mockd/compare/0.4.6...HEAD
+[0.4.6]: https://github.com/jerus-org/mockd/compare/0.4.5...0.4.6
+[0.4.5]: https://github.com/jerus-org/mockd/compare/0.4.4...0.4.5
+[0.4.4]: https://github.com/jerus-org/mockd/compare/0.4.3...0.4.4
+[0.4.3]: https://github.com/jerus-org/mockd/compare/0.4.2...0.4.3
+[0.4.2]: https://github.com/jerus-org/mockd/compare/0.4.1...0.4.2
+[0.4.1]: https://github.com/jerus-org/mockd/compare/0.4.0...0.4.1
+[0.4.0]: https://github.com/jerus-org/mockd/compare/0.3.0...0.4.0
+[0.3.0]: https://github.com/jerus-org/mockd/compare/0.2.0...0.3.0
+[0.2.0]: https://github.com/jerus-org/mockd/compare/0.1.1...0.2.0
+[0.1.1]: https://github.com/jerus-org/mockd/compare/0.1.0...0.1.1
+[0.1.0]: https://github.com/jerus-org/mockd/releases/tag/0.1.0
