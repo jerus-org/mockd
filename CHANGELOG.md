@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - chore-conform to keep-a-changelog standards(pr [#634](https://github.com/jerus-org/mockd/pull/634))
 - docs-fix CircleCI badge in readme(pr [#635](https://github.com/jerus-org/mockd/pull/635))
 - ci-adopt tooklit orb(pr [#641])
+- docs(pr [#642])
 
 ### Security
 
@@ -351,6 +352,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [Ekleog]: https://github.com/Ekleog
 [#641]: https://github.com/jerus-org/mockd/pull/641
+[#642]: https://github.com/jerus-org/mockd/pull/642
 [Unreleased]: https://github.com/jerus-org/mockd/compare/0.4.6...HEAD
 [0.4.6]: https://github.com/jerus-org/mockd/compare/0.4.5...0.4.6
 [0.4.5]: https://github.com/jerus-org/mockd/compare/0.4.4...0.4.5
