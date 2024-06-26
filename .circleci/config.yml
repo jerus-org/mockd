@@ -2,12 +2,15 @@
 version: 2.1
 
 orbs:
-  toolkit: jerus-org/circleci-toolkit@0.2.1
+  toolkit: jerus-org/circleci-toolkit@0.3.0
 
 parameters:
   min-rust-version:
     type: string
     default: "1.61"
+  fingerprint:
+    type: string
+    default: SHA256:OkxsH8Z6Iim6WDJBaII9eTT9aaO1f3eDc6IpsgYYPVg
 
 executors:
   rust-env:
@@ -71,60 +74,60 @@ jobs:
             --all-features \
             --document-private-items
 
-  release-ready:
-    executor: rust-env
-    steps:
-      - checkout
-      - run:
-          name: Check if ready to make a release
-          command: |
-            set -eo pipefail
+  # release-ready:
+  #   executor: rust-env
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: Check if ready to make a release
+  #         command: |
+  #           set -eo pipefail
 
-            if [ "$(nextsv -q)" != "none" ]
-            then
-              exit 0
-            else
-             exit 1
-            fi
+  #           if [ "$(nextsv -q)" != "none" ]
+  #           then
+  #             exit 0
+  #           else
+  #            exit 1
+  #           fi
 
-  make-release:
-    executor: rust-env
-    steps:
-      - checkout
-      - run:
-          name: import GPG key
-          command: |
-            echo -e $GPGKEY \
-              | base64 --decode --ignore-garbage \
-              | gpg --batch --allow-secret-key-import --import
-            gpg --keyid-format  LONG --list-secret-keys
-      - run:
-          name: Configure git for user and signing
-          command: |
-            git config user.email "$USER_EMAIL"
-            git config user.name "$USER_NAME"
-            git config --global gpg.program gpg
-            git config --global user.signingkey "$SIGNKEY"
-      - run:
-          name: Publish update
-          command: |
-            set -exo pipefail
-            export NEXTSV_LEVEL=\
-            $(nextsv -q \
-            -c other \
-            require \
-            -f CHANGES.md -f CHANGELOG.md feature)
-            if [ $NEXTSV_LEVEL != "none" ] ; then
-              cargo release changes
-              cargo release \
-              -vvv \
-              --execute \
-              --no-confirm \
-              --sign-tag \
-              "$NEXTSV_LEVEL"
-            else
-              echo "Not ready to release yet."
-            fi
+  # make-release:
+  #   executor: rust-env
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: import GPG key
+  #         command: |
+  #           echo -e $GPGKEY \
+  #             | base64 --decode --ignore-garbage \
+  #             | gpg --batch --allow-secret-key-import --import
+  #           gpg --keyid-format  LONG --list-secret-keys
+  #     - run:
+  #         name: Configure git for user and signing
+  #         command: |
+  #           git config user.email "$USER_EMAIL"
+  #           git config user.name "$USER_NAME"
+  #           git config --global gpg.program gpg
+  #           git config --global user.signingkey "$SIGNKEY"
+  #     - run:
+  #         name: Publish update
+  #         command: |
+  #           set -exo pipefail
+  #           export NEXTSV_LEVEL=\
+  #           $(nextsv -q \
+  #           -c other \
+  #           require \
+  #           -f CHANGES.md -f CHANGELOG.md feature)
+  #           if [ $NEXTSV_LEVEL != "none" ] ; then
+  #             cargo release changes
+  #             cargo release \
+  #             -vvv \
+  #             --execute \
+  #             --no-confirm \
+  #             --sign-tag \
+  #             "$NEXTSV_LEVEL"
+  #           else
+  #             echo "Not ready to release yet."
+  #           fi
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -182,7 +185,7 @@ workflows:
             - all-features-flag-test
           context:
             - release
-          ssh_fingerprint: SHA256:OkxsH8Z6Iim6WDJBaII9eTT9aaO1f3eDc6IpsgYYPVg
+          ssh_fingerprint: << pipeline.parameters.fingerprint >>
       - optional-builds
       - docs
       - optional-builds
@@ -192,9 +195,7 @@ workflows:
         - equal: [scheduled_pipeline, << pipeline.trigger_source >>]
         - equal: ["release check", << pipeline.schedule.name >>]
     jobs:
-      - release-ready
-      - make-release:
-          requires:
-            - release-ready
+      - toolkit/make_release:
           context:
             - release
+          ssh_fingerprint: << pipeline.parameters.fingerprint >>
