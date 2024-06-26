@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - chore-update jerus-org/circleci-toolkit orb version to 0.4.0(pr [#645])
+- chore(pr [#645])
 
 ## [0.4.7] - 2024-06-26
 
@@ -365,6 +366,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#643]: https://github.com/jerus-org/mockd/pull/643
 [#640]: https://github.com/jerus-org/mockd/pull/640
 [#644]: https://github.com/jerus-org/mockd/pull/644
+[#645]: https://github.com/jerus-org/mockd/pull/645
 [#645]: https://github.com/jerus-org/mockd/pull/645
 [Unreleased]: https://github.com/jerus-org/mockd/compare/0.4.7...HEAD
 [0.4.7]: https://github.com/jerus-org/mockd/compare/0.4.6...0.4.7
