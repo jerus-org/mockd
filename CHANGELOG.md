@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - chore-conform to keep-a-changelog standards(pr [#634](https://github.com/jerus-org/mockd/pull/634))
 - docs-fix CircleCI badge in readme(pr [#635](https://github.com/jerus-org/mockd/pull/635))
-- ci-adopt tooklit orb(pr [#641])
+- ci-adopt toolkit orb(pr [#641])
 - docs(pr [#642])
 - chore-disable automatic updates for jerus-org/circleci-toolkit package(pr [#643])
 
