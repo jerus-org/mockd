@@ -1,0 +1,134 @@
+---
+version: 2.1
+
+orbs:
+  toolkit: jerus-org/circleci-toolkit@0.8.0
+
+parameters:
+  min-rust-version:
+    type: string
+    default: "1.61"
+  fingerprint:
+    type: string
+    default: SHA256:OkxsH8Z6Iim6WDJBaII9eTT9aaO1f3eDc6IpsgYYPVg
+
+executors:
+  rust-env:
+    docker:
+      - image: jerusdp/ci-rust:<<pipeline.parameters.min-rust-version>>
+
+jobs:
+  required-builds:
+    executor: rust-env
+    steps:
+      - checkout
+      - run: cargo --version
+      - toolkit/cargo_build:
+          rust_version: "stable"
+      - toolkit/cargo_build:
+          rust_version: "<<pipeline.parameters.min-rust-version>>"
+
+  optional-builds:
+    executor: rust-env
+    steps:
+      - checkout
+      - run: cargo --version
+      - toolkit/cargo_build:
+          rust_version: "nightly"
+      - toolkit/cargo_build:
+          rust_version: "beta"
+
+  all-features-flag-test:
+    executor: rust-env
+    steps:
+      - checkout
+      - run: cargo --version
+      - run:
+          name: Test all features of the crate
+          command: "cargo test --all-features"
+
+  feature-test:
+    parameters:
+      mockd-feature:
+        type: string
+    executor: rust-env
+    steps:
+      - checkout
+      - run: cargo --version
+      - run:
+          name: Test <<parameters.mockd-feature>> features of the crate
+          command: "cargo test --features <<parameters.mockd-feature>>"
+
+  docs:
+    executor: rust-env
+    environment:
+      RUSTDOCFLAGS: --cfg docsrs -Dwarnings
+    steps:
+      - checkout
+      - run:
+          name: Test generation of all of the documentation for the crate
+          command: |
+            cargo +nightly doc \
+            --lib \
+            --no-deps \
+            --all-features \
+            --document-private-items
+
+# Invoke jobs via workflows
+# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+workflows:
+  validation:
+    jobs:
+      - required-builds
+      - optional-builds
+      - docs
+      - toolkit/common_tests
+      - toolkit/idiomatic_rust
+      - feature-test:
+          matrix:
+            parameters:
+              mockd-feature:
+                [
+                  all,
+                  address,
+                  animal,
+                  beer,
+                  company,
+                  contact,
+                  currency,
+                  datetime,
+                  file,
+                  generator,
+                  hacker,
+                  hipster,
+                  image,
+                  internet,
+                  job,
+                  language,
+                  log-level,
+                  name,
+                  password,
+                  payment,
+                  person,
+                  random-bool,
+                  status-code,
+                  unique,
+                  user-agent,
+                  vehicle,
+                  words,
+                ]
+          requires:
+            - toolkit/common_tests
+            - required-builds
+            - docs
+      - all-features-flag-test:
+          requires:
+            - feature-test
+      # - pr-changelog-update:
+      - toolkit/update_changelog:
+          requires:
+            - all-features-flag-test
+            - toolkit/idiomatic_rust
+          context:
+            - release
+          ssh_fingerprint: << pipeline.parameters.fingerprint >>
