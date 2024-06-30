@@ -1,8 +1,10 @@
 ---
 version: 2.1
 
+setup: true
+
 orbs:
-  toolkit: jerus-org/circleci-toolkit@0.4.0
+  toolkit: jerus-org/circleci-toolkit@0.8.3
 
 parameters:
   min-rust-version:
@@ -17,123 +19,15 @@ executors:
     docker:
       - image: jerusdp/ci-rust:<<pipeline.parameters.min-rust-version>>
 
-jobs:
-  required-builds:
-    executor: rust-env
-    steps:
-      - checkout
-      - run: cargo --version
-      - toolkit/cargo_build:
-          rust_version: "stable"
-      - toolkit/cargo_build:
-          rust_version: "<<pipeline.parameters.min-rust-version>>"
-
-  optional-builds:
-    executor: rust-env
-    steps:
-      - checkout
-      - run: cargo --version
-      - toolkit/cargo_build:
-          rust_version: "nightly"
-      - toolkit/cargo_build:
-          rust_version: "beta"
-
-  all-features-flag-test:
-    executor: rust-env
-    steps:
-      - checkout
-      - run: cargo --version
-      - run:
-          name: Test all features of the crate
-          command: "cargo test --all-features"
-
-  feature-test:
-    parameters:
-      mockd-feature:
-        type: string
-    executor: rust-env
-    steps:
-      - checkout
-      - run: cargo --version
-      - run:
-          name: Test <<parameters.mockd-feature>> features of the crate
-          command: "cargo test --features <<parameters.mockd-feature>>"
-
-  docs:
-    executor: rust-env
-    environment:
-      RUSTDOCFLAGS: --cfg docsrs -Dwarnings
-    steps:
-      - checkout
-      - run:
-          name: Test generation of all of the documentation for the crate
-          command: |
-            cargo +nightly doc \
-            --lib \
-            --no-deps \
-            --all-features \
-            --document-private-items
-
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  validation:
+  check_last_commit:
     when:
       not:
         equal: [scheduled_pipeline, << pipeline.trigger_source >>]
     jobs:
-      - required-builds
-      - toolkit/common_tests
-      - feature-test:
-          matrix:
-            parameters:
-              mockd-feature:
-                [
-                  all,
-                  address,
-                  animal,
-                  beer,
-                  company,
-                  contact,
-                  currency,
-                  datetime,
-                  file,
-                  generator,
-                  hacker,
-                  hipster,
-                  image,
-                  internet,
-                  job,
-                  language,
-                  log-level,
-                  name,
-                  password,
-                  payment,
-                  person,
-                  random-bool,
-                  status-code,
-                  unique,
-                  user-agent,
-                  vehicle,
-                  words,
-                ]
-          requires:
-            - toolkit/common_tests
-            - required-builds
-            - docs
-      - all-features-flag-test:
-          requires:
-            - feature-test
-      # - pr-changelog-update:
-      - toolkit/update_changelog:
-          requires:
-            - all-features-flag-test
-          context:
-            - release
-          ssh_fingerprint: << pipeline.parameters.fingerprint >>
-      - optional-builds
-      - docs
-      - optional-builds
+      - toolkit/check_for_bot
   release:
     when:
       and:
@@ -141,6 +35,8 @@ workflows:
         - equal: ["release check", << pipeline.schedule.name >>]
     jobs:
       - toolkit/make_release:
+          specific_version: true
+          version: "v0.4.8"
           context:
             - release
           ssh_fingerprint: << pipeline.parameters.fingerprint >>
