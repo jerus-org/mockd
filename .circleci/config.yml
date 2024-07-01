@@ -35,8 +35,6 @@ workflows:
         - equal: ["release check", << pipeline.schedule.name >>]
     jobs:
       - toolkit/make_release:
-          specific_version: true
-          version: "0.4.8"
           context:
             - release
           ssh_fingerprint: << pipeline.parameters.fingerprint >>
