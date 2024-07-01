@@ -12,13 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - chore-update jerus-org/circleci-toolkit orb version to 0.4.0(pr [#645])
 - chore(pr [#645])
 - ci-adopt orb v0.8.0 and setup config script for early exit on commits by bot(pr [#648])
+- chore-upgrade jerus-org/circleci-toolkit orb from 0.8.3 to 0.9.0(pr [#649])
 
 ### Security
 
 - Dependencies: update github/codeql-action digest to 79e9a50(pr [#647])
-
-### Security
-
 - Dependencies: update ossf/scorecard-action digest to 09f6ba3(pr [#646])
 
 ## [0.4.7] - 2024-06-26
@@ -380,6 +378,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#646]: https://github.com/jerus-org/mockd/pull/646
 [#648]: https://github.com/jerus-org/mockd/pull/648
 [#647]: https://github.com/jerus-org/mockd/pull/647
+[#649]: https://github.com/jerus-org/mockd/pull/649
 [Unreleased]: https://github.com/jerus-org/mockd/compare/0.4.7...HEAD
 [0.4.7]: https://github.com/jerus-org/mockd/compare/0.4.6...0.4.7
 [0.4.6]: https://github.com/jerus-org/mockd/compare/0.4.5...0.4.6
