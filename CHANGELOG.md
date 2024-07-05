@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - ci-update scorecards github actions(pr [#656])
 
+### Security
+
+- Dependencies: update actions/upload-artifact action to v4.3.4(pr [#658])
+
 ## [0.4.9] - 2024-07-01
 
 ### Changed
@@ -403,6 +407,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#654]: https://github.com/jerus-org/mockd/pull/654
 [#655]: https://github.com/jerus-org/mockd/pull/655
 [#656]: https://github.com/jerus-org/mockd/pull/656
+[#658]: https://github.com/jerus-org/mockd/pull/658
 [Unreleased]: https://github.com/jerus-org/mockd/compare/0.4.9...HEAD
 [0.4.9]: https://github.com/jerus-org/mockd/compare/0.4.8...0.4.9
 [0.4.8]: https://github.com/jerus-org/mockd/compare/0.4.7...0.4.8
