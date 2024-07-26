@@ -7,10 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Changed
-
-- ci-update toolkit version and refactor to multi-pipelines(pr [#662])
-
 ### Security
 
 - Dependencies: update github/codeql-action action to v3.25.13(pr [#660])
@@ -412,7 +408,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#640]: https://github.com/jerus-org/mockd/pull/640
 [#644]: https://github.com/jerus-org/mockd/pull/644
 [#645]: https://github.com/jerus-org/mockd/pull/645
-[#645]: https://github.com/jerus-org/mockd/pull/645
 [#646]: https://github.com/jerus-org/mockd/pull/646
 [#648]: https://github.com/jerus-org/mockd/pull/648
 [#647]: https://github.com/jerus-org/mockd/pull/647
@@ -428,7 +423,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#659]: https://github.com/jerus-org/mockd/pull/659
 [#660]: https://github.com/jerus-org/mockd/pull/660
 [#661]: https://github.com/jerus-org/mockd/pull/661
-[#662]: https://github.com/jerus-org/mockd/pull/662
 [Unreleased]: https://github.com/jerus-org/mockd/compare/0.4.11...HEAD
 [0.4.11]: https://github.com/jerus-org/mockd/compare/0.4.10...0.4.11
 [0.4.10]: https://github.com/jerus-org/mockd/compare/0.4.9...0.4.10
