@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Dependencies: update ossf/scorecard-action action to v2.4.0(pr [#664])
 - Dependencies: update github/codeql-action action to v3.25.15(pr [#663])
+- Dependencies: update actions/upload-artifact action to v4.3.5(pr [#666])
 
 ## [0.4.12] - 2024-07-27
 
@@ -442,6 +443,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#664]: https://github.com/jerus-org/mockd/pull/664
 [#663]: https://github.com/jerus-org/mockd/pull/663
 [#665]: https://github.com/jerus-org/mockd/pull/665
+[#666]: https://github.com/jerus-org/mockd/pull/666
 [Unreleased]: https://github.com/jerus-org/mockd/compare/0.4.12...HEAD
 [0.4.12]: https://github.com/jerus-org/mockd/compare/0.4.11...0.4.12
 [0.4.11]: https://github.com/jerus-org/mockd/compare/0.4.10...0.4.11
