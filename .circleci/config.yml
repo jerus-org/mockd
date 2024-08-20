@@ -113,6 +113,7 @@ workflows:
           context:
             - release
             - bot-check
+            - pdu-app
           ssh_fingerprint: << pipeline.parameters.fingerprint >>
           min_rust_version: << pipeline.parameters.min-rust-version >>
           pcu_verbosity: "-vvvv"
