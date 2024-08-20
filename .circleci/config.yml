@@ -115,6 +115,7 @@ workflows:
             - bot-check
           ssh_fingerprint: << pipeline.parameters.fingerprint >>
           min_rust_version: << pipeline.parameters.min-rust-version >>
+          pcu_verbosity: "-vvvv"
 
   on_success:
     when:
