@@ -19,7 +19,7 @@ parameters:
     description: "If true, the success pipeline will be executed."
 
 orbs:
-  toolkit: jerus-org/circleci-toolkit@1.1.0
+  toolkit: jerus-org/circleci-toolkit@1.4.2
 
 executors:
   rust-env:
@@ -115,6 +115,7 @@ workflows:
             - bot-check
           ssh_fingerprint: << pipeline.parameters.fingerprint >>
           min_rust_version: << pipeline.parameters.min-rust-version >>
+          update_pcu: true
 
   on_success:
     when:
