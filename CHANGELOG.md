@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- ci-upgrade jerus-org/circleci-toolkit orb version from 0.24.1 to 1.1.0(pr [#672])
+- ci-update toolkit version to 1.4.2 and add update_pcu(pr [#674])
+
 ## [0.4.15] - 2024-08-17
 
 ### Security
@@ -462,23 +469,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#668]: https://github.com/jerus-org/mockd/pull/668
 [#669]: https://github.com/jerus-org/mockd/pull/669
 [#670]: https://github.com/jerus-org/mockd/pull/670
-[0.4.15]: https://github.com/jerus-org/mockd/compare/0.4.14...v0.4.15
-[0.4.14]: https://github.com/jerus-org/mockd/compare/0.4.13...0.4.14
-[0.4.13]: https://github.com/jerus-org/mockd/compare/0.4.12...0.4.13
-[0.4.12]: https://github.com/jerus-org/mockd/compare/0.4.11...0.4.12
-[0.4.11]: https://github.com/jerus-org/mockd/compare/0.4.10...0.4.11
-[0.4.10]: https://github.com/jerus-org/mockd/compare/0.4.9...0.4.10
-[0.4.9]: https://github.com/jerus-org/mockd/compare/0.4.8...0.4.9
-[0.4.8]: https://github.com/jerus-org/mockd/compare/0.4.7...0.4.8
-[0.4.7]: https://github.com/jerus-org/mockd/compare/0.4.6...0.4.7
-[0.4.6]: https://github.com/jerus-org/mockd/compare/0.4.5...0.4.6
-[0.4.5]: https://github.com/jerus-org/mockd/compare/0.4.4...0.4.5
-[0.4.4]: https://github.com/jerus-org/mockd/compare/0.4.3...0.4.4
-[0.4.3]: https://github.com/jerus-org/mockd/compare/0.4.2...0.4.3
-[0.4.2]: https://github.com/jerus-org/mockd/compare/0.4.1...0.4.2
-[0.4.1]: https://github.com/jerus-org/mockd/compare/0.4.0...0.4.1
-[0.4.0]: https://github.com/jerus-org/mockd/compare/0.3.0...0.4.0
-[0.3.0]: https://github.com/jerus-org/mockd/compare/0.2.0...0.3.0
-[0.2.0]: https://github.com/jerus-org/mockd/compare/0.1.1...0.2.0
-[0.1.1]: https://github.com/jerus-org/mockd/compare/0.1.0...0.1.1
-[0.1.0]: https://github.com/jerus-org/mockd/releases/tag/0.1.0
+[#672]: https://github.com/jerus-org/mockd/pull/672
+[#674]: https://github.com/jerus-org/mockd/pull/674
+[Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.15...HEAD
+[0.4.15]: https://github.com/jerus-org/mockd/compare/v0.4.14...v0.4.15
+[0.4.14]: https://github.com/jerus-org/mockd/compare/v0.4.13...v0.4.14
+[0.4.13]: https://github.com/jerus-org/mockd/compare/v0.4.12...v0.4.13
+[0.4.12]: https://github.com/jerus-org/mockd/compare/v0.4.11...v0.4.12
+[0.4.11]: https://github.com/jerus-org/mockd/compare/v0.4.10...v0.4.11
+[0.4.10]: https://github.com/jerus-org/mockd/compare/v0.4.9...v0.4.10
+[0.4.9]: https://github.com/jerus-org/mockd/compare/v0.4.8...v0.4.9
+[0.4.8]: https://github.com/jerus-org/mockd/compare/v0.4.7...v0.4.8
+[0.4.7]: https://github.com/jerus-org/mockd/compare/v0.4.6...v0.4.7
+[0.4.6]: https://github.com/jerus-org/mockd/compare/v0.4.5...v0.4.6
+[0.4.5]: https://github.com/jerus-org/mockd/compare/v0.4.4...v0.4.5
+[0.4.4]: https://github.com/jerus-org/mockd/compare/v0.4.3...v0.4.4
+[0.4.3]: https://github.com/jerus-org/mockd/compare/v0.4.2...v0.4.3
+[0.4.2]: https://github.com/jerus-org/mockd/compare/v0.4.1...v0.4.2
+[0.4.1]: https://github.com/jerus-org/mockd/compare/v0.4.0...v0.4.1
+[0.4.0]: https://github.com/jerus-org/mockd/compare/v0.3.0...v0.4.0
+[0.3.0]: https://github.com/jerus-org/mockd/compare/v0.2.0...v0.3.0
+[0.2.0]: https://github.com/jerus-org/mockd/compare/v0.1.1...v0.2.0
+[0.1.1]: https://github.com/jerus-org/mockd/compare/v0.1.0...v0.1.1
+[0.1.0]: https://github.com/jerus-org/mockd/releases/tag/v0.1.0
