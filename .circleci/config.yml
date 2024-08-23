@@ -113,6 +113,7 @@ workflows:
           context:
             - release
             - bot-check
+            - pcu-app
           ssh_fingerprint: << pipeline.parameters.fingerprint >>
           min_rust_version: << pipeline.parameters.min-rust-version >>
           update_pcu: true
