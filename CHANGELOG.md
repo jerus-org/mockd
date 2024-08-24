@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - ci-upgrade jerus-org/circleci-toolkit orb version from 0.24.1 to 1.1.0(pr [#672])
 - ci-update toolkit version to 1.4.2 and add update_pcu(pr [#674])
+- ci-update circleci-toolkit version from 1.4.2 to 1.4.3(pr [#676])
 
 ### Security
 
@@ -478,6 +479,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#674]: https://github.com/jerus-org/mockd/pull/674
 [#673]: https://github.com/jerus-org/mockd/pull/673
 [#675]: https://github.com/jerus-org/mockd/pull/675
+[#676]: https://github.com/jerus-org/mockd/pull/676
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.15...HEAD
 [0.4.15]: https://github.com/jerus-org/mockd/compare/v0.4.14...v0.4.15
 [0.4.14]: https://github.com/jerus-org/mockd/compare/v0.4.13...v0.4.14
