@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- add rangeStrategy option to renovate configuration(pr [#679])
+
 ## [0.4.18] - 2024-08-31
 
 ### Security
@@ -494,6 +500,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#676]: https://github.com/jerus-org/mockd/pull/676
 [#677]: https://github.com/jerus-org/mockd/pull/677
 [#678]: https://github.com/jerus-org/mockd/pull/678
+[#679]: https://github.com/jerus-org/mockd/pull/679
+[Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.18...HEAD
 [0.4.18]: https://github.com/jerus-org/mockd/compare/v0.4.17...v0.4.18
 [0.4.17]: https://github.com/jerus-org/mockd/compare/v0.4.16...v0.4.17
 [0.4.16]: https://github.com/jerus-org/mockd/compare/v0.4.15...v0.4.16
