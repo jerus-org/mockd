@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - chore(circleci)-update toolkit orb to version 1.5.0 and modify pipeline parameters(pr [#681])
 
+### Security
+
+- Dependencies: update rust crate uuid to 1.10.0(pr [#680])
+
 ## [0.4.18] - 2024-08-31
 
 ### Security
@@ -506,6 +510,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#678]: https://github.com/jerus-org/mockd/pull/678
 [#679]: https://github.com/jerus-org/mockd/pull/679
 [#681]: https://github.com/jerus-org/mockd/pull/681
+[#680]: https://github.com/jerus-org/mockd/pull/680
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.18...HEAD
 [0.4.18]: https://github.com/jerus-org/mockd/compare/v0.4.17...v0.4.18
 [0.4.17]: https://github.com/jerus-org/mockd/compare/v0.4.16...v0.4.17
