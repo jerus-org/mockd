@@ -32,7 +32,7 @@ Add mockd to the dependencies (typically dev-dependencies) in Cargo.toml
 ```toml
 
 [dev-dependencies]
-mockd = "0.4.18"
+mockd = "0.4.19"
 
 ```
 
