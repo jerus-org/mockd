@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Security
+
+- Dependencies: update github/codeql-action action to v3.26.8(pr [#683])
+
 ## [0.4.19] - 2024-09-14
 
 ### Added
@@ -513,6 +519,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#681]: https://github.com/jerus-org/mockd/pull/681
 [#680]: https://github.com/jerus-org/mockd/pull/680
 [#682]: https://github.com/jerus-org/mockd/pull/682
+[#683]: https://github.com/jerus-org/mockd/pull/683
+[Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.19...HEAD
 [0.4.19]: https://github.com/jerus-org/mockd/compare/v0.4.18...v0.4.19
 [0.4.18]: https://github.com/jerus-org/mockd/compare/v0.4.17...v0.4.18
 [0.4.17]: https://github.com/jerus-org/mockd/compare/v0.4.16...v0.4.17
