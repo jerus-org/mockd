@@ -52,6 +52,7 @@ workflows:
         - << pipeline.parameters.validation-flag >>
     jobs:
       - toolkit/label:
+          context: pcu-app
           min_rust_version: << pipeline.parameters.min-rust-version >>
           filters:
             branches:
