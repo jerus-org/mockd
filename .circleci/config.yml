@@ -106,7 +106,8 @@ workflows:
             - toolkit/required_builds
             - toolkit/test_doc_build
 
-      - toolkit/security
+      - toolkit/security:
+          context: SonarCloud
 
       - toolkit/update_changelog:
           requires:
