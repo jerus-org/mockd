@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 
 - Dependencies: update actions/upload-artifact action to v4.4.1(pr [#690])
+- Dependencies: update actions/checkout action to v4.2.1(pr [#691])
 
 ## [0.4.22] - 2024-10-05
 
@@ -552,6 +553,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#688]: https://github.com/jerus-org/mockd/pull/688
 [#689]: https://github.com/jerus-org/mockd/pull/689
 [#690]: https://github.com/jerus-org/mockd/pull/690
+[#691]: https://github.com/jerus-org/mockd/pull/691
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.22...HEAD
 [0.4.22]: https://github.com/jerus-org/mockd/compare/v0.4.21...v0.4.22
 [0.4.21]: https://github.com/jerus-org/mockd/compare/v0.4.20...v0.4.21
