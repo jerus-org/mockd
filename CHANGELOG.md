@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 
 - Dependencies: update dependency toolkit to v1.14.0(pr [#698])
+- Dependencies: update dependency toolkit to v1.15.0(pr [#699])
 
 ## [0.4.26] - 2024-10-26
 
@@ -588,6 +589,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#696]: https://github.com/jerus-org/mockd/pull/696
 [#697]: https://github.com/jerus-org/mockd/pull/697
 [#698]: https://github.com/jerus-org/mockd/pull/698
+[#699]: https://github.com/jerus-org/mockd/pull/699
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.26...HEAD
 [0.4.26]: https://github.com/jerus-org/mockd/compare/v0.4.25...v0.4.26
 [0.4.25]: https://github.com/jerus-org/mockd/compare/v0.4.24...v0.4.25
