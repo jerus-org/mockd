@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Dependencies: update dependency toolkit to v1.19.0(pr [#702])
 - Dependencies: update github/codeql-action action to v3.27.1(pr [#703])
 - Dependencies: update github/codeql-action action to v3.27.2(pr [#704])
+- Dependencies: update github/codeql-action action to v3.27.4(pr [#705])
 
 ## [0.4.27] - 2024-11-02
 
