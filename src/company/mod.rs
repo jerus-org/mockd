@@ -92,7 +92,6 @@ pub fn buzzword() -> String {
 /// println!("Company bs: {}", bs);
 /// ```
 ///
-
 /// # Feature
 ///
 /// Requires the "company" feature.
