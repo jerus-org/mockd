@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Dependencies: update github/codeql-action action to v3.27.9(pr [#709])
 - Dependencies: update dependency toolkit to v1.20.2(pr [#710])
 - Dependencies: update actions/upload-artifact action to v4.5.0(pr [#711])
+- Dependencies: update rust crate simplerand to 1.5.0(pr [#712])
 
 ## [0.4.31] - 2024-12-13
 
@@ -638,6 +639,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#709]: https://github.com/jerus-org/mockd/pull/709
 [#710]: https://github.com/jerus-org/mockd/pull/710
 [#711]: https://github.com/jerus-org/mockd/pull/711
+[#712]: https://github.com/jerus-org/mockd/pull/712
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.31...HEAD
 [0.4.31]: https://github.com/jerus-org/mockd/compare/v0.4.30...v0.4.31
 [0.4.30]: https://github.com/jerus-org/mockd/compare/v0.4.29...v0.4.30
