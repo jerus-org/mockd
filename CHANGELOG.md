@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Security
+
+- Dependencies: bump simplerand from 1.5.0 to 1.5.1(pr [#713])
+
 ## [0.4.32] - 2024-12-20
 
 ### Security
@@ -640,6 +646,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#710]: https://github.com/jerus-org/mockd/pull/710
 [#711]: https://github.com/jerus-org/mockd/pull/711
 [#712]: https://github.com/jerus-org/mockd/pull/712
+[#713]: https://github.com/jerus-org/mockd/pull/713
+[Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.32...HEAD
 [0.4.32]: https://github.com/jerus-org/mockd/compare/v0.4.31...v0.4.32
 [0.4.31]: https://github.com/jerus-org/mockd/compare/v0.4.30...v0.4.31
 [0.4.30]: https://github.com/jerus-org/mockd/compare/v0.4.29...v0.4.30
