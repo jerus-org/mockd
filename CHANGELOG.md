@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 
 - Dependencies: bump simplerand from 1.5.0 to 1.5.1(pr [#713])
+- Dependencies: update github/codeql-action action to v3.28.0(pr [#715])
 
 ## [0.4.32] - 2024-12-20
 
@@ -647,6 +648,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#711]: https://github.com/jerus-org/mockd/pull/711
 [#712]: https://github.com/jerus-org/mockd/pull/712
 [#713]: https://github.com/jerus-org/mockd/pull/713
+[#715]: https://github.com/jerus-org/mockd/pull/715
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.32...HEAD
 [0.4.32]: https://github.com/jerus-org/mockd/compare/v0.4.31...v0.4.32
 [0.4.31]: https://github.com/jerus-org/mockd/compare/v0.4.30...v0.4.31
