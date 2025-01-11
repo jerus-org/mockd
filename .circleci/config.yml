@@ -146,7 +146,12 @@ workflows:
         - not: << pipeline.parameters.success-flag >>
         - not: << pipeline.parameters.validation-flag >>
     jobs:
+      - toolkit/save_next_version:
+          min_rust_version: << pipeline.parameters.min-rust-version >>
+
       - toolkit/make_release:
+          requires:
+            - toolkit/save_next_version
           context:
             - release
             - bot-check
