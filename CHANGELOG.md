@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- ci(circleci)-update workflow to include save_next_version job before make_release(pr [#717])
+
 ### Security
 
 - Dependencies: update dependency toolkit to v2(pr [#716])
@@ -658,6 +662,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#715]: https://github.com/jerus-org/mockd/pull/715
 [#714]: https://github.com/jerus-org/mockd/pull/714
 [#716]: https://github.com/jerus-org/mockd/pull/716
+[#717]: https://github.com/jerus-org/mockd/pull/717
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.33...HEAD
 [0.4.33]: https://github.com/jerus-org/mockd/compare/v0.4.32...v0.4.33
 [0.4.32]: https://github.com/jerus-org/mockd/compare/v0.4.31...v0.4.32
