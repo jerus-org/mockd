@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Dependencies: bump uuid from 1.11.0 to 1.11.1(pr [#719])
 - Dependencies: update actions/upload-artifact action to v4.6.0(pr [#721])
+- Dependencies: update github/codeql-action action to v3.28.1(pr [#720])
 
 ## [0.4.34] - 2025-01-11
 
@@ -677,6 +678,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#718]: https://github.com/jerus-org/mockd/pull/718
 [#719]: https://github.com/jerus-org/mockd/pull/719
 [#721]: https://github.com/jerus-org/mockd/pull/721
+[#720]: https://github.com/jerus-org/mockd/pull/720
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.34...HEAD
 [0.4.34]: https://github.com/jerus-org/mockd/compare/v0.4.33...v0.4.34
 [0.4.33]: https://github.com/jerus-org/mockd/compare/v0.4.32...v0.4.33
