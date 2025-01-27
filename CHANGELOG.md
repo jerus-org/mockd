@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - chore(config)-migrate renovate config(pr [#726])
 
+### Security
+
+- Dependencies: bump rand from 0.8.5 to 0.9.0(pr [#727])
+
 ## [0.4.36] - 2025-01-24
 
 ### Security
@@ -699,6 +703,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#724]: https://github.com/jerus-org/mockd/pull/724
 [#725]: https://github.com/jerus-org/mockd/pull/725
 [#726]: https://github.com/jerus-org/mockd/pull/726
+[#727]: https://github.com/jerus-org/mockd/pull/727
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.36...HEAD
 [0.4.36]: https://github.com/jerus-org/mockd/compare/v0.4.35...v0.4.36
 [0.4.35]: https://github.com/jerus-org/mockd/compare/v0.4.34...v0.4.35
