@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 
 - Dependencies: bump rand from 0.8.5 to 0.9.0(pr [#727])
+- Dependencies: update github/codeql-action action to v3.28.8(pr [#728])
 
 ## [0.4.36] - 2025-01-24
 
@@ -704,6 +705,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#725]: https://github.com/jerus-org/mockd/pull/725
 [#726]: https://github.com/jerus-org/mockd/pull/726
 [#727]: https://github.com/jerus-org/mockd/pull/727
+[#728]: https://github.com/jerus-org/mockd/pull/728
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.36...HEAD
 [0.4.36]: https://github.com/jerus-org/mockd/compare/v0.4.35...v0.4.36
 [0.4.35]: https://github.com/jerus-org/mockd/compare/v0.4.34...v0.4.35
