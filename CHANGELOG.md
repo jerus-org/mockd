@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Security
+
+- Dependencies: bump uuid from 1.13.2 to 1.14.0(pr [#732])
+
 ## [0.4.40] - 2025-02-21
 
 ### Security
@@ -727,6 +733,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#729]: https://github.com/jerus-org/mockd/pull/729
 [#730]: https://github.com/jerus-org/mockd/pull/730
 [#731]: https://github.com/jerus-org/mockd/pull/731
+[#732]: https://github.com/jerus-org/mockd/pull/732
+[Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.40...HEAD
 [0.4.40]: https://github.com/jerus-org/mockd/compare/v0.4.39...v0.4.40
 [0.4.39]: https://github.com/jerus-org/mockd/compare/v0.4.38...v0.4.39
 [0.4.38]: https://github.com/jerus-org/mockd/compare/v0.4.37...v0.4.38
