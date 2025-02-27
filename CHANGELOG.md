@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 
 - Dependencies: bump uuid from 1.13.2 to 1.14.0(pr [#732])
+- Dependencies: update actions/upload-artifact action to v4.6.1(pr [#733])
 
 ## [0.4.40] - 2025-02-21
 
@@ -734,6 +735,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#730]: https://github.com/jerus-org/mockd/pull/730
 [#731]: https://github.com/jerus-org/mockd/pull/731
 [#732]: https://github.com/jerus-org/mockd/pull/732
+[#733]: https://github.com/jerus-org/mockd/pull/733
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.40...HEAD
 [0.4.40]: https://github.com/jerus-org/mockd/compare/v0.4.39...v0.4.40
 [0.4.39]: https://github.com/jerus-org/mockd/compare/v0.4.38...v0.4.39
