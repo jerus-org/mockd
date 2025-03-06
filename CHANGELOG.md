@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 
 - Dependencies: bump chrono from 0.4.39 to 0.4.40(pr [#737])
+- Dependencies: update dependency toolkit to v2.1.0(pr [#739])
 
 ## [0.4.41] - 2025-02-28
 
@@ -749,6 +750,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#735]: https://github.com/jerus-org/mockd/pull/735
 [#736]: https://github.com/jerus-org/mockd/pull/736
 [#737]: https://github.com/jerus-org/mockd/pull/737
+[#739]: https://github.com/jerus-org/mockd/pull/739
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.41...HEAD
 [0.4.41]: https://github.com/jerus-org/mockd/compare/v0.4.40...v0.4.41
 [0.4.40]: https://github.com/jerus-org/mockd/compare/v0.4.39...v0.4.40
