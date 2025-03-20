@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - 🔥 chore(workflows)-remove rust security audit workflow(pr [#745])
+- 🔥 chore(workflows)-remove scorecards analysis workflow(pr [#746])
 
 ### Security
 
@@ -776,6 +777,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#743]: https://github.com/jerus-org/mockd/pull/743
 [#744]: https://github.com/jerus-org/mockd/pull/744
 [#745]: https://github.com/jerus-org/mockd/pull/745
+[#746]: https://github.com/jerus-org/mockd/pull/746
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.43...HEAD
 [0.4.43]: https://github.com/jerus-org/mockd/compare/v0.4.42...v0.4.43
 [0.4.42]: https://github.com/jerus-org/mockd/compare/v0.4.41...v0.4.42
