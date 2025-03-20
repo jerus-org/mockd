@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- 🔥 chore(workflows)-remove rust security audit workflow(pr [#745])
+
 ### Security
 
 - Dependencies: bump uuid from 1.15.1 to 1.16.0(pr [#742])
@@ -771,6 +775,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#742]: https://github.com/jerus-org/mockd/pull/742
 [#743]: https://github.com/jerus-org/mockd/pull/743
 [#744]: https://github.com/jerus-org/mockd/pull/744
+[#745]: https://github.com/jerus-org/mockd/pull/745
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.43...HEAD
 [0.4.43]: https://github.com/jerus-org/mockd/compare/v0.4.42...v0.4.43
 [0.4.42]: https://github.com/jerus-org/mockd/compare/v0.4.41...v0.4.42
