@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Security
+
+- Dependencies: update rust crate chrono to 0.4.41(pr [#751])
+
 ## [0.4.46] - 2025-04-25
 
 ### Security
@@ -796,6 +802,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#748]: https://github.com/jerus-org/mockd/pull/748
 [#749]: https://github.com/jerus-org/mockd/pull/749
 [#750]: https://github.com/jerus-org/mockd/pull/750
+[#751]: https://github.com/jerus-org/mockd/pull/751
+[Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.46...HEAD
 [0.4.46]: https://github.com/jerus-org/mockd/compare/v0.4.45...v0.4.46
 [0.4.45]: https://github.com/jerus-org/mockd/compare/v0.4.44...v0.4.45
 [0.4.44]: https://github.com/jerus-org/mockd/compare/v0.4.43...v0.4.44
