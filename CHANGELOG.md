@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - 🔧 chore(config)-update renovate schedule(pr [#753])
+- 🔧 chore(config)-update renovate schedule time(pr [#754])
 
 ## [0.4.47] - 2025-05-02
 
@@ -810,6 +811,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#750]: https://github.com/jerus-org/mockd/pull/750
 [#751]: https://github.com/jerus-org/mockd/pull/751
 [#753]: https://github.com/jerus-org/mockd/pull/753
+[#754]: https://github.com/jerus-org/mockd/pull/754
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.47...HEAD
 [0.4.47]: https://github.com/jerus-org/mockd/compare/v0.4.46...v0.4.47
 [0.4.46]: https://github.com/jerus-org/mockd/compare/v0.4.45...v0.4.46
