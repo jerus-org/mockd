@@ -55,10 +55,9 @@ mod tests {
             i -= 1;
         }
 
-        println!(
-            "\ncount_0:\t{}\ncount_1:\t{}\ncount_other:\t{}",
-            count_0, count_1, count_other
-        );
+        println!("\ncount_0:\t{count_0}");
+        println!("count_1:\t{count_1}");
+        println!("count_other:\t{count_other}");
 
         assert_ne!(0, count_0);
         assert_ne!(0, count_1);
@@ -81,7 +80,7 @@ mod tests {
             i -= 1;
         }
 
-        println!("\ntrue:\t{}\nfalse:\t{}", true_count, false_count);
+        println!("\ntrue:\t{true_count}\nfalse:\t{false_count}");
 
         assert_ne!(0, true_count);
         assert_ne!(0, false_count);

@@ -1,72 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "dependencyDashboard": true,
-  "rangeStrategy": "bump",
   "schedule": [
     "* 0-5 17 * *"
   ],
-  "packageRules": [
-    {
-      "groupName": "futures packages",
-      "matchPackageNames": [
-        "/^futures[-_]?/"
-      ]
-    },
-    {
-      "groupName": "serde packages",
-      "matchPackageNames": [
-        "/^serde[-_]?/"
-      ]
-    },
-    {
-      "groupName": "tokio packages",
-      "matchPackageNames": [
-        "/^tokio[-_]?/"
-      ]
-    },
-    {
-      "groupName": "tracing packages",
-      "matchPackageNames": [
-        "/^tracing[-_]?/",
-        "!tracing-opentelemetry"
-      ]
-    },
-    {
-      "groupName": "liquid packages",
-      "matchPackageNames": [
-        "/^liquid[-_]?/",
-        "/^kstring$/"
-      ]
-    },
-    {
-      "automerge": true,
-      "matchPackageNames": [
-        "/github/codeql-action/",
-        "/ossf/scorecard-action/",
-        "/actions/upload-artifact/",
-        "/actions/checkout/"
-      ]
-    },
-    {
-      "sourceUrl": "https://github.com/jerus-org/circleci-toolkit",
-      "enabled": true,
-      "matchPackageNames": [
-        "/jerus-org/circleci-toolkit/"
-      ]
-    }
-  ],
-  "customManagers": [
-    {
-      "customType": "regex",
-      "fileMatch": [
-        "^rust-toolchain\\.toml?$"
-      ],
-      "matchStrings": [
-        "channel\\s*=\\s*\"(?<currentValue>\\d+\\.\\d+\\.\\d+)\""
-      ],
-      "depNameTemplate": "rust",
-      "packageNameTemplate": "rust-lang/rust",
-      "datasourceTemplate": "github-releases"
-    }
+  "extends": [
+    "github>jerusdp/renovate-config:default.json"
   ]
 }

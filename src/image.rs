@@ -39,7 +39,7 @@
 ///
 pub fn url(width: i64, height: i64) -> String {
     // url will generate a random Image Based Upon Height And Width. https://picsum.photos
-    format!("https://picsum.photos/{}/{}", width, height)
+    format!("https://picsum.photos/{width}/{height}")
 }
 
 #[cfg(test)]
