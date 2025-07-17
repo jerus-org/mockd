@@ -307,13 +307,13 @@ mod tests {
     #[test]
     fn random_data_test() {
         let mut street1 = misc::random_data(STREET_NAME);
-        println!("{}", street1);
+        println!("{street1}");
 
         street1 = misc::random_data(STREET_NAME);
-        println!("{}", street1);
+        println!("{street1}");
 
         street1 = misc::random_data(STREET_NAME);
-        println!("{}", street1);
+        println!("{street1}");
     }
 
     #[test]

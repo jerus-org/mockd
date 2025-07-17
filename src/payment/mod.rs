@@ -143,13 +143,13 @@ pub fn credit_card_exp() -> String {
     if month < 10 {
         format!(
             "{}/{}",
-            format!("0{}", month).as_str(),
+            format!("0{month}").as_str(),
             current_year + misc::random(1_i32, 10_i32)
         )
     } else {
         format!(
             "{}/{}",
-            format!("{}", month).as_str(),
+            format!("{month}").as_str(),
             current_year + misc::random(1_i32, 10_i32)
         )
     }

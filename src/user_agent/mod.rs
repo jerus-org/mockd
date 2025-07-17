@@ -126,7 +126,7 @@ pub fn safari() -> String {
         _ => format!("({} {}_{}_{} like Mac OS X; en-US) AppleWebKit/{} (KHTML, like Gecko) Version/{}.0.5 Mobile/8B{} Safari/6{}", mobile_devices, misc::random(7, 9 ), misc::random(0, 3), misc::random(1, 3), rand_num, misc::random(3, 5), misc::random(111, 120), rand_num)
     };
 
-    format!("Mozilla/5.0 {}", platforms)
+    format!("Mozilla/5.0 {platforms}")
 }
 
 /// Generate a random Opera user agent string.
