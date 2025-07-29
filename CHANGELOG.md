@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 
 - Dependencies: bump rand from 0.9.1 to 0.9.2(pr [#757])
+- Dependencies: bump simplerand from 1.5.1 to 1.6.0(pr [#758])
 
 ## [0.4.50] - 2025-07-21
 
@@ -833,6 +834,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#755]: https://github.com/jerus-org/mockd/pull/755
 [#756]: https://github.com/jerus-org/mockd/pull/756
 [#757]: https://github.com/jerus-org/mockd/pull/757
+[#758]: https://github.com/jerus-org/mockd/pull/758
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.50...HEAD
 [0.4.50]: https://github.com/jerus-org/mockd/compare/v0.4.49...v0.4.50
 [0.4.49]: https://github.com/jerus-org/mockd/compare/v0.4.48...v0.4.49
