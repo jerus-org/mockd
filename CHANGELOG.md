@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- 🔧 chore(github)-remove dependabot configuration(pr [#762])
+
 ## [0.4.51] - 2025-08-21
 
 ### Security
@@ -837,6 +843,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#757]: https://github.com/jerus-org/mockd/pull/757
 [#758]: https://github.com/jerus-org/mockd/pull/758
 [#759]: https://github.com/jerus-org/mockd/pull/759
+[#762]: https://github.com/jerus-org/mockd/pull/762
+[Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.51...HEAD
 [0.4.51]: https://github.com/jerus-org/mockd/compare/v0.4.50...v0.4.51
 [0.4.50]: https://github.com/jerus-org/mockd/compare/v0.4.49...v0.4.50
 [0.4.49]: https://github.com/jerus-org/mockd/compare/v0.4.48...v0.4.49
