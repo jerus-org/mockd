@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 🔧 chore(github)-remove dependabot configuration(pr [#762])
 
+### Fixed
+
+- deps: update rust crate uuid to 1.18.1(pr [#764])
+
 ## [0.4.51] - 2025-08-21
 
 ### Security
@@ -844,6 +848,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#758]: https://github.com/jerus-org/mockd/pull/758
 [#759]: https://github.com/jerus-org/mockd/pull/759
 [#762]: https://github.com/jerus-org/mockd/pull/762
+[#764]: https://github.com/jerus-org/mockd/pull/764
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.51...HEAD
 [0.4.51]: https://github.com/jerus-org/mockd/compare/v0.4.50...v0.4.51
 [0.4.50]: https://github.com/jerus-org/mockd/compare/v0.4.49...v0.4.50
