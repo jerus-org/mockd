@@ -7,11 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- 🔥 chore(changelog)-remove CHANGELOG.md file(pr [#766])
+
 ### Fixed
 
 - deps: update dependency toolkit to v2.13.0(pr [#765])
-
-[#765]: https://github.com/jerus-org/mockd/pull/765
 
 ## [0.4.52] - 2025-09-21
 
@@ -740,6 +742,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update minversion to first Edition 2021 version: 1.56
 - Release 0.1.0
 
+[#765]: https://github.com/jerus-org/mockd/pull/765
 [Ekleog]: https://github.com/Ekleog
 [#641]: https://github.com/jerus-org/mockd/pull/641
 [#642]: https://github.com/jerus-org/mockd/pull/642
@@ -859,6 +862,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#762]: https://github.com/jerus-org/mockd/pull/762
 [#764]: https://github.com/jerus-org/mockd/pull/764
 [#763]: https://github.com/jerus-org/mockd/pull/763
+[#766]: https://github.com/jerus-org/mockd/pull/766
+[Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.52...HEAD
 [0.4.52]: https://github.com/jerus-org/mockd/compare/v0.4.51...v0.4.52
 [0.4.51]: https://github.com/jerus-org/mockd/compare/v0.4.50...v0.4.51
 [0.4.50]: https://github.com/jerus-org/mockd/compare/v0.4.49...v0.4.50
