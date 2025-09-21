@@ -1,3 +1,4 @@
+<<!-- -->>
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -486,7 +487,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ✨ Put log-level module behind a feature flag
 - ✨ Put language module behind a feature flag
 - ✨ Put file module behind feature flag
-- ✨ Put currency ,module behind a feature
+- ✨ Put currency, module behind a feature
 - ✨ Put color module behind feature and rename to colour
 - ✨ Put bool_rand behind a feature
 - ✨ Put the beer module behind a feature.
@@ -495,7 +496,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Bring ciLOG up to date
+- Bring ciLOG up-to-date
 - Update documentation as requires feature to be set.
 - Document feature requirement for person module
 - Update generator module docs to include reference to feature
@@ -606,7 +607,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update github/codeql-action digest to 92c650b
 - Update ossf/scorecard-action digest to dd5015a
 - Sleep to ensure random number gen
-- Missing semi-colon
+- Missing semicolon
 - Missing colon
 - Update github/codeql-action digest to a59fbe2
 - Capitalisation
