@@ -19,7 +19,7 @@ parameters:
     description: "If true, the success pipeline will be executed."
 
 orbs:
-  toolkit: jerus-org/circleci-toolkit@2.12.1
+  toolkit: jerus-org/circleci-toolkit@2.13.0
 
 executors:
   rust-env:
