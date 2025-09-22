@@ -9,14 +9,18 @@ parameters:
   fingerprint:
     type: string
     default: SHA256:OkxsH8Z6Iim6WDJBaII9eTT9aaO1f3eDc6IpsgYYPVg
-  validation-flag:
+  release-flag:
     type: boolean
     default: false
-    description: "If true, the validation pipeline will be executed."
+    description: "If true, the release pipeline will be executed."
   success-flag:
     type: boolean
     default: false
     description: "If true, the success pipeline will be executed."
+  validation-flag:
+    type: boolean
+    default: false
+    description: "If true, the validation pipeline will be executed."
 
 orbs:
   toolkit: jerus-org/circleci-toolkit@2.13.0
@@ -35,6 +39,7 @@ workflows:
       and:
         - not:
             equal: [scheduled_pipeline, << pipeline.trigger_source >>]
+        - not: << pipeline.parameters.release-flag >>
         - not: << pipeline.parameters.success-flag >>
         - not: << pipeline.parameters.validation-flag >>
 
@@ -48,6 +53,7 @@ workflows:
       and:
         - not:
             equal: [scheduled_pipeline, << pipeline.trigger_source >>]
+        - not: << pipeline.parameters.release-flag >>
         - not: << pipeline.parameters.success-flag >>
         - << pipeline.parameters.validation-flag >>
     jobs:
@@ -133,6 +139,7 @@ workflows:
         - not:
             equal: [scheduled_pipeline, << pipeline.trigger_source >>]
         - << pipeline.parameters.success-flag >>
+        - not: << pipeline.parameters.release-flag >>
         - not: << pipeline.parameters.validation-flag >>
 
     jobs:
@@ -141,8 +148,11 @@ workflows:
   release:
     when:
       and:
-        - equal: [scheduled_pipeline, << pipeline.trigger_source >>]
-        - equal: ["release check", << pipeline.schedule.name >>]
+        - or:
+            - and:
+                - equal: [scheduled_pipeline, << pipeline.trigger_source >>]
+                - equal: ["release check", << pipeline.schedule.name >>]
+            - << pipeline.parameters.release-flag >>
         - not: << pipeline.parameters.success-flag >>
         - not: << pipeline.parameters.validation-flag >>
     jobs:
