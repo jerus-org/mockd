@@ -1,4 +1,3 @@
-<<!-- -->>
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -11,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - 🔥 chore(changelog)-remove CHANGELOG.md file(pr [#766])
+- 👷 ci(config)-update pipeline flags and conditions(pr [#767])
 
 ### Fixed
 
@@ -864,6 +864,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#764]: https://github.com/jerus-org/mockd/pull/764
 [#763]: https://github.com/jerus-org/mockd/pull/763
 [#766]: https://github.com/jerus-org/mockd/pull/766
+[#767]: https://github.com/jerus-org/mockd/pull/767
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.52...HEAD
 [0.4.52]: https://github.com/jerus-org/mockd/compare/v0.4.51...v0.4.52
 [0.4.51]: https://github.com/jerus-org/mockd/compare/v0.4.50...v0.4.51
