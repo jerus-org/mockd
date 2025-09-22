@@ -8,7 +8,7 @@ allow-branch = ["main"]
 pre-release-replacements = [
     { file = "README.md", search = "mockd = .*", replace = "{{crate_name}} = \"{{version}}\"" },
     { file = "src/lib.rs", search = "mockd = .*", replace = "{{crate_name}} = \"{{version}}\"" },
-    { file = "CHANGELOG.md", search = "## \\[Unreleased\\]", replace = "## [{{version}}] - {{date}}", exactly = 1 },
-    { file = "CHANGELOG.md", search = "\\[Unreleased\\]:", replace = "[{{version}}]:", exactly = 1 },
-    { file = "CHANGELOG.md", search = "\\.\\.\\.HEAD", replace = "...{{tag_name}}", exactly = 1 },
+    { file = "PRLOG.md", search = "## \\[Unreleased\\]", replace = "## [{{version}}] - {{date}}", exactly = 1 },
+    { file = "PRLOG.md", search = "\\[Unreleased\\]:", replace = "[{{version}}]:", exactly = 1 },
+    { file = "PRLOG.md", search = "\\.\\.\\.HEAD", replace = "...{{tag_name}}", exactly = 1 },
 ]
