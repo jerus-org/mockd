@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.4.53] - 2025-09-22
 
 ### Changed
 
@@ -867,7 +867,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#766]: https://github.com/jerus-org/mockd/pull/766
 [#767]: https://github.com/jerus-org/mockd/pull/767
 [#768]: https://github.com/jerus-org/mockd/pull/768
-[Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.52...HEAD
+[0.4.53]: https://github.com/jerus-org/mockd/compare/v0.4.52...v0.4.53
 [0.4.52]: https://github.com/jerus-org/mockd/compare/v0.4.51...v0.4.52
 [0.4.51]: https://github.com/jerus-org/mockd/compare/v0.4.50...v0.4.51
 [0.4.50]: https://github.com/jerus-org/mockd/compare/v0.4.49...v0.4.50
