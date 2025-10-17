@@ -23,7 +23,7 @@ parameters:
     description: "If true, the validation pipeline will be executed."
 
 orbs:
-  toolkit: jerus-org/circleci-toolkit@2.13.0
+  toolkit: jerus-org/circleci-toolkit@2.13.4
 
 executors:
   rust-env:
