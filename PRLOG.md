@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - deps: update dependency toolkit to v3(pr [#773])
+- deps: update rust crate uuid to 1.19.0(pr [#772])
 
 ## [0.4.55] - 2025-11-21
 
@@ -888,6 +889,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#769]: https://github.com/jerus-org/mockd/pull/769
 [#770]: https://github.com/jerus-org/mockd/pull/770
 [#773]: https://github.com/jerus-org/mockd/pull/773
+[#772]: https://github.com/jerus-org/mockd/pull/772
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.55...HEAD
 [0.4.55]: https://github.com/jerus-org/mockd/compare/v0.4.54...v0.4.55
 [0.4.54]: https://github.com/jerus-org/mockd/compare/v0.4.53...v0.4.54
