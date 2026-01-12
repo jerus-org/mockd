@@ -316,21 +316,15 @@ pub fn timezone_offset() -> String {
 ///
 pub fn date_range(min: String, max: String) -> DateTime<Utc> {
     // RFC3339
-    let min_nano = match DateTime::parse_from_rfc3339(&min)
+    let min_nano = DateTime::parse_from_rfc3339(&min)
         .unwrap()
         .timestamp_nanos_opt()
-    {
-        None => std::primitive::i64::MIN,
-        Some(nano) => nano,
-    };
+        .unwrap_or(std::primitive::i64::MIN);
 
-    let max_nano = match DateTime::parse_from_rfc3339(&max)
+    let max_nano = DateTime::parse_from_rfc3339(&max)
         .unwrap()
         .timestamp_nanos_opt()
-    {
-        None => std::primitive::i64::MAX,
-        Some(nano) => nano,
-    };
+        .unwrap_or(std::primitive::i64::MAX);
     let ns = misc::random(min_nano, max_nano - 10_000_000_000);
     let secs = ns / 1_000_000_000;
     let mut nsecs = (ns - (secs * 1_000_000_000)) as u32;
