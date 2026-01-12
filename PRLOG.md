@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- BREAKING: migrate to circleci-toolkit v4.2.1(pr [#774])
+
 ## [0.4.56] - 2025-12-21
 
 ### Fixed
@@ -890,6 +896,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#770]: https://github.com/jerus-org/mockd/pull/770
 [#773]: https://github.com/jerus-org/mockd/pull/773
 [#772]: https://github.com/jerus-org/mockd/pull/772
+[#774]: https://github.com/jerus-org/mockd/pull/774
+[Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.56...HEAD
 [0.4.56]: https://github.com/jerus-org/mockd/compare/v0.4.55...v0.4.56
 [0.4.55]: https://github.com/jerus-org/mockd/compare/v0.4.54...v0.4.55
 [0.4.54]: https://github.com/jerus-org/mockd/compare/v0.4.53...v0.4.54
