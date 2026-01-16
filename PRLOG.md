@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - BREAKING: migrate to circleci-toolkit v4.2.1(pr [#774])
 
+### Changed
+
+- chore-add standard config files(pr [#775])
+
 ## [0.4.56] - 2025-12-21
 
 ### Fixed
@@ -897,6 +901,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#773]: https://github.com/jerus-org/mockd/pull/773
 [#772]: https://github.com/jerus-org/mockd/pull/772
 [#774]: https://github.com/jerus-org/mockd/pull/774
+[#775]: https://github.com/jerus-org/mockd/pull/775
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.56...HEAD
 [0.4.56]: https://github.com/jerus-org/mockd/compare/v0.4.55...v0.4.56
 [0.4.55]: https://github.com/jerus-org/mockd/compare/v0.4.54...v0.4.55
