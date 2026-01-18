@@ -1,0 +1,90 @@
+[package]
+name = "mockd"
+description = "Fake data generator library with 130+ functions"
+version = "0.4.56"
+license = "MIT"
+readme = "README.md"
+documentation = "https://docs.rs/mockd"
+keywords = ["fake", "data", "random", "generator", "faker"]
+include = ["**/*.rs", "Cargo.toml", "README.md", "LICENSE"]
+edition.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+
+[features]
+default = ["file"]
+all = [
+    "address",
+    "animal",
+    "company",
+    "beer",
+    "colour",
+    "contact",
+    "currency",
+    "datetime",
+    "file",
+    "generator",
+    "hacker",
+    "hipster",
+    "image",
+    "internet",
+    "job",
+    "language",
+    "log-level",
+    "misc",
+    "name",
+    "password",
+    "payment",
+    "person",
+    "random-bool",
+    "status-code",
+    "unique",
+    "user-agent",
+    "vehicle",
+    "words",
+]
+address = ["misc", "company", "image", "job", "name"]
+animal = ["misc"]
+beer = ["misc"]
+company = ["misc", "image", "job", "name"]
+colour = ["misc"]
+contact = ["misc", "company", "image", "internet", "job"]
+currency = ["misc", "dep:libmath"]
+datetime = ["misc", "dep:chrono"]
+file = ["misc"]
+generator = ["misc", "company", "hacker", "image", "job", "person"]
+hacker = ["misc", "company", "generator", "image", "job", "contact"]
+hipster = ["misc", "image", "words"]
+image = []
+internet = ["misc", "company", "image", "job", "person"]
+job = ["misc", "company", "image"]
+language = ["misc"]
+log-level = ["misc"]
+misc = ["dep:simplerand"]
+name = ["misc", "company", "image", "job", "person"]
+password = ["misc"]
+payment = ["misc", "dep:chrono"]
+person = ["misc", "company", "image", "job", "payment", "contact", "address"]
+random-bool = ["misc"]
+status-code = ["misc"]
+unique = ["misc", "dep:chrono", "dep:uuid"]
+user-agent = ["misc", "datetime"]
+vehicle = ["misc", "dep:chrono"]
+words = ["misc", "company", "hipster", "image", "job", "name"]
+
+[dependencies]
+libmath = { workspace = true, optional = true }
+chrono = { workspace = true, optional = true }
+uuid = { workspace = true, optional = true }
+simplerand = { workspace = true, optional = true }
+
+[dev-dependencies]
+rand.workspace = true
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[lints]
+workspace = true

@@ -1,87 +1,19 @@
-[package]
-name = "mockd"
-version = "0.4.56"
+[workspace]
+members = ["crates/mockd"]
+resolver = "2"
+
+[workspace.package]
 edition = "2021"
 authors = ["jerusdp <jrussell@jerus.ie>"]
 rust-version = "1.61"
-description = "Fake data generator library with 130+ functions"
-license = "MIT"
-readme = "README.md"
 repository = "https://github.com/jerus-org/mockd"
-keywords = ["fake", "data", "random", "generator", "faker"]
-include = ["**/*.rs", "Cargo.toml", "README.md", "LICENSE", "CHANGES.md"]
 
-[features]
-default = ["file"]
-all = [
-    "address",
-    "animal",
-    "company",
-    "beer",
-    "colour",
-    "contact",
-    "currency",
-    "datetime",
-    "file",
-    "generator",
-    "hacker",
-    "hipster",
-    "image",
-    "internet",
-    "job",
-    "language",
-    "log-level",
-    "misc",
-    "name",
-    "password",
-    "payment",
-    "person",
-    "random-bool",
-    "status-code",
-    "unique",
-    "user-agent",
-    "vehicle",
-    "words",
-]
-address = ["misc", "company", "image", "job", "name"]
-animal = ["misc"]
-beer = ["misc"]
-company = ["misc", "image", "job", "name"]
-colour = ["misc"]
-contact = ["misc", "company", "image", "internet", "job"]
-currency = ["misc", "libmath"]
-datetime = ["misc", "chrono"]
-file = ["misc"]
-generator = ["misc", "company", "hacker", "image", "job", "person"]
-hacker = ["misc", "company", "generator", "image", "job", "contact"]
-hipster = ["misc", "image", "words"]
-image = []
-internet = ["misc", "company", "image", "job", "person"]
-job = ["misc", "company", "image"]
-language = ["misc"]
-log-level = ["misc"]
-misc = ["simplerand"]
-name = ["misc", "company", "image", "job", "person"]
-password = ["misc"]
-payment = ["misc", "chrono"]
-person = ["misc", "company", "image", "job", "payment", "contact", "address"]
-random-bool = ["misc"]
-status-code = ["misc"]
-unique = ["misc", "chrono", "uuid"]
-user-agent = ["misc", "datetime"]
-vehicle = ["misc", "chrono"]
-words = ["misc", "company", "hipster", "image", "job", "name"]
-
-[dependencies]
-libmath = { version = "0.2.1", optional = true }
-chrono = { version = "0.4.43", optional = true }
-uuid = { version = "1.19.0", features = ["v1", "v4"], optional = true }
-simplerand = { version = "1.6.0", optional = true }
-
-[dev-dependencies]
+[workspace.dependencies]
+libmath = "0.2.1"
+chrono = "0.4.43"
+uuid = { version = "1.19.0", features = ["v1", "v4"] }
+simplerand = "1.6.0"
 rand = "0.9.2"
 
-
-[package.metadata.docs.rs]
-all-features = true
-rustdoc-args = ["--cfg", "docsrs"]
+[workspace.lints.clippy]
+uninlined-format-args = "warn"
