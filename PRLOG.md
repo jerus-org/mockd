@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - BREAKING: migrate to circleci-toolkit v4.2.1(pr [#774])
+- add security improvements to CI(pr [#778])
 
 ### Changed
 
@@ -909,6 +910,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#775]: https://github.com/jerus-org/mockd/pull/775
 [#776]: https://github.com/jerus-org/mockd/pull/776
 [#777]: https://github.com/jerus-org/mockd/pull/777
+[#778]: https://github.com/jerus-org/mockd/pull/778
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.4.56...HEAD
 [0.4.56]: https://github.com/jerus-org/mockd/compare/v0.4.55...v0.4.56
 [0.4.55]: https://github.com/jerus-org/mockd/compare/v0.4.54...v0.4.55
