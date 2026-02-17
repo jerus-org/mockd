@@ -143,7 +143,8 @@ workflows:
                 - /pull\/[0-9]+/
                 - main
 
-      - toolkit/update_changelog:
+      - toolkit/trigger_pipeline:
+          context: bot-check
           filters:
             branches:
               ignore:
@@ -151,18 +152,37 @@ workflows:
                 - main
           requires:
             - verify_commit_signatures_trusted
+            - toolkit/code_coverage
             - toolkit/common_tests_rolling
             - toolkit/required_builds
             - toolkit/test_doc_build
             - toolkit/idiomatic_rust
             - toolkit/test_features
             - security with sonarcloud
+
+  post_merge_main:
+    when:
+      and:
+        - not:
+            equal: [scheduled_pipeline, << pipeline.trigger_source >>]
+        - not: << pipeline.parameters.success_flag >>
+        - not: << pipeline.parameters.release_flag >>
+
+    jobs:
+      - toolkit/update_prlog:
           context:
             - release
             - bot-check
-            - pcu-app
-          ssh_fingerprint: << pipeline.parameters.fingerprint >>
           min_rust_version: << pipeline.parameters.min_rust_version >>
+          ssh_fingerprint: << pipeline.parameters.fingerprint >>
+          update_log_option: halt
+          update_pcu: true
+          pcu_from_merge: --from-merge
+          pcu_verbosity: -vvv
+          filters:
+            branches:
+              only:
+                - main
 
   on_success:
     when:
