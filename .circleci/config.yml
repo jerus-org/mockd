@@ -23,7 +23,7 @@ parameters:
     description: "If true, the validation pipeline will be executed."
 
 orbs:
-  toolkit: jerus-org/circleci-toolkit@4.2.1
+  toolkit: jerus-org/circleci-toolkit@4.4.3
 
 # Custom executors removed - using toolkit rolling executors instead
 
