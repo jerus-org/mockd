@@ -5,7 +5,7 @@ setup: true
 parameters:
   min_rust_version:
     type: string
-    default: "1.75"
+    default: "1.85"
   fingerprint:
     type: string
     default: SHA256:OkxsH8Z6Iim6WDJBaII9eTT9aaO1f3eDc6IpsgYYPVg
@@ -83,7 +83,7 @@ workflows:
           min_rust_version: << pipeline.parameters.min_rust_version >>
       - toolkit/optional_builds:
           min_rust_version: << pipeline.parameters.min_rust_version >>
-      - toolkit/common_tests:
+      - toolkit/common_tests_rolling:
           min_rust_version: << pipeline.parameters.min_rust_version >>
       - toolkit/idiomatic_rust:
           min_rust_version: << pipeline.parameters.min_rust_version >>
@@ -124,7 +124,7 @@ workflows:
                   words,
                 ]
           requires:
-            - toolkit/common_tests
+            - toolkit/common_tests_rolling
             - toolkit/required_builds
             - toolkit/test_doc_build
 
@@ -143,7 +143,8 @@ workflows:
                 - /pull\/[0-9]+/
                 - main
 
-      - toolkit/update_changelog:
+      - toolkit/trigger_pipeline:
+          context: bot-check
           filters:
             branches:
               ignore:
@@ -151,18 +152,37 @@ workflows:
                 - main
           requires:
             - verify_commit_signatures_trusted
-            - toolkit/common_tests
+            - toolkit/code_coverage
+            - toolkit/common_tests_rolling
             - toolkit/required_builds
             - toolkit/test_doc_build
             - toolkit/idiomatic_rust
             - toolkit/test_features
             - security with sonarcloud
+
+  post_merge_main:
+    when:
+      and:
+        - not:
+            equal: [scheduled_pipeline, << pipeline.trigger_source >>]
+        - not: << pipeline.parameters.success_flag >>
+        - not: << pipeline.parameters.release_flag >>
+
+    jobs:
+      - toolkit/update_prlog:
           context:
             - release
             - bot-check
-            - pcu-app
-          ssh_fingerprint: << pipeline.parameters.fingerprint >>
           min_rust_version: << pipeline.parameters.min_rust_version >>
+          ssh_fingerprint: << pipeline.parameters.fingerprint >>
+          update_log_option: halt
+          update_pcu: true
+          pcu_from_merge: --from-merge
+          pcu_verbosity: -vvv
+          filters:
+            branches:
+              only:
+                - main
 
   on_success:
     when:
