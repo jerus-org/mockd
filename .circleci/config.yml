@@ -83,7 +83,7 @@ workflows:
           min_rust_version: << pipeline.parameters.min_rust_version >>
       - toolkit/optional_builds:
           min_rust_version: << pipeline.parameters.min_rust_version >>
-      - toolkit/common_tests:
+      - toolkit/common_tests_rolling:
           min_rust_version: << pipeline.parameters.min_rust_version >>
       - toolkit/idiomatic_rust:
           min_rust_version: << pipeline.parameters.min_rust_version >>
@@ -124,7 +124,7 @@ workflows:
                   words,
                 ]
           requires:
-            - toolkit/common_tests
+            - toolkit/common_tests_rolling
             - toolkit/required_builds
             - toolkit/test_doc_build
 
@@ -151,7 +151,7 @@ workflows:
                 - main
           requires:
             - verify_commit_signatures_trusted
-            - toolkit/common_tests
+            - toolkit/common_tests_rolling
             - toolkit/required_builds
             - toolkit/test_doc_build
             - toolkit/idiomatic_rust
