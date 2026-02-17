@@ -5,7 +5,7 @@ setup: true
 parameters:
   min_rust_version:
     type: string
-    default: "1.75"
+    default: "1.85"
   fingerprint:
     type: string
     default: SHA256:OkxsH8Z6Iim6WDJBaII9eTT9aaO1f3eDc6IpsgYYPVg

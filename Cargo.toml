@@ -5,7 +5,7 @@ resolver = "2"
 [workspace.package]
 edition = "2021"
 authors = ["jerusdp <jrussell@jerus.ie>"]
-rust-version = "1.61"
+rust-version = "1.85"
 repository = "https://github.com/jerus-org/mockd"
 
 [workspace.dependencies]
