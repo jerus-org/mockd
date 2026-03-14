@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - docs-fix PRLOG unreleased section for v0.5.0 and v0.5.1(pr [#782])
 - ci-migrate to 3-file pipeline model at toolkit 4.11.0(pr [#783])
 - ci-ignore main in test_features matrix(pr [#784])
+- ci-ignore main in test_doc_build(pr [#787])
 
 ### Fixed
 
@@ -940,6 +941,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#784]: https://github.com/jerus-org/mockd/pull/784
 [#785]: https://github.com/jerus-org/mockd/pull/785
 [#786]: https://github.com/jerus-org/mockd/pull/786
+[#787]: https://github.com/jerus-org/mockd/pull/787
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.5.1...HEAD
 [0.5.1]: https://github.com/jerus-org/mockd/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/jerus-org/mockd/compare/v0.4.56...v0.5.0
