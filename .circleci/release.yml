@@ -1,0 +1,60 @@
+version: 2.1
+
+parameters:
+  mockd_version:
+    type: string
+    default: ""
+    description: "Override mockd crate version (empty = nextsv auto-detect)"
+  workspace_version:
+    type: string
+    default: ""
+    description: "Override workspace v* version (empty = nextsv auto-detect)"
+
+orbs:
+  toolkit: jerus-org/circleci-toolkit@4.11.0
+
+jobs:
+  tools:
+    executor: toolkit/rust_env_rolling
+    steps:
+      - run:
+          name: Verify tools
+          command: |
+            set -ex
+            nextsv --version
+            pcu --version
+            cargo release --version
+            jq --version
+
+workflows:
+  release:
+    jobs:
+      - tools
+
+      - toolkit/calculate_versions:
+          name: calculate-versions
+          requires: [tools]
+          crates: "mockd:mockd-v"
+          crate_version_overrides: "mockd:<< pipeline.parameters.mockd_version >>"
+          workspace_version_override: << pipeline.parameters.workspace_version >>
+
+      - approve-release:
+          type: approval
+          requires: [calculate-versions]
+
+      - toolkit/release_crate:
+          name: release-mockd
+          requires: [approve-release]
+          package: mockd
+          crate_tag_prefix: mockd-v
+          context:
+            - release
+            - bot-check
+            - pcu-app
+
+      - toolkit/release_prlog:
+          requires: [release-mockd]
+          context:
+            - release
+            - bot-check
+            - pcu-app

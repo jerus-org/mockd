@@ -1,57 +1,16 @@
 version: 2.1
 
-setup: true
-
 parameters:
   min_rust_version:
     type: string
     default: "1.85"
-  fingerprint:
-    type: string
-    default: SHA256:OkxsH8Z6Iim6WDJBaII9eTT9aaO1f3eDc6IpsgYYPVg
-  release_flag:
-    type: boolean
-    default: false
-    description: "If true, the release pipeline will be executed."
-  success_flag:
-    type: boolean
-    default: false
-    description: "If true, the success pipeline will be executed."
-  validation_flag:
-    type: boolean
-    default: false
-    description: "If true, the validation pipeline will be executed."
 
 orbs:
-  toolkit: jerus-org/circleci-toolkit@4.4.3
-
-# Custom executors removed - using toolkit rolling executors instead
+  toolkit: jerus-org/circleci-toolkit@4.11.0
 
 workflows:
-  check_last_commit:
-    when:
-      and:
-        - not:
-            equal: [scheduled_pipeline, << pipeline.trigger_source >>]
-        - not: << pipeline.parameters.release_flag >>
-        - not: << pipeline.parameters.success_flag >>
-        - not: << pipeline.parameters.validation_flag >>
-
-    jobs:
-      - toolkit/choose_pipeline:
-          name: choose pipeline based on committer
-          context: bot-check
-
   validation:
-    when:
-      and:
-        - not:
-            equal: [scheduled_pipeline, << pipeline.trigger_source >>]
-        - not: << pipeline.parameters.release_flag >>
-        - not: << pipeline.parameters.success_flag >>
-        - << pipeline.parameters.validation_flag >>
     jobs:
-      # Signature verification for trusted PRs (with write access for comments)
       - toolkit/verify_commit_signatures:
           name: verify_commit_signatures_trusted
           context: bot-check
@@ -62,31 +21,28 @@ workflows:
               ignore:
                 - main
                 - /pull\/[0-9]+/
-      # Signature verification for forked PRs (read-only, no comments)
       - toolkit/verify_commit_signatures:
           name: verify_commit_signatures_forked
           post_comment: false
           update_pcu: false
           filters:
             branches:
-              only: /pull\/[0-9]+/
-      - toolkit/label:
-          context: pcu-app
-          min_rust_version: << pipeline.parameters.min_rust_version >>
-          filters:
-            branches:
               only:
-                - main
-      - toolkit/code_coverage:
-          min_rust_version: << pipeline.parameters.min_rust_version >>
-      - toolkit/required_builds:
+                - /pull\/[0-9]+/
+      - toolkit/required_builds_rolling:
           min_rust_version: << pipeline.parameters.min_rust_version >>
       - toolkit/optional_builds:
           min_rust_version: << pipeline.parameters.min_rust_version >>
+          filters:
+            branches:
+              ignore: main
       - toolkit/common_tests_rolling:
           min_rust_version: << pipeline.parameters.min_rust_version >>
       - toolkit/idiomatic_rust:
           min_rust_version: << pipeline.parameters.min_rust_version >>
+          filters:
+            branches:
+              ignore: main
       - toolkit/test_doc_build:
           min_rust_version: << pipeline.parameters.min_rust_version >>
       - toolkit/test_features:
@@ -99,6 +55,7 @@ workflows:
                   address,
                   animal,
                   beer,
+                  colour,
                   company,
                   contact,
                   currency,
@@ -125,15 +82,16 @@ workflows:
                 ]
           requires:
             - toolkit/common_tests_rolling
-            - toolkit/required_builds
+            - toolkit/required_builds_rolling
             - toolkit/test_doc_build
-
       - toolkit/security:
           name: security audit only
           sonarcloud: false
           filters:
             branches:
-              only: /pull\/[0-9]+/
+              only:
+                - main
+                - /pull\/[0-9]+/
       - toolkit/security:
           name: security with sonarcloud
           context: SonarCloud
@@ -142,85 +100,13 @@ workflows:
               ignore:
                 - /pull\/[0-9]+/
                 - main
-
-      - toolkit/trigger_pipeline:
-          context: bot-check
+      - toolkit/code_coverage:
+          min_rust_version: << pipeline.parameters.min_rust_version >>
+          package: mockd
           filters:
             branches:
               ignore:
                 - /pull\/[0-9]+/
                 - main
           requires:
-            - verify_commit_signatures_trusted
-            - toolkit/code_coverage
-            - toolkit/common_tests_rolling
-            - toolkit/required_builds
-            - toolkit/test_doc_build
-            - toolkit/idiomatic_rust
-            - toolkit/test_features
             - security with sonarcloud
-
-  post_merge_main:
-    when:
-      and:
-        - not:
-            equal: [scheduled_pipeline, << pipeline.trigger_source >>]
-        - not: << pipeline.parameters.success_flag >>
-        - not: << pipeline.parameters.release_flag >>
-
-    jobs:
-      - toolkit/update_prlog:
-          context:
-            - release
-            - bot-check
-          min_rust_version: << pipeline.parameters.min_rust_version >>
-          ssh_fingerprint: << pipeline.parameters.fingerprint >>
-          update_log_option: halt
-          update_pcu: true
-          pcu_from_merge: --from-merge
-          pcu_verbosity: -vvv
-          filters:
-            branches:
-              only:
-                - main
-
-  on_success:
-    when:
-      and:
-        - not:
-            equal: [scheduled_pipeline, << pipeline.trigger_source >>]
-        - << pipeline.parameters.success_flag >>
-        - not: << pipeline.parameters.release_flag >>
-        - not: << pipeline.parameters.validation_flag >>
-
-    jobs:
-      - toolkit/end_success
-
-  release:
-    when:
-      and:
-        - or:
-            - and:
-                - equal: [scheduled_pipeline, << pipeline.trigger_source >>]
-                - equal: ["release check", << pipeline.schedule.name >>]
-            - << pipeline.parameters.release_flag >>
-        - not: << pipeline.parameters.success_flag >>
-        - not: << pipeline.parameters.validation_flag >>
-    jobs:
-      - toolkit/save_next_version:
-          min_rust_version: << pipeline.parameters.min_rust_version >>
-
-      - toolkit/make_release:
-          requires:
-            - toolkit/save_next_version
-          context:
-            - release
-            - bot-check
-          ssh_fingerprint: << pipeline.parameters.fingerprint >>
-          min_rust_version: << pipeline.parameters.min_rust_version >>
-
-      - toolkit/no_release:
-          min_rust_version: << pipeline.parameters.min_rust_version >>
-          requires:
-            - toolkit/save_next_version:
-                - failed
