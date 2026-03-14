@@ -45,6 +45,9 @@ workflows:
               ignore: main
       - toolkit/test_doc_build:
           min_rust_version: << pipeline.parameters.min_rust_version >>
+          filters:
+            branches:
+              ignore: main
       - toolkit/test_features:
           min_rust_version: << pipeline.parameters.min_rust_version >>
           filters:
