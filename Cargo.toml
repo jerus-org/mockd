@@ -10,7 +10,7 @@ repository = "https://github.com/jerus-org/mockd"
 
 [workspace.dependencies]
 libmath = "0.2.1"
-chrono = "0.4.43"
+chrono = "0.4.44"
 uuid = { version = "1.21.0", features = ["v1", "v4"] }
 simplerand = "1.6.0"
 rand = "0.10.0"
