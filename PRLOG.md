@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- docs-fix PRLOG unreleased section for v0.5.0 and v0.5.1(pr [#782])
+
 ## [0.5.1] - 2026-02-21
 
 ### Fixed
@@ -924,9 +928,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#779]: https://github.com/jerus-org/mockd/pull/779
 [#780]: https://github.com/jerus-org/mockd/pull/780
 [#781]: https://github.com/jerus-org/mockd/pull/781
-[Unreleased]: https://github.com/jerus-org/mockd/compare/mockd-v0.5.1...HEAD
-[0.5.1]: https://github.com/jerus-org/mockd/compare/mockd-v0.5.0...mockd-v0.5.1
-[0.5.0]: https://github.com/jerus-org/mockd/compare/v0.4.56...mockd-v0.5.0
+[#782]: https://github.com/jerus-org/mockd/pull/782
+[Unreleased]: https://github.com/jerus-org/mockd/compare/v0.5.1...HEAD
+[0.5.1]: https://github.com/jerus-org/mockd/compare/v0.5.0...v0.5.1
+[0.5.0]: https://github.com/jerus-org/mockd/compare/v0.4.56...v0.5.0
 [0.4.56]: https://github.com/jerus-org/mockd/compare/v0.4.55...v0.4.56
 [0.4.55]: https://github.com/jerus-org/mockd/compare/v0.4.54...v0.4.55
 [0.4.54]: https://github.com/jerus-org/mockd/compare/v0.4.53...v0.4.54
