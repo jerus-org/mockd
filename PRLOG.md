@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- chore-migrate CI to circleci-toolkit 6.0.0(pr [#788])
+
 ### Fixed
 
 - remove jq from tools verification(pr [#789])
@@ -949,6 +953,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#786]: https://github.com/jerus-org/mockd/pull/786
 [#787]: https://github.com/jerus-org/mockd/pull/787
 [#789]: https://github.com/jerus-org/mockd/pull/789
+[#788]: https://github.com/jerus-org/mockd/pull/788
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.5.2...HEAD
 [0.5.2]: https://github.com/jerus-org/mockd/compare/v0.5.1...v0.5.2
 [0.5.1]: https://github.com/jerus-org/mockd/compare/v0.5.0...v0.5.1
