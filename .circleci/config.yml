@@ -46,6 +46,7 @@ workflows:
             branches:
               ignore: main
       - toolkit/test_features:
+          rust_version: << pipeline.parameters.min_rust_version >>
           filters:
             branches:
               ignore: main
@@ -83,8 +84,8 @@ workflows:
                   words,
                 ]
           requires:
-            - toolkit/common_tests_rolling
-            - toolkit/required_builds_rolling
+            - toolkit/common_tests
+            - toolkit/required_builds
             - toolkit/test_doc_build
       - toolkit/security:
           name: security audit only
