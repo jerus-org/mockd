@@ -16,8 +16,7 @@
 //!
 
 use chrono::{Timelike, Utc};
-use uuid::v1::{Context, Timestamp};
-use uuid::Uuid;
+use uuid::{ContextV1, Timestamp, Uuid};
 
 /// Generate a v1 uuid.
 ///
@@ -34,7 +33,7 @@ use uuid::Uuid;
 /// Requires the "unique" feature.
 ///
 pub fn uuid_v1() -> String {
-    let context = Context::new(42);
+    let context = ContextV1::new(42);
     let ts = Timestamp::from_unix(
         context,
         Utc::now().second() as u64,
