@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - deps: update dependency toolkit to v6.2.0(pr [#795])
 - deps: update dependency toolkit to v6.3.0(pr [#798])
 - deps: update rust crate chrono to 0.4.45(pr [#796])
+- deps: update rust crate uuid to 1.23.3(pr [#797])
 
 ## [0.5.3] - 2026-03-28
 
@@ -975,6 +976,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#795]: https://github.com/jerus-org/mockd/pull/795
 [#798]: https://github.com/jerus-org/mockd/pull/798
 [#796]: https://github.com/jerus-org/mockd/pull/796
+[#797]: https://github.com/jerus-org/mockd/pull/797
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.5.3...HEAD
 [0.5.3]: https://github.com/jerus-org/mockd/compare/v0.5.2...v0.5.3
 [0.5.2]: https://github.com/jerus-org/mockd/compare/v0.5.1...v0.5.2
