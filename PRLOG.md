@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- ci-run sonarcloud security on main(pr [#800])
+
 ### Fixed
 
 - deps: update rust crate rand to v0.10.1 [security](pr [#791])
@@ -979,6 +983,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#796]: https://github.com/jerus-org/mockd/pull/796
 [#797]: https://github.com/jerus-org/mockd/pull/797
 [#799]: https://github.com/jerus-org/mockd/pull/799
+[#800]: https://github.com/jerus-org/mockd/pull/800
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.5.3...HEAD
 [0.5.3]: https://github.com/jerus-org/mockd/compare/v0.5.2...v0.5.3
 [0.5.2]: https://github.com/jerus-org/mockd/compare/v0.5.1...v0.5.2
