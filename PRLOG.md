@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - deps: lock file maintenance(pr [#816])
 - deps: lock file maintenance(pr [#817])
 - deps: update rust crate rand to 0.10.4(pr [#818])
+- deps: update rust crate uuid to 1.29.3(pr [#819])
 
 ## [0.5.4] - 2026-11-01
 
@@ -1025,6 +1026,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#816]: https://github.com/jerus-org/mockd/pull/816
 [#817]: https://github.com/jerus-org/mockd/pull/817
 [#818]: https://github.com/jerus-org/mockd/pull/818
+[#819]: https://github.com/jerus-org/mockd/pull/819
 [Unreleased]: https://github.com/jerus-org/mockd/compare/v0.5.4...HEAD
 [0.5.4]: https://github.com/jerus-org/mockd/compare/v0.5.3...v0.5.4
 [0.5.3]: https://github.com/jerus-org/mockd/compare/v0.5.2...v0.5.3
